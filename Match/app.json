@@ -1,11 +1,4 @@
 {
-  "expo": {
-    "name": "Match",
-    "slug": "Match",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  },
-  "name": "Match"
+  "name": "Match",
+  "displayName": "Match"
 }
