@@ -1,9 +1,15 @@
-import React from 'react'
+import { NavigationContainer } from "@react-navigation/native";
+import {View, Text, Button} from "react-native";
 
-const Login = () => {
+export default function Login({navigation}) {
   return (
-     <Text>Login</Text>
-  )
+    <View>
+      <Text>Login Screen</Text>
+      <Button 
+      title="Go to Register" 
+      onPress={() => navigation.navigate("Register")}
+      />
+    </View>
+  );
 }
 
-export default Login
