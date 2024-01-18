@@ -1,22 +1,15 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Navigator from './routes/homeStack';
+
+const Stack = createNativeStackNavigator();
+
 
 export default function App() {
   return (
-    <View display="flex">
-      <View style={styles.header}>
-        <Text style={styles.title}>Match</Text>
-        <Text style={styles.subtitle}>Play sports in your area like a pro</Text>
-      </View>
-      <View style={styles.authButtons}>
-        <TouchableOpacity style={styles.loginButton}>
-          <Text>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.singUpButton}>
-          <Text>Sign Up</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+      <Navigator/>
   );
 }
 
