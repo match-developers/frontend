@@ -25,6 +25,10 @@ const LoginScreen = () => {
     navigation.navigate('Signup');
   };
 
+  const goToForgotPassword = () => {
+    navigation.navigate('ForgotPassword');
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Login</Text>
@@ -32,6 +36,9 @@ const LoginScreen = () => {
       {/* Email and Password Input Fields */}
       <TextInput placeholder="Email" style={styles.input} />
       <TextInput placeholder="Password" secureTextEntry style={styles.input} />
+      <TouchableOpacity onPress={goToForgotPassword}>
+          <Text style={styles.forgotPassword}>Forgot Password?</Text>
+        </TouchableOpacity>
 
       {/* Login Button */}
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
@@ -135,6 +142,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'black',
   },
+  forgotPassword: {
+    fontSize:17,
+    fontStyle:'italic'
+  }
 });
 
 export default LoginScreen;
