@@ -7,67 +7,66 @@ import {
 } from 'react-native';
 import { useState, useEffect} from "react";
 import {useNavigation} from '@react-navigation/native';
-import {LoginButton, AccessToken, GraphRequest} from 'react-native-fbsdk-next';
-import {
-  GoogleSignin,
-  GoogleSigninButton,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
+
+import {LoginButton, AccessToken, GraphRequest, GraphRequestManager} from 'react-native-fbsdk-next';
+
+import { facebookLogin } from '../../services/axios';
+
+// import {
+//   GoogleSignin,
+//   GoogleSigninButton,
+//   statusCodes,
+// } from '@react-native-google-signin/google-signin';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
-  const [loggedIn, setloggedIn] = useState(false);
-  const [userInfo, setuserInfo] = useState([]);
+  // const [loggedIn, setloggedIn] = useState(false);
+  // const [userInfo, setuserInfo] = useState([]);
 
-  useEffect(() => {
-    GoogleSignin.configure({
-      scopes: ['email'], // what API you want to access on behalf of the user, default is email and profile
-      webClientId:
-        '109840875730-rj8760gvlmdlss1u2cjpolkqto3qatjb.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
-      offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-    });
-  }, []);
+  // useEffect(() => {
+  //   GoogleSignin.configure({
+  //     scopes: ['email'],
+  //     webClientId:
+  //       '109840875730-rj8760gvlmdlss1u2cjpolkqto3qatjb.apps.googleusercontent.com',
+  //     offlineAccess: true,
+  //   });
+  // }, []);
 
-  _signIn = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const {accessToken, idToken} = await GoogleSignin.signIn();
-      setloggedIn(true);
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-        alert('Cancel');
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        alert('Signin in progress');
-        // operation (f.e. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        alert('PLAY_SERVICES_NOT_AVAILABLE');
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
-    }
-  };
+  // _signIn = async () => {
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     const {accessToken, idToken} = await GoogleSignin.signIn();
+  //     setloggedIn(true);
+  //   } catch (error) {
+  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+  //       // user cancelled the login flow
+  //       alert('Cancel');
+  //     } else if (error.code === statusCodes.IN_PROGRESS) {
+  //       alert('Signin in progress');
+  //       // operation (f.e. sign in) is in progress already
+  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+  //       alert('PLAY_SERVICES_NOT_AVAILABLE');
+  //       // play services not available or outdated
+  //     } else {
+  //       // some other error happened
+  //     }
+  //   }
+  // };
 
-  signOut = async () => {
-    try {
-      await GoogleSignin.revokeAccess();
-      await GoogleSignin.signOut();
-      setloggedIn(false);
-      setuserInfo([]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // signOut = async () => {
+  //   try {
+  //     await GoogleSignin.revokeAccess();
+  //     await GoogleSignin.signOut();
+  //     setloggedIn(false);
+  //     setuserInfo([]);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const handleLogin = () => {
     // Implement your login logic here
     console.log('Login button pressed!');
-  };
-
-  const handleSocialLogin = provider => {
-    // Implement your social login logic for other providers here
-    console.log(`Social login with ${provider} button pressed!`);
   };
 
   const goToSignup = () => {
@@ -104,11 +103,6 @@ const LoginScreen = () => {
 
       {/* Social Login Buttons */}
       <View style={styles.socialButtonsContainer}>
-        <TouchableOpacity
-          style={styles.socialButton}
-          onPress={() => handleSocialLogin('Google')}>
-          <Text style={styles.socialButtonText}>Login with Google</Text>
-        </TouchableOpacity>
         <LoginButton
           onLoginFinished={(error, result) => {
             if (error) {
@@ -118,7 +112,8 @@ const LoginScreen = () => {
             } else {
               AccessToken.getCurrentAccessToken().then(data => {
                 let accessToken = data.accessToken;
-                alert(accessToken.toString());
+                
+                facebookLogin(data.accessToken);
 
                 const responseInfoCallback = (error, result) => {
                   if (error) {
@@ -150,7 +145,7 @@ const LoginScreen = () => {
           }}
           onLogoutFinished={() => alert('logout.')}
         />
-        <View style={styles.body}>
+        {/* <View style={styles.body}>
           <View style={styles.sectionContainer}>
             <GoogleSigninButton
               style={{width: 192, height: 48}}
@@ -168,7 +163,7 @@ const LoginScreen = () => {
                 color="red"></Button>
             )}
           </View>
-        </View>
+        </View> */}
         {/* Add buttons for other social providers as needed */}
       </View>
 
