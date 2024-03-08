@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export function facebookLogin(accessToken) {
+function _convertToken(accessToken, backend) {
   axios
     .post(`http://10.0.2.2:8000/api-auth/convert-token`, {
       token: accessToken,
-      backend: 'facebook',
+      backend,
       grant_type: 'convert_token',
       client_id: '7jAVcZzgJb0xo3v8j019vMlHh3ZK61rQhlHsWLfo',
       client_secret:
@@ -16,20 +16,12 @@ export function facebookLogin(accessToken) {
     });
 }
 
+export function facebookLogin(accessToken) {
+  _convertToken(accessToken, 'facebook');
+}
+
 export function googleLogin(accessToken) {
-  axios
-    .post(`http://10.0.2.2:8000/api-auth/convert-token`, {
-      token: accessToken,
-      backend: 'google-oauth2',
-      grant_type: 'convert_token',
-      client_id: '7jAVcZzgJb0xo3v8j019vMlHh3ZK61rQhlHsWLfo',
-      client_secret:
-        'InjSE9sOlfPXiMuRVEK5hh0Hm11aUTdexjgMx8C0cUbq7qz2n3TkurqcLl0Tay5zf596prwm5XPs0RcDCXb4BrE9NMNHLKr2RduA4bNsokNUTkXVvP9ewD2Rmnmaj9T4',
-    })
-    .then(res => {
-      // Save somewhere these access and refresh tokens
-      console.log(res.data);
-    });
+  _convertToken(accessToken, 'google-oauth2');
 }
 
 axios.interceptors.response.use(
@@ -38,7 +30,6 @@ axios.interceptors.response.use(
   },
   async function (error) {
     const originalRequest = error;
-    console.log(originalRequest);
 
     if (typeof error.response === 'undefined') {
       alert('a server error happened, we will fix it shortly');
@@ -62,8 +53,9 @@ axios.interceptors.response.use(
 
       return axios
         .post('http://10.0.2.2:8000/api-auth/token', {
-          client_id: 'Your client id ',
-          client_secret: 'Your client secret',
+          client_id: '7jAVcZzgJb0xo3v8j019vMlHh3ZK61rQhlHsWLfo',
+          client_secret:
+            'InjSE9sOlfPXiMuRVEK5hh0Hm11aUTdexjgMx8C0cUbq7qz2n3TkurqcLl0Tay5zf596prwm5XPs0RcDCXb4BrE9NMNHLKr2RduA4bNsokNUTkXVvP9ewD2Rmnmaj9T4',
           grant_type: 'refresh_token',
           refresh_token: refreshToken,
         })

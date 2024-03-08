@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Match Dev</string>
+    <string name="facebook_app_id">238480682640066</string>
+    <string name="facebook_client_token">f97a9194dd89f5d2c2cb8b5551d0c80f</string>
+</resources>
