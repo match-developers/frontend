@@ -1,14 +1,14 @@
 import axios from 'axios';
+import Config from 'react-native-config';
 
 function _convertToken(accessToken, backend) {
   axios
-    .post(`http://10.0.2.2:8000/api-auth/convert-token`, {
+    .post(`${Config.BACKEND_URL}/api-auth/convert-token`, {
       token: accessToken,
       backend,
       grant_type: 'convert_token',
-      client_id: '7jAVcZzgJb0xo3v8j019vMlHh3ZK61rQhlHsWLfo',
-      client_secret:
-        'InjSE9sOlfPXiMuRVEK5hh0Hm11aUTdexjgMx8C0cUbq7qz2n3TkurqcLl0Tay5zf596prwm5XPs0RcDCXb4BrE9NMNHLKr2RduA4bNsokNUTkXVvP9ewD2Rmnmaj9T4',
+      client_id: Config.BACKEND_APPLICATION_CLIENT_ID,
+      client_secret: Config.BACKEND_APPLICATION_CLIENT_SECRET,
     })
     .then(res => {
       // Save somewhere these access and refresh tokens
@@ -52,10 +52,9 @@ axios.interceptors.response.use(
       const refreshToken = localStorage.getItem('refresh_token');
 
       return axios
-        .post('http://10.0.2.2:8000/api-auth/token', {
-          client_id: '7jAVcZzgJb0xo3v8j019vMlHh3ZK61rQhlHsWLfo',
-          client_secret:
-            'InjSE9sOlfPXiMuRVEK5hh0Hm11aUTdexjgMx8C0cUbq7qz2n3TkurqcLl0Tay5zf596prwm5XPs0RcDCXb4BrE9NMNHLKr2RduA4bNsokNUTkXVvP9ewD2Rmnmaj9T4',
+        .post(`${Config.BACKEND_URL}/api-auth/token`, {
+          client_id: Config.BACKEND_APPLICATION_CLIENT_ID,
+          client_secret: Config.BACKEND_APPLICATION_CLIENT_SECRET,
           grant_type: 'refresh_token',
           refresh_token: refreshToken,
         })
