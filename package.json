@@ -13,7 +13,10 @@
     "android:dev": "react-native run-android --mode=developmentdebug",
     "android:dev-release": "react-native run-android --mode=developmentrelease",
     "android:prod": "react-native run-android --mode=productiondebug",
-    "android:prod-release": "react-native run-android --mode=productionrelease"
+    "android:prod-release": "react-native run-android --mode=productionrelease",
+    "ios:dev": "react-native run-ios --scheme \"MatchDev\" ",
+    "ios:staging": "react-native run-ios --scheme \"MatchStg\"",
+    "ios:prod": "react-native run-ios --scheme \"Match\""
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
