@@ -88,9 +88,9 @@ android {
 
     flavorDimensions "default"
     productFlavors {
-        production {
+        development {
             minSdkVersion rootProject.ext.minSdkVersion
-            applicationId "com.match"
+            applicationId "com.match.development"
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "build_config_package", "com.match"
         }
@@ -98,13 +98,13 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             applicationId "com.match.staging"
             targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.match.staging"
+            resValue "string", "build_config_package", "com.match"
         }
-        development {
+        production {
             minSdkVersion rootProject.ext.minSdkVersion
-            applicationId "com.match.development"
+            applicationId "com.match"
             targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.match.development"
+            resValue "string", "build_config_package", "com.match"
         }
     }
 
