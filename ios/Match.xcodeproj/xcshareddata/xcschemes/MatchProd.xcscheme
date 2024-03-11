@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1210"
+   LastUpgradeVersion = "1530"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <PreActions>
          <ExecutionAction
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
@@ -14,9 +15,9 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "Match.app"
-                     BlueprintName = "Match"
+                     BlueprintIdentifier = "0CFA4F7C2B9F88EE00AF68CE"
+                     BuildableName = "MatchProd.app"
+                     BlueprintName = "MatchProd"
                      ReferencedContainer = "container:Match.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -32,9 +33,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Match.app"
-               BlueprintName = "Match"
+               BlueprintIdentifier = "0CFA4F7C2B9F88EE00AF68CE"
+               BuildableName = "MatchProd.app"
+               BlueprintName = "MatchProd"
                ReferencedContainer = "container:Match.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,19 +45,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "MatchTests.xctest"
-               BlueprintName = "MatchTests"
-               ReferencedContainer = "container:Match.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -77,9 +67,9 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "Match.app"
-                     BlueprintName = "Match"
+                     BlueprintIdentifier = "0CFA4F7C2B9F88EE00AF68CE"
+                     BuildableName = "MatchProd.app"
+                     BlueprintName = "MatchProd"
                      ReferencedContainer = "container:Match.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -90,9 +80,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Match.app"
-            BlueprintName = "Match"
+            BlueprintIdentifier = "0CFA4F7C2B9F88EE00AF68CE"
+            BuildableName = "MatchProd.app"
+            BlueprintName = "MatchProd"
             ReferencedContainer = "container:Match.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -107,9 +97,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Match.app"
-            BlueprintName = "Match"
+            BlueprintIdentifier = "0CFA4F7C2B9F88EE00AF68CE"
+            BuildableName = "MatchProd.app"
+            BlueprintName = "MatchProd"
             ReferencedContainer = "container:Match.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
