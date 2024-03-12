@@ -37,6 +37,7 @@ const LoginScreen = () => {
         scopes: ['profile', 'email'],
         webClientId: Config.GOOGLE_WEB_CLIENT_ID,
         offlineAccess: true,
+        iosClientId: Config.GOOGLE_IOS_CLIENT_ID,
       });
 
       await GoogleSignin.hasPlayServices();
