@@ -49,6 +49,10 @@
 		0C435C6F2B9BCAB8000F96B4 /* MatchDev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MatchDev-Info.plist"; path = "/Users/felipelopez/Documents/Match/frontend/ios/MatchDev-Info.plist"; sourceTree = "<absolute>"; };
 		0C435C942B9BCCF4000F96B4 /* MatchStg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchStg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C435C952B9BCCF4000F96B4 /* MatchStg-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MatchStg-Info.plist"; path = "/Users/felipelopez/Documents/Match/frontend/ios/MatchStg-Info.plist"; sourceTree = "<absolute>"; };
+		0C4D05062B9FC7260056BDCE /* MatchDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatchDev.entitlements; sourceTree = "<group>"; };
+		0C4D05072B9FC7330056BDCE /* Match.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Match.entitlements; path = Match/Match.entitlements; sourceTree = "<group>"; };
+		0C4D05082B9FC7370056BDCE /* MatchStg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatchStg.entitlements; sourceTree = "<group>"; };
+		0C4D05092B9FC7390056BDCE /* MatchProd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatchProd.entitlements; sourceTree = "<group>"; };
 		0CD79FA22B9FBD1A00AF4C4A /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		0CFA4F882B9F88EE00AF68CE /* MatchProd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchProd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CFA4F892B9F88EF00AF68CE /* MatchProd-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MatchProd-Info.plist"; path = "/Users/felipelopez/Documents/Match/frontend/ios/MatchProd-Info.plist"; sourceTree = "<absolute>"; };
@@ -142,6 +146,7 @@
 		13B07FAE1A68108700A75B9A /* Match */ = {
 			isa = PBXGroup;
 			children = (
+				0C4D05072B9FC7330056BDCE /* Match.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -174,6 +179,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0C4D05092B9FC7390056BDCE /* MatchProd.entitlements */,
+				0C4D05082B9FC7370056BDCE /* MatchStg.entitlements */,
+				0C4D05062B9FC7260056BDCE /* MatchDev.entitlements */,
 				0CD79FA22B9FBD1A00AF4C4A /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* Match */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -818,6 +826,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchDev.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = i386;
@@ -849,6 +858,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchDev.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				EXCLUDED_ARCHS = i386;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
@@ -878,6 +888,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStg;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchStg.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = i386;
@@ -909,6 +920,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStg;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchStg.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				EXCLUDED_ARCHS = i386;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
@@ -938,6 +950,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchProd.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = i386;
@@ -969,6 +982,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchProd.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				EXCLUDED_ARCHS = i386;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
@@ -997,6 +1011,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Match/Match.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = i386;
@@ -1027,6 +1042,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Match/Match.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				EXCLUDED_ARCHS = i386;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
