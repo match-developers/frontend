@@ -43,10 +43,8 @@ axios.interceptors.response.use(
     return response;
   },
   async function (error) {
-    const originalRequest = error;
-
     if (typeof error.response === 'undefined') {
-      alert('a server error happened, we will fix it shortly');
+      console.error('a server error happened, we will fix it shortly');
       return Promise.reject(error);
     }
 
