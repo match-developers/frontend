@@ -141,10 +141,12 @@ const LoginScreen = () => {
 
       {/* Login Button */}
       <TouchableOpacity
-        style={[styles.button, (emailError || passwordError) ? styles.disabledButton : null]}
+        style={[
+          styles.button,
+          emailError || passwordError ? styles.disabledButton : null,
+        ]}
         onPress={() => emailLogin(email, password)}
-        disabled={Boolean(emailError || passwordError)}
-      >
+        disabled={Boolean(emailError || passwordError)}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
 

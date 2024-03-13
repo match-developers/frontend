@@ -27,7 +27,6 @@ const SignupScreen = () => {
           first_name: firstName,
           username: userName,
           password: password,
-
         },
       );
 
