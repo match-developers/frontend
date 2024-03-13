@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Button,
 } from 'react-native';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import Config from 'react-native-config';
@@ -18,7 +18,7 @@ import {
   GraphRequestManager,
 } from 'react-native-fbsdk-next';
 
-import {facebookLogin, googleLogin} from '../services/axios';
+import {emailLogin, facebookLogin, googleLogin} from '../services/axios';
 
 import {
   GoogleSignin,
@@ -28,6 +28,10 @@ import {
 
 const LoginScreen = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [loggedIn, setloggedIn] = useState(false);
   const [userInfo, setuserInfo] = useState([]);
 
@@ -41,17 +45,18 @@ const LoginScreen = () => {
       });
 
       await GoogleSignin.hasPlayServices();
-      const { idToken, serverAuthCode } = await GoogleSignin.signIn();
-      
+      const {idToken, serverAuthCode} = await GoogleSignin.signIn();
+
       googleLogin(serverAuthCode);
       setloggedIn(true);
+      setuserInfo();
 
       // // Create a Google credential with the token
       const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
       // Sign-in the user with the credential
       auth().signInWithCredential(googleCredential);
-      return idToken
+      return idToken;
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
@@ -80,13 +85,25 @@ const LoginScreen = () => {
     }
   };
 
-  const handleLogin = () => {
-    // Implement your login logic here
-    console.log('Login button pressed!');
+  const validateEmail = () => {
+    // Email validation regex
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setEmailError('Please enter a valid email address');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  const validatePassword = () => {
+    if (password.length < 6) {
+      setPasswordError('Password must be at least 6 characters long');
+    } else {
+      setPasswordError('');
+    }
   };
 
   const goToSignup = () => {
-    // Navigate to the Signup screen
     navigation.navigate('Signup');
   };
 
@@ -99,14 +116,35 @@ const LoginScreen = () => {
       <Text style={styles.header}>Login</Text>
 
       {/* Email and Password Input Fields */}
-      <TextInput placeholder="Email" style={styles.input} />
-      <TextInput placeholder="Password" secureTextEntry style={styles.input} />
+      <TextInput
+        placeholder="Email"
+        style={styles.input}
+        value={email}
+        onChangeText={text => setEmail(text)}
+        onBlur={validateEmail}
+      />
+      {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
+
+      <TextInput
+        placeholder="Password"
+        style={styles.input}
+        value={password}
+        secureTextEntry
+        onChangeText={text => setPassword(text)}
+        onBlur={validatePassword}
+      />
+      {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
+
       <TouchableOpacity onPress={goToForgotPassword}>
         <Text style={styles.forgotPassword}>Forgot Password?</Text>
       </TouchableOpacity>
 
       {/* Login Button */}
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+      <TouchableOpacity
+        style={[styles.button, (emailError || passwordError) ? styles.disabledButton : null]}
+        onPress={() => emailLogin(email, password)}
+        disabled={Boolean(emailError || passwordError)}
+      >
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
 
@@ -261,6 +299,13 @@ const styles = StyleSheet.create({
   forgotPassword: {
     fontSize: 17,
     fontStyle: 'italic',
+  },
+  error: {
+    color: 'red',
+    marginBottom: 10,
+  },
+  disabledButton: {
+    backgroundColor: '#cccccc',
   },
 });
 

@@ -16,6 +16,23 @@ function _convertToken(accessToken, backend) {
     });
 }
 
+
+export function emailLogin(email, password) {
+  axios
+    .post(`${Config.BACKEND_URL}/api-auth/token`, {
+      username: email,
+	    password,
+      grant_type: 'password',
+      client_id: Config.BACKEND_APPLICATION_CLIENT_ID,
+      client_secret: Config.BACKEND_APPLICATION_CLIENT_SECRET,
+    })
+    .then(res => {
+      // Save somewhere these access and refresh tokens
+      console.log(res.data);
+    });
+}
+
+
 export function facebookLogin(accessToken) {
   _convertToken(accessToken, 'facebook');
 }
