@@ -8,12 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MatchTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-Match.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Match.a */; };
+		0C435C602B9BCAB8000F96B4 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		0C435C612B9BCAB8000F96B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		0C435C652B9BCAB8000F96B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		0C435C662B9BCAB8000F96B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		0C435C862B9BCCF4000F96B4 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		0C435C872B9BCCF4000F96B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		0C435C8B2B9BCCF4000F96B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		0C435C8C2B9BCCF4000F96B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		0CFA4F7E2B9F88EE00AF68CE /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		0CFA4F7F2B9F88EE00AF68CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		0CFA4F822B9F88EE00AF68CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		0CFA4F832B9F88EE00AF68CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-Match-MatchTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Match-MatchTests.a */; };
+		3962542879F36EA99000448E /* libPods-MatchCommonPods-MatchDev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC1623D2FDD57A8BAC597F5 /* libPods-MatchCommonPods-MatchDev.a */; };
+		63AA0891A98EC49402465D4B /* libPods-MatchCommonPods-MatchProd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADB719DCBD33E0D9C3CAD5F /* libPods-MatchCommonPods-MatchProd.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		BC09AEE0B6BDD2978F2F8A6A /* libPods-MatchCommonPods-MatchTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B72B22DC24DD7F0E1E887FA /* libPods-MatchCommonPods-MatchTests.a */; };
+		C036E1F5C15C2D9B54DA868B /* libPods-MatchCommonPods-MatchStg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD89FBA1B8D5A651252ECD9 /* libPods-MatchCommonPods-MatchStg.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,20 +44,43 @@
 		00E356EE1AD99517003FC87E /* MatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchTests.m; sourceTree = "<group>"; };
+		0AD89FBA1B8D5A651252ECD9 /* libPods-MatchCommonPods-MatchStg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MatchCommonPods-MatchStg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C435C6E2B9BCAB8000F96B4 /* MatchDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C435C6F2B9BCAB8000F96B4 /* MatchDev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MatchDev-Info.plist"; path = "/Users/felipelopez/Documents/Match/frontend/ios/MatchDev-Info.plist"; sourceTree = "<absolute>"; };
+		0C435C942B9BCCF4000F96B4 /* MatchStg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchStg.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C435C952B9BCCF4000F96B4 /* MatchStg-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MatchStg-Info.plist"; path = "/Users/felipelopez/Documents/Match/frontend/ios/MatchStg-Info.plist"; sourceTree = "<absolute>"; };
+		0C4D05062B9FC7260056BDCE /* MatchDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatchDev.entitlements; sourceTree = "<group>"; };
+		0C4D05072B9FC7330056BDCE /* Match.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Match.entitlements; path = Match/Match.entitlements; sourceTree = "<group>"; };
+		0C4D05082B9FC7370056BDCE /* MatchStg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatchStg.entitlements; sourceTree = "<group>"; };
+		0C4D05092B9FC7390056BDCE /* MatchProd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatchProd.entitlements; sourceTree = "<group>"; };
+		0CD79FA22B9FBD1A00AF4C4A /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		0CFA4F882B9F88EE00AF68CE /* MatchProd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchProd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CFA4F892B9F88EF00AF68CE /* MatchProd-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MatchProd-Info.plist"; path = "/Users/felipelopez/Documents/Match/frontend/ios/MatchProd-Info.plist"; sourceTree = "<absolute>"; };
+		0D8BF3761D004C212DC3ECFE /* Pods-MatchCommonPods-MatchStg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchCommonPods-MatchStg.debug.xcconfig"; path = "Target Support Files/Pods-MatchCommonPods-MatchStg/Pods-MatchCommonPods-MatchStg.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Match.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Match/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Match/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Match/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Match/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Match/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Match-MatchTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Match-MatchTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-Match.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match.debug.xcconfig"; path = "Target Support Files/Pods-Match/Pods-Match.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-Match.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match.release.xcconfig"; path = "Target Support Files/Pods-Match/Pods-Match.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-Match-MatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match-MatchTests.debug.xcconfig"; path = "Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-Match.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Match.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		152ED07A657D183C0559A633 /* Pods-Match-MatchStg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match-MatchStg.debug.xcconfig"; path = "Target Support Files/Pods-Match-MatchStg/Pods-Match-MatchStg.debug.xcconfig"; sourceTree = "<group>"; };
+		2624B34F5849F0D760F04FCD /* Pods-Match-MatchDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match-MatchDev.release.xcconfig"; path = "Target Support Files/Pods-Match-MatchDev/Pods-Match-MatchDev.release.xcconfig"; sourceTree = "<group>"; };
+		2B7D508668DFE6E93C8759C7 /* Pods-Match-MatchDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match-MatchDev.debug.xcconfig"; path = "Target Support Files/Pods-Match-MatchDev/Pods-Match-MatchDev.debug.xcconfig"; sourceTree = "<group>"; };
+		3ADB719DCBD33E0D9C3CAD5F /* libPods-MatchCommonPods-MatchProd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MatchCommonPods-MatchProd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5428F77F06465E8333AF8BC5 /* Pods-MatchCommonPods-MatchProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchCommonPods-MatchProd.debug.xcconfig"; path = "Target Support Files/Pods-MatchCommonPods-MatchProd/Pods-MatchCommonPods-MatchProd.debug.xcconfig"; sourceTree = "<group>"; };
+		60D5713574E1E51CA31D409D /* Pods-MatchCommonPods-MatchDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchCommonPods-MatchDev.release.xcconfig"; path = "Target Support Files/Pods-MatchCommonPods-MatchDev/Pods-MatchCommonPods-MatchDev.release.xcconfig"; sourceTree = "<group>"; };
+		6A53FA2975B95CC4DE84527B /* Pods-Match-MatchStg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match-MatchStg.release.xcconfig"; path = "Target Support Files/Pods-Match-MatchStg/Pods-Match-MatchStg.release.xcconfig"; sourceTree = "<group>"; };
+		7479F283FA767A7AE1468396 /* Pods-MatchCommonPods-MatchProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchCommonPods-MatchProd.release.xcconfig"; path = "Target Support Files/Pods-MatchCommonPods-MatchProd/Pods-MatchCommonPods-MatchProd.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Match/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-Match-MatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match-MatchTests.release.xcconfig"; path = "Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		8B72B22DC24DD7F0E1E887FA /* libPods-MatchCommonPods-MatchTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MatchCommonPods-MatchTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9FD84F422BBC4A86BB8E8E4 /* Pods-MatchCommonPods-MatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchCommonPods-MatchTests.debug.xcconfig"; path = "Target Support Files/Pods-MatchCommonPods-MatchTests/Pods-MatchCommonPods-MatchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BCC1623D2FDD57A8BAC597F5 /* libPods-MatchCommonPods-MatchDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MatchCommonPods-MatchDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7A18DD7C68CD7A2BB93D332 /* Pods-MatchCommonPods-MatchStg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchCommonPods-MatchStg.release.xcconfig"; path = "Target Support Files/Pods-MatchCommonPods-MatchStg/Pods-MatchCommonPods-MatchStg.release.xcconfig"; sourceTree = "<group>"; };
+		E208F3EDC8981D7ADA4CFEAB /* Pods-Match-MatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match-MatchTests.release.xcconfig"; path = "Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		ED74673C151BF676EAA37996 /* Pods-MatchCommonPods-MatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchCommonPods-MatchTests.release.xcconfig"; path = "Target Support Files/Pods-MatchCommonPods-MatchTests/Pods-MatchCommonPods-MatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		F59D6D5E94880B77AB40F6B0 /* Pods-MatchCommonPods-MatchDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchCommonPods-MatchDev.debug.xcconfig"; path = "Target Support Files/Pods-MatchCommonPods-MatchDev/Pods-MatchCommonPods-MatchDev.debug.xcconfig"; sourceTree = "<group>"; };
+		F862C1ECF05F6BA44455C695 /* Pods-Match-MatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Match-MatchTests.debug.xcconfig"; path = "Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +88,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-Match-MatchTests.a in Frameworks */,
+				BC09AEE0B6BDD2978F2F8A6A /* libPods-MatchCommonPods-MatchTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C435C622B9BCAB8000F96B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3962542879F36EA99000448E /* libPods-MatchCommonPods-MatchDev.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C435C882B9BCCF4000F96B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C036E1F5C15C2D9B54DA868B /* libPods-MatchCommonPods-MatchStg.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CFA4F802B9F88EE00AF68CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63AA0891A98EC49402465D4B /* libPods-MatchCommonPods-MatchProd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +120,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-Match.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +146,7 @@
 		13B07FAE1A68108700A75B9A /* Match */ = {
 			isa = PBXGroup;
 			children = (
+				0C4D05072B9FC7330056BDCE /* Match.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -100,8 +161,10 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-Match.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-Match-MatchTests.a */,
+				BCC1623D2FDD57A8BAC597F5 /* libPods-MatchCommonPods-MatchDev.a */,
+				0AD89FBA1B8D5A651252ECD9 /* libPods-MatchCommonPods-MatchStg.a */,
+				8B72B22DC24DD7F0E1E887FA /* libPods-MatchCommonPods-MatchTests.a */,
+				3ADB719DCBD33E0D9C3CAD5F /* libPods-MatchCommonPods-MatchProd.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,12 +179,19 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0C4D05092B9FC7390056BDCE /* MatchProd.entitlements */,
+				0C4D05082B9FC7370056BDCE /* MatchStg.entitlements */,
+				0C4D05062B9FC7260056BDCE /* MatchDev.entitlements */,
+				0CD79FA22B9FBD1A00AF4C4A /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* Match */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MatchTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				0C435C6F2B9BCAB8000F96B4 /* MatchDev-Info.plist */,
+				0C435C952B9BCCF4000F96B4 /* MatchStg-Info.plist */,
+				0CFA4F892B9F88EF00AF68CE /* MatchProd-Info.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -133,6 +203,9 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Match.app */,
 				00E356EE1AD99517003FC87E /* MatchTests.xctest */,
+				0C435C6E2B9BCAB8000F96B4 /* MatchDev.app */,
+				0C435C942B9BCCF4000F96B4 /* MatchStg.app */,
+				0CFA4F882B9F88EE00AF68CE /* MatchProd.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,10 +213,20 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-Match.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-Match.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-Match-MatchTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-Match-MatchTests.release.xcconfig */,
+				F862C1ECF05F6BA44455C695 /* Pods-Match-MatchTests.debug.xcconfig */,
+				E208F3EDC8981D7ADA4CFEAB /* Pods-Match-MatchTests.release.xcconfig */,
+				2B7D508668DFE6E93C8759C7 /* Pods-Match-MatchDev.debug.xcconfig */,
+				2624B34F5849F0D760F04FCD /* Pods-Match-MatchDev.release.xcconfig */,
+				152ED07A657D183C0559A633 /* Pods-Match-MatchStg.debug.xcconfig */,
+				6A53FA2975B95CC4DE84527B /* Pods-Match-MatchStg.release.xcconfig */,
+				F59D6D5E94880B77AB40F6B0 /* Pods-MatchCommonPods-MatchDev.debug.xcconfig */,
+				60D5713574E1E51CA31D409D /* Pods-MatchCommonPods-MatchDev.release.xcconfig */,
+				0D8BF3761D004C212DC3ECFE /* Pods-MatchCommonPods-MatchStg.debug.xcconfig */,
+				D7A18DD7C68CD7A2BB93D332 /* Pods-MatchCommonPods-MatchStg.release.xcconfig */,
+				A9FD84F422BBC4A86BB8E8E4 /* Pods-MatchCommonPods-MatchTests.debug.xcconfig */,
+				ED74673C151BF676EAA37996 /* Pods-MatchCommonPods-MatchTests.release.xcconfig */,
+				5428F77F06465E8333AF8BC5 /* Pods-MatchCommonPods-MatchProd.debug.xcconfig */,
+				7479F283FA767A7AE1468396 /* Pods-MatchCommonPods-MatchProd.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -155,12 +238,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MatchTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				C8F211098677E150277197AB /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				E3D64C11004538A980E2E0CE /* [CP] Embed Pods Frameworks */,
+				0D5805013D82BD1B3451E596 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,17 +255,77 @@
 			productReference = 00E356EE1AD99517003FC87E /* MatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0C435C5D2B9BCAB8000F96B4 /* MatchDev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C435C6B2B9BCAB8000F96B4 /* Build configuration list for PBXNativeTarget "MatchDev" */;
+			buildPhases = (
+				D2D986422E30FD007861A7D9 /* [CP] Check Pods Manifest.lock */,
+				0C435C5F2B9BCAB8000F96B4 /* Sources */,
+				0C435C622B9BCAB8000F96B4 /* Frameworks */,
+				0C435C642B9BCAB8000F96B4 /* Resources */,
+				0C435C672B9BCAB8000F96B4 /* Bundle React Native code and images */,
+				853DC05F47DEF44903FB7742 /* [CP] Embed Pods Frameworks */,
+				480BE5F3E4D1EF9E66210F1C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MatchDev;
+			productName = Match;
+			productReference = 0C435C6E2B9BCAB8000F96B4 /* MatchDev.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0C435C832B9BCCF4000F96B4 /* MatchStg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C435C912B9BCCF4000F96B4 /* Build configuration list for PBXNativeTarget "MatchStg" */;
+			buildPhases = (
+				BBED0AB3BD1F710B02116A29 /* [CP] Check Pods Manifest.lock */,
+				0C435C852B9BCCF4000F96B4 /* Sources */,
+				0C435C882B9BCCF4000F96B4 /* Frameworks */,
+				0C435C8A2B9BCCF4000F96B4 /* Resources */,
+				0C435C8D2B9BCCF4000F96B4 /* Bundle React Native code and images */,
+				9E7842AE2104BD8E3F2211D9 /* [CP] Embed Pods Frameworks */,
+				A40F31E094C5DDED8636D9BD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MatchStg;
+			productName = Match;
+			productReference = 0C435C942B9BCCF4000F96B4 /* MatchStg.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0CFA4F7C2B9F88EE00AF68CE /* MatchProd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CFA4F852B9F88EE00AF68CE /* Build configuration list for PBXNativeTarget "MatchProd" */;
+			buildPhases = (
+				AAB7FA2A2E5F6EEBA91D982D /* [CP] Check Pods Manifest.lock */,
+				0CFA4F7D2B9F88EE00AF68CE /* Sources */,
+				0CFA4F802B9F88EE00AF68CE /* Frameworks */,
+				0CFA4F812B9F88EE00AF68CE /* Resources */,
+				0CFA4F842B9F88EE00AF68CE /* Bundle React Native code and images */,
+				FCA75E3DA65ADA193FDAE25D /* [CP] Embed Pods Frameworks */,
+				B0D972851152B7EA4F636212 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MatchProd;
+			productName = Match;
+			productReference = 0CFA4F882B9F88EE00AF68CE /* MatchProd.app */;
+			productType = "com.apple.product-type.application";
+		};
 		13B07F861A680F5B00A75B9A /* Match */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Match" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,6 +368,9 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* Match */,
 				00E356ED1AD99517003FC87E /* MatchTests */,
+				0C435C5D2B9BCAB8000F96B4 /* MatchDev */,
+				0C435C832B9BCCF4000F96B4 /* MatchStg */,
+				0CFA4F7C2B9F88EE00AF68CE /* MatchProd */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +380,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C435C642B9BCAB8000F96B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C435C652B9BCAB8000F96B4 /* LaunchScreen.storyboard in Resources */,
+				0C435C662B9BCAB8000F96B4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C435C8A2B9BCCF4000F96B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C435C8B2B9BCCF4000F96B4 /* LaunchScreen.storyboard in Resources */,
+				0C435C8C2B9BCCF4000F96B4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CFA4F812B9F88EE00AF68CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CFA4F822B9F88EE00AF68CE /* LaunchScreen.storyboard in Resources */,
+				0CFA4F832B9F88EE00AF68CE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,24 +438,140 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		0C435C672B9BCAB8000F96B4 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		0C435C8D2B9BCCF4000F96B4 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		0CFA4F842B9F88EE00AF68CE /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		0D5805013D82BD1B3451E596 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Match/Pods-Match-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchTests/Pods-MatchCommonPods-MatchTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Match/Pods-Match-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchTests/Pods-MatchCommonPods-MatchTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Match/Pods-Match-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchTests/Pods-MatchCommonPods-MatchTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+		480BE5F3E4D1EF9E66210F1C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchDev/Pods-MatchCommonPods-MatchDev-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchDev/Pods-MatchCommonPods-MatchDev-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchDev/Pods-MatchCommonPods-MatchDev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		853DC05F47DEF44903FB7742 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchDev/Pods-MatchCommonPods-MatchDev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchDev/Pods-MatchCommonPods-MatchDev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchDev/Pods-MatchCommonPods-MatchDev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E7842AE2104BD8E3F2211D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchStg/Pods-MatchCommonPods-MatchStg-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchStg/Pods-MatchCommonPods-MatchStg-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchStg/Pods-MatchCommonPods-MatchStg-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A40F31E094C5DDED8636D9BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchStg/Pods-MatchCommonPods-MatchStg-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchStg/Pods-MatchCommonPods-MatchStg-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchStg/Pods-MatchCommonPods-MatchStg-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAB7FA2A2E5F6EEBA91D982D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,14 +586,31 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Match-MatchTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MatchCommonPods-MatchProd-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		B0D972851152B7EA4F636212 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchProd/Pods-MatchCommonPods-MatchProd-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchProd/Pods-MatchCommonPods-MatchProd-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchProd/Pods-MatchCommonPods-MatchProd-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBED0AB3BD1F710B02116A29 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -319,62 +625,89 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Match-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MatchCommonPods-MatchStg-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
+		C8F211098677E150277197AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MatchCommonPods-MatchTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2D986422E30FD007861A7D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MatchCommonPods-MatchDev-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3D64C11004538A980E2E0CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchTests/Pods-MatchCommonPods-MatchTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchTests/Pods-MatchCommonPods-MatchTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchTests/Pods-MatchCommonPods-MatchTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+		FCA75E3DA65ADA193FDAE25D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Match/Pods-Match-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchProd/Pods-MatchCommonPods-MatchProd-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Match/Pods-Match-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchProd/Pods-MatchCommonPods-MatchProd-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Match/Pods-Match-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Match-MatchTests/Pods-Match-MatchTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MatchCommonPods-MatchProd/Pods-MatchCommonPods-MatchProd-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -385,6 +718,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* MatchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C435C5F2B9BCAB8000F96B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C435C602B9BCAB8000F96B4 /* AppDelegate.mm in Sources */,
+				0C435C612B9BCAB8000F96B4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C435C852B9BCCF4000F96B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C435C862B9BCCF4000F96B4 /* AppDelegate.mm in Sources */,
+				0C435C872B9BCCF4000F96B4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CFA4F7D2B9F88EE00AF68CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CFA4F7E2B9F88EE00AF68CE /* AppDelegate.mm in Sources */,
+				0CFA4F7F2B9F88EE00AF68CE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +770,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-Match-MatchTests.debug.xcconfig */;
+			baseConfigurationReference = A9FD84F422BBC4A86BB8E8E4 /* Pods-MatchCommonPods-MatchTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -437,7 +797,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-Match-MatchTests.release.xcconfig */;
+			baseConfigurationReference = ED74673C151BF676EAA37996 /* Pods-MatchCommonPods-MatchTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -459,15 +819,205 @@
 			};
 			name = Release;
 		};
-		13B07F941A680F5B00A75B9A /* Debug */ = {
+		0C435C6C2B9BCAB8000F96B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-Match.debug.xcconfig */;
+			baseConfigurationReference = F59D6D5E94880B77AB40F6B0 /* Pods-MatchCommonPods-MatchDev.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchDev.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = i386;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				INFOPLIST_FILE = "MatchDev-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Match Dev";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		0C435C6D2B9BCAB8000F96B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60D5713574E1E51CA31D409D /* Pods-MatchCommonPods-MatchDev.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchDev.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = i386;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				INFOPLIST_FILE = "MatchDev-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Match Dev";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		0C435C922B9BCCF4000F96B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D8BF3761D004C212DC3ECFE /* Pods-MatchCommonPods-MatchStg.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStg;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchStg.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = i386;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				INFOPLIST_FILE = "MatchStg-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Match Stg";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		0C435C932B9BCCF4000F96B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7A18DD7C68CD7A2BB93D332 /* Pods-MatchCommonPods-MatchStg.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStg;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchStg.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = i386;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				INFOPLIST_FILE = "MatchStg-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Match Stg";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		0CFA4F862B9F88EE00AF68CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5428F77F06465E8333AF8BC5 /* Pods-MatchCommonPods-MatchProd.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchProd.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = i386;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				INFOPLIST_FILE = "MatchProd-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Match;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		0CFA4F872B9F88EE00AF68CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7479F283FA767A7AE1468396 /* Pods-MatchCommonPods-MatchProd.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatchProd.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = i386;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				INFOPLIST_FILE = "MatchProd-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Match;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Match/Match.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = i386;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				INFOPLIST_FILE = Match/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Match;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,12 +1038,16 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-Match.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Match/Match.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = i386;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				INFOPLIST_FILE = Match/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Match;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,6 +1067,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CD79FA22B9FBD1A00AF4C4A /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -560,6 +1115,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
@@ -572,7 +1138,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "$(inherited)";
+				OTHER_CFLAGS = "$(inherited)  ";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -580,11 +1146,7 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-Wl",
-					"-ld_classic",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -593,6 +1155,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CD79FA22B9FBD1A00AF4C4A /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -633,6 +1196,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
@@ -644,7 +1218,7 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_CFLAGS = "$(inherited)";
+				OTHER_CFLAGS = "$(inherited)  ";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -652,11 +1226,7 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-Wl",
-					"-ld_classic",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -672,6 +1242,33 @@
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
 				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C435C6B2B9BCAB8000F96B4 /* Build configuration list for PBXNativeTarget "MatchDev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C435C6C2B9BCAB8000F96B4 /* Debug */,
+				0C435C6D2B9BCAB8000F96B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C435C912B9BCCF4000F96B4 /* Build configuration list for PBXNativeTarget "MatchStg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C435C922B9BCCF4000F96B4 /* Debug */,
+				0C435C932B9BCCF4000F96B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CFA4F852B9F88EE00AF68CE /* Build configuration list for PBXNativeTarget "MatchProd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CFA4F862B9F88EE00AF68CE /* Debug */,
+				0CFA4F872B9F88EE00AF68CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
