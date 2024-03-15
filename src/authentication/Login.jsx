@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   View,
   Text,
@@ -6,7 +7,7 @@ import {
   StyleSheet,
   Button,
 } from 'react-native';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import Config from 'react-native-config';
@@ -18,7 +19,7 @@ import {
   GraphRequestManager,
 } from 'react-native-fbsdk-next';
 
-import {facebookLogin, googleLogin} from '../services/axios';
+import {emailLogin, facebookLogin, googleLogin} from '../services/axios';
 
 import {
   GoogleSignin,
@@ -28,8 +29,11 @@ import {
 
 const LoginScreen = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [loggedIn, setloggedIn] = useState(false);
-  const [userInfo, setuserInfo] = useState([]);
 
   const signInWithGoggle = async () => {
     try {
@@ -41,8 +45,8 @@ const LoginScreen = () => {
       });
 
       await GoogleSignin.hasPlayServices();
-      const { idToken, serverAuthCode } = await GoogleSignin.signIn();
-      
+      const {idToken, serverAuthCode} = await GoogleSignin.signIn();
+
       googleLogin(serverAuthCode);
       setloggedIn(true);
 
@@ -51,16 +55,16 @@ const LoginScreen = () => {
 
       // Sign-in the user with the credential
       auth().signInWithCredential(googleCredential);
-      return idToken
+      return idToken;
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
-        alert('Cancel');
+        console.log('Cancel');
       } else if (error.code === statusCodes.IN_PROGRESS) {
-        alert('Signin in progress');
+        console.log('Signin in progress');
         // operation (f.e. sign in) is in progress already
       } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        alert('PLAY_SERVICES_NOT_AVAILABLE');
+        console.log('PLAY_SERVICES_NOT_AVAILABLE');
         // play services not available or outdated
       } else {
         // some other error happened
@@ -74,19 +78,30 @@ const LoginScreen = () => {
       await GoogleSignin.revokeAccess();
       await GoogleSignin.signOut();
       setloggedIn(false);
-      setuserInfo([]);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleLogin = () => {
-    // Implement your login logic here
-    console.log('Login button pressed!');
+  const validateEmail = () => {
+    // Email validation regex
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setEmailError('Please enter a valid email address');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  const validatePassword = () => {
+    if (password.length < 6) {
+      setPasswordError('Password must be at least 6 characters long');
+    } else {
+      setPasswordError('');
+    }
   };
 
   const goToSignup = () => {
-    // Navigate to the Signup screen
     navigation.navigate('Signup');
   };
 
@@ -99,14 +114,37 @@ const LoginScreen = () => {
       <Text style={styles.header}>Login</Text>
 
       {/* Email and Password Input Fields */}
-      <TextInput placeholder="Email" style={styles.input} />
-      <TextInput placeholder="Password" secureTextEntry style={styles.input} />
+      <TextInput
+        placeholder="Email"
+        style={styles.input}
+        value={email}
+        onChangeText={text => setEmail(text)}
+        onBlur={validateEmail}
+      />
+      {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
+
+      <TextInput
+        placeholder="Password"
+        style={styles.input}
+        value={password}
+        secureTextEntry
+        onChangeText={text => setPassword(text)}
+        onBlur={validatePassword}
+      />
+      {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
+
       <TouchableOpacity onPress={goToForgotPassword}>
         <Text style={styles.forgotPassword}>Forgot Password?</Text>
       </TouchableOpacity>
 
       {/* Login Button */}
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          emailError || passwordError ? styles.disabledButton : null,
+        ]}
+        onPress={() => emailLogin(email, password)}
+        disabled={Boolean(emailError || passwordError)}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
 
@@ -122,22 +160,22 @@ const LoginScreen = () => {
         <LoginButton
           onLoginFinished={(error, result) => {
             if (error) {
-              alert('login has error: ' + result.error);
+              console.error('login has error: ' + result.error);
             } else if (result.isCancelled) {
-              alert('login is cancelled.');
+              console.log('login is cancelled.');
             } else {
               AccessToken.getCurrentAccessToken().then(data => {
                 let accessToken = data.accessToken;
 
                 facebookLogin(data.accessToken);
 
-                const responseInfoCallback = (error, result) => {
-                  if (error) {
-                    console.log(error);
-                    alert('Error fetching data: ' + error.toString());
+                const responseInfoCallback = (err, res) => {
+                  if (err) {
+                    console.log(err);
+                    console.error('Error fetching data: ' + err.toString());
                   } else {
-                    console.log(result);
-                    alert('Success fetching data: ' + result.toString());
+                    console.log(res);
+                    console.log('Success fetching data: ' + res.toString());
                   }
                 };
 
@@ -159,7 +197,7 @@ const LoginScreen = () => {
               });
             }
           }}
-          onLogoutFinished={() => alert('logout.')}
+          onLogoutFinished={() => console.log('Implement Facebook Logout')}
         />
         <View style={styles.body}>
           <View style={styles.sectionContainer}>
@@ -173,10 +211,7 @@ const LoginScreen = () => {
           <View style={styles.buttonContainer}>
             {!loggedIn && <Text>You are currently logged out</Text>}
             {loggedIn && (
-              <Button
-                onPress={signOutGoogle}
-                title="LogOut"
-                color="red"></Button>
+              <Button onPress={signOutGoogle} title="Log Out" color="red" />
             )}
           </View>
         </View>
@@ -261,6 +296,13 @@ const styles = StyleSheet.create({
   forgotPassword: {
     fontSize: 17,
     fontStyle: 'italic',
+  },
+  error: {
+    color: 'red',
+    marginBottom: 10,
+  },
+  disabledButton: {
+    backgroundColor: '#cccccc',
   },
 });
 

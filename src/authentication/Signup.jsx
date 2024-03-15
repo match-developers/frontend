@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -27,7 +27,6 @@ const SignupScreen = () => {
           first_name: firstName,
           username: userName,
           password: password,
-
         },
       );
 
