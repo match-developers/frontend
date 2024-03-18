@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import Header from '../components/Header';
 
 const Feed = () => {
   const [posts, setPosts] = useState([
-    { id: 1, user: 'User1', content: 'This is post 1' },
-    { id: 2, user: 'User2', content: 'This is post 2' },
+    {id: 1, user: 'User1', content: 'This is post 1'},
+    {id: 2, user: 'User2', content: 'This is post 2'},
   ]);
 
-  const renderPostItem = ({ item }) => (
+  const renderPostItem = ({item}) => (
     <View style={styles.postContainer}>
       <Text style={styles.username}>{item.user}</Text>
       <Text>{item.content}</Text>
@@ -16,6 +17,7 @@ const Feed = () => {
 
   return (
     <View style={styles.container}>
+      <Header style={styles.header} />
       <FlatList
         data={posts}
         keyExtractor={post => post.id.toString()}
