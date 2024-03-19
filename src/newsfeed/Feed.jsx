@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import {
   View,
@@ -70,6 +71,7 @@ const Feed = () => {
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
+        <Header style={styles.header} />
         <Text style={styles.logo}>Match</Text>
         <TouchableOpacity
           onPress={() => setCreatePostModalVisible(true)}
