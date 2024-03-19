@@ -202,6 +202,7 @@ const LoginScreen = () => {
         <View style={styles.body}>
           <View style={styles.sectionContainer}>
             <GoogleSigninButton
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{width: 192, height: 48}}
               size={GoogleSigninButton.Size.Wide}
               color={GoogleSigninButton.Color.Dark}

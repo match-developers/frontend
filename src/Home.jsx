@@ -13,7 +13,10 @@ const HomePage = ({navigation}) => {
             onPress={() => navigation.navigate('Signup')}
           />
           <Button title="Login" onPress={() => navigation.navigate('Login')} />
-          <Button title="Feed_test" onPress={() => navigation.navigate('Feed')} />
+          <Button
+            title="Feed_test"
+            onPress={() => navigation.navigate('Feed')}
+          />
         </View>
       </ImageBackground>
     </View>
