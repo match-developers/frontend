@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, Modal, TextInput } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+  TextInput,
+} from 'react-native';
 
 const Feed = () => {
   const [posts, setPosts] = useState([
-    { id: 1, user: 'User1', content: 'This is post 1', likes: 0, comments: [] },
-    { id: 2, user: 'User2', content: 'This is post 2', likes: 0, comments: [] },
+    {id: 1, user: 'User1', content: 'This is post 1', likes: 0, comments: []},
+    {id: 2, user: 'User2', content: 'This is post 2', likes: 0, comments: []},
     // Add more posts as needed
   ]);
   const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
@@ -25,30 +33,34 @@ const Feed = () => {
     setNewPostContent('');
   };
 
-  const likePost = (postId) => {
+  const likePost = postId => {
     const updatedPosts = posts.map(post => {
       if (post.id === postId) {
-        return { ...post, likes: post.likes + 1 };
+        return {...post, likes: post.likes + 1};
       }
       return post;
     });
     setPosts(updatedPosts);
   };
 
-  const deletePost = (postId) => {
+  const deletePost = postId => {
     const updatedPosts = posts.filter(post => post.id !== postId);
     setPosts(updatedPosts);
   };
 
-  const renderPostItem = ({ item }) => (
+  const renderPostItem = ({item}) => (
     <View style={styles.postContainer}>
       <Text style={styles.username}>{item.user}</Text>
       <Text>{item.content}</Text>
       <View style={styles.postActions}>
-        <TouchableOpacity onPress={() => likePost(item.id)} style={styles.actionButton}>
+        <TouchableOpacity
+          onPress={() => likePost(item.id)}
+          style={styles.actionButton}>
           <Text>Like ({item.likes})</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => deletePost(item.id)} style={styles.actionButton}>
+        <TouchableOpacity
+          onPress={() => deletePost(item.id)}
+          style={styles.actionButton}>
           <Text>Delete</Text>
         </TouchableOpacity>
       </View>
@@ -59,7 +71,9 @@ const Feed = () => {
     <View style={styles.container}>
       <View style={styles.topBar}>
         <Text style={styles.logo}>Match</Text>
-        <TouchableOpacity onPress={() => setCreatePostModalVisible(true)} style={styles.createPostButton}>
+        <TouchableOpacity
+          onPress={() => setCreatePostModalVisible(true)}
+          style={styles.createPostButton}>
           <Text style={styles.createPostButtonText}>Create Post</Text>
         </TouchableOpacity>
       </View>
@@ -74,8 +88,7 @@ const Feed = () => {
       <Modal
         visible={isCreatePostModalVisible}
         animationType="slide"
-        transparent={true}
-      >
+        transparent={true}>
         <View style={styles.modalBackground}>
           <View style={styles.modalContent}>
             <TextInput
@@ -92,10 +105,14 @@ const Feed = () => {
               onChangeText={setNewPostContent}
             />
             <View style={styles.buttonsContainer}>
-              <TouchableOpacity onPress={() => setCreatePostModalVisible(false)} style={styles.cancelButton}>
+              <TouchableOpacity
+                onPress={() => setCreatePostModalVisible(false)}
+                style={styles.cancelButton}>
                 <Text style={styles.buttonText}>Cancel</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={createPost} style={styles.uploadButton}>
+              <TouchableOpacity
+                onPress={createPost}
+                style={styles.uploadButton}>
                 <Text style={styles.buttonText}>Upload</Text>
               </TouchableOpacity>
             </View>
