@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import {
   View,
@@ -9,6 +8,8 @@ import {
   Modal,
   TextInput,
 } from 'react-native';
+
+import Header from '../components/Header';
 
 const Feed = () => {
   const [posts, setPosts] = useState([
@@ -70,8 +71,8 @@ const Feed = () => {
 
   return (
     <View style={styles.container}>
+      <Header style={styles.header} />
       <View style={styles.topBar}>
-        <Header style={styles.header} />
         <Text style={styles.logo}>Match</Text>
         <TouchableOpacity
           onPress={() => setCreatePostModalVisible(true)}
