@@ -5,7 +5,7 @@ import Login from './src/authentication/Login';
 import Signup from './src/authentication/Signup';
 import Home from './src/Home';
 import ForgotPassword from './src/authentication/ForgotPassword';
-import Feed from './src/newsfeed/Feed';
+import FeedPage from './src/pages/FeedPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +17,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-        <Stack.Screen name="Feed" component={Feed} />
+        <Stack.Screen name="Feed" component={FeedPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

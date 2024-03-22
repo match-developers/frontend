@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Button, ImageBackground, StyleSheet} from 'react-native';
-import background from '../public/images/lebronbackground.png';
+import background from '../assets/images/lebronbackground.png';
 
 const HomePage = ({navigation}) => {
   return (
