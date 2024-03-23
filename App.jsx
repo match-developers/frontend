@@ -6,6 +6,7 @@ import Signup from './src/authentication/Signup';
 import Home from './src/Home';
 import ForgotPassword from './src/authentication/ForgotPassword';
 import Feed from './src/newsfeed/Feed';
+import MatchInfo from './src/newsfeed/MatchInfo';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ export default function App() {
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="Feed" component={Feed} />
+        <Stack.Screen name="MatchInfo" component={MatchInfo} />
       </Stack.Navigator>
     </NavigationContainer>
   );

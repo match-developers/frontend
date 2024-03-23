@@ -8,18 +8,37 @@ import {
   Modal,
   TextInput,
 } from 'react-native';
+import {launchImageLibrary} from 'react-native-image-picker';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 import Header from '../components/Header';
 
-const Feed = () => {
+const Feed = ({navigation}) => {
   const [posts, setPosts] = useState([
-    {id: 1, user: 'User1', content: 'This is post 1', likes: 0, comments: []},
+    {
+      id: 1,
+      user: 'User1',
+      content: 'This is post 1',
+      selectedOption: 'Match Post',
+      likes: 0,
+      comments: [],
+    },
     {id: 2, user: 'User2', content: 'This is post 2', likes: 0, comments: []},
-    // Add more posts as needed
   ]);
+
+  const [open, setOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('Match Post');
+  const [items, setItems] = useState([
+    {label: 'Match Post', value: 'Match Post'},
+    {label: 'League table post', value: 'League table post'},
+    {label: 'Club transfer post', value: 'Club transfer post'},
+    {label: 'Rank change post', value: 'Rank change post'},
+  ]);
+
   const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
   const [newPostCaption, setNewPostCaption] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
+  const [attachedFiles, setAttachedFiles] = useState([]);
 
   const createPost = () => {
     const newPost = {
@@ -28,13 +47,17 @@ const Feed = () => {
       content: newPostContent,
       likes: 0,
       comments: [],
+      selectedOption: selectedOption, // Added selected option to post
     };
     setPosts([newPost, ...posts]);
     setCreatePostModalVisible(false);
     setNewPostCaption('');
     setNewPostContent('');
+    setAttachedFiles([]);
+    setSelectedOption('Match Post');
   };
 
+  // Should add feature: max 1 like per each user
   const likePost = postId => {
     const updatedPosts = posts.map(post => {
       if (post.id === postId) {
@@ -50,30 +73,69 @@ const Feed = () => {
     setPosts(updatedPosts);
   };
 
+  const pickFile = () => {
+    const options = {
+      title: 'Select File',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+
+    launchImageLibrary(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        const {uri, fileName, type} = response;
+        // Add the selected file to the attached files state
+        setAttachedFiles([...attachedFiles, {uri, fileName, type}]);
+      }
+    });
+  };
+
+  const handlePostPress = post => {
+    if (post.selectedOption === 'Match Post') {
+      navigation.navigate('MatchInfo');
+    }
+  };
+
   const renderPostItem = ({item}) => (
-    <View style={styles.postContainer}>
-      <Text style={styles.username}>{item.user}</Text>
-      <Text>{item.content}</Text>
-      <View style={styles.postActions}>
-        <TouchableOpacity
-          onPress={() => likePost(item.id)}
-          style={styles.actionButton}>
-          <Text>Like ({item.likes})</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => deletePost(item.id)}
-          style={styles.actionButton}>
-          <Text>Delete</Text>
-        </TouchableOpacity>
+    <TouchableOpacity onPress={() => handlePostPress(item)}>
+      <View style={styles.postContainer}>
+        <Text style={styles.username}>{item.user}</Text>
+        <Text>{item.content}</Text>
+        <Text>Selected Option: {item.selectedOption}</Text>
+        <View style={styles.postActions}>
+          <TouchableOpacity
+            onPress={() => likePost(item.id)}
+            style={styles.actionButton}>
+            <Text>Like ({item.likes})</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text>Comment</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text>Share</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => deletePost(item.id)}
+            style={styles.actionButton}>
+            <Text>Delete</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
     <View style={styles.container}>
       <Header style={styles.header} />
       <View style={styles.topBar}>
-        <Text style={styles.logo}>Match</Text>
+        <TouchableOpacity style={styles.logoButton}>
+          <Text style={styles.logo}>Posts</Text>
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setCreatePostModalVisible(true)}
           style={styles.createPostButton}>
@@ -94,6 +156,14 @@ const Feed = () => {
         transparent={true}>
         <View style={styles.modalBackground}>
           <View style={styles.modalContent}>
+            <DropDownPicker
+              open={open}
+              value={selectedOption}
+              items={items}
+              setOpen={setOpen}
+              setValue={setSelectedOption}
+              setItems={setItems}
+            />
             <TextInput
               placeholder="Caption"
               style={styles.input}
@@ -107,6 +177,17 @@ const Feed = () => {
               value={newPostContent}
               onChangeText={setNewPostContent}
             />
+
+            <TouchableOpacity
+              onPress={pickFile}
+              style={styles.attachmentButton}>
+              <Text>Attachment</Text>
+            </TouchableOpacity>
+            <View>
+              {attachedFiles.map((file, index) => (
+                <Text key={index}>{file.fileName}</Text>
+              ))}
+            </View>
             <View style={styles.buttonsContainer}>
               <TouchableOpacity
                 onPress={() => setCreatePostModalVisible(false)}
@@ -149,23 +230,31 @@ const styles = StyleSheet.create({
   },
   topBar: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundColor: '#fff',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 3,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
+  },
+  logoButton: {
+    marginRight: 'auto',
   },
   logo: {
     fontWeight: 'bold',
     fontSize: 18,
+    marginBottom: 10,
+  },
+  headerButton: {
+    marginLeft: 20,
   },
   createPostButton: {
     backgroundColor: '#3498db',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 5,
+    marginBottom: 10,
   },
   createPostButtonText: {
     color: '#fff',
@@ -189,10 +278,11 @@ const styles = StyleSheet.create({
   },
   postActions: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     marginTop: 8,
   },
   actionButton: {
+    marginRight: 8,
     padding: 8,
     borderRadius: 5,
     borderWidth: 1,
@@ -249,6 +339,13 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 5,
+  },
+  attachmentButton: {
+    backgroundColor: '#ccc',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 5,
+    marginBottom: 8,
   },
   buttonText: {
     color: '#fff',
