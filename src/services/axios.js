@@ -1,33 +1,46 @@
 import axios from 'axios';
 import Config from 'react-native-config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {LoginManager} from 'react-native-fbsdk-next';
 
-function _convertToken(accessToken, backend) {
-  axios
-    .post(`${Config.BACKEND_URL}/api-auth/convert-token`, {
-      token: accessToken,
-      backend,
-      grant_type: 'convert_token',
-      client_id: Config.BACKEND_APPLICATION_CLIENT_ID,
-      client_secret: Config.BACKEND_APPLICATION_CLIENT_SECRET,
-    })
-    .then(response => {
-      AsyncStorage.setItem('access_token', response.data.access_token);
-    });
+async function _convertToken(accessToken, backend) {
+  try {
+    const response = await axios.post(
+      `${Config.BACKEND_URL}/api-auth/convert-token`,
+      {
+        token: accessToken,
+        backend,
+        grant_type: 'convert_token',
+        client_id: Config.BACKEND_APPLICATION_CLIENT_ID,
+        client_secret: Config.BACKEND_APPLICATION_CLIENT_SECRET,
+      },
+    );
+    return await AsyncStorage.setItem(
+      'access_token',
+      response.data.access_token,
+    );
+  } catch (error) {
+    return await Promise.reject(error);
+  }
 }
 
-export function emailLogin(email, password) {
-  axios
-    .post(`${Config.BACKEND_URL}/api-auth/token`, {
+export async function emailLogin(email, password) {
+  try {
+    const response = await axios.post(`${Config.BACKEND_URL}/api-auth/token`, {
       username: email,
       password,
       grant_type: 'password',
       client_id: Config.BACKEND_APPLICATION_CLIENT_ID,
       client_secret: Config.BACKEND_APPLICATION_CLIENT_SECRET,
-    })
-    .then(response => {
-      AsyncStorage.setItem('access_token', response.data.access_token);
     });
+    return await AsyncStorage.setItem(
+      'access_token',
+      response.data.access_token,
+    );
+  } catch (error) {
+    return await Promise.reject(error);
+  }
 }
 
 export function facebookLogin(accessToken) {
@@ -81,3 +94,22 @@ axios.interceptors.response.use(
     }
   },
 );
+
+export async function logout() {
+  // Google logout
+  try {
+    await GoogleSignin.revokeAccess();
+    await GoogleSignin.signOut();
+  } catch (error) {
+    console.error(error);
+  }
+
+  // Facebook logout
+  try {
+    LoginManager.logOut();
+  } catch (error) {
+    console.error(error);
+  }
+
+  return AsyncStorage.removeItem('access_token');
+}

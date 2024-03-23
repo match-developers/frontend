@@ -10,6 +10,9 @@ import {useNavigation} from '@react-navigation/native';
 import Config from 'react-native-config';
 import axios from 'axios';
 
+import FacebookLogin from '../authentication/FacebookLogin';
+import GoogleLogin from '../authentication/GoogleLogin';
+
 // Signup screen component
 const SignupScreen = () => {
   const navigation = useNavigation();
@@ -43,12 +46,6 @@ const SignupScreen = () => {
       // Handle network errors or other exceptions
       console.error('Error during signup:', error);
     }
-  };
-
-  const handleSocialSignup = provider => {
-    // Implement your social signup logic here
-    // You might want to initiate the OAuth flow or use a third-party library
-    console.log(`Social signup with ${provider} button pressed!`);
   };
 
   const goToLogin = () => {
@@ -99,19 +96,10 @@ const SignupScreen = () => {
         <View style={styles.separator} />
       </View>
 
-      {/* Social Signup Buttons */}
+      {/* Social Login Buttons */}
       <View style={styles.socialButtonsContainer}>
-        <TouchableOpacity
-          style={styles.socialButton}
-          onPress={() => handleSocialSignup('Google')}>
-          <Text style={styles.socialButtonText}>Sign Up with Google</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.socialButton}
-          onPress={() => handleSocialSignup('Facebook')}>
-          <Text style={styles.socialButtonText}>Sign Up with Facebook</Text>
-        </TouchableOpacity>
-        {/* Add buttons for other social providers as needed */}
+        <FacebookLogin />
+        <GoogleLogin />
       </View>
 
       {/* Text for already a user */}

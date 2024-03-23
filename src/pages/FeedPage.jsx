@@ -1,33 +1,28 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
+import {useNavigation} from '@react-navigation/native';
 
 import FeedHeader from '../components/Header/FeedHeader';
 import CustomPostModal from '../components/Modal/CreateCustomPostModal';
 import FeedFooter from '../components/Footer/FeedFooter';
 import Post from '../components/Post/Post';
+import {getPosts} from '../services/postServices';
+import {logout} from '../services/axios';
 
-const FeedPage = ({navigation}) => {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      user: 'User1',
-      caption: '',
-      content: 'This is post 1',
-      selectedOption: 'Match Post',
-      likes: 0,
-      comments: [],
-    },
-    {
-      id: 2,
-      user: 'User2',
-      caption: '',
-      content: 'This is post 2',
-      likes: 0,
-      comments: [],
-    },
-    // Add more posts as needed
-  ]);
+const FeedPage = () => {
+  const navigation = useNavigation();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const posts = await getPosts();
+      setPosts(posts);
+    };
+
+    fetchPosts();
+  }, []);
+
   const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
   const [newPostCaption, setNewPostCaption] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
@@ -50,6 +45,11 @@ const FeedPage = ({navigation}) => {
     setNewPostContent('');
     setAttachedFiles([]);
     setSelectedOption('Match Post');
+  };
+
+  const handleLogout = async () => {
+    await logout();
+    navigation.navigate('Home');
   };
 
   const likePost = postId => {
@@ -116,6 +116,11 @@ const FeedPage = ({navigation}) => {
           style={topBarStyles.createPostButton}>
           <Text style={topBarStyles.createPostButtonText}>Create Post</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => handleLogout()}
+          style={topBarStyles.logOutButton}>
+          <Text style={topBarStyles.logOutButtonText}>Logout</Text>
+        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -180,6 +185,16 @@ const topBarStyles = StyleSheet.create({
     marginBottom: 10,
   },
   createPostButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  logOutButton: {
+    backgroundColor: '#a4c639',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 5,
+  },
+  logOutButtonText: {
     color: '#fff',
     fontWeight: 'bold',
   },

@@ -5,27 +5,14 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Button,
 } from 'react-native';
 import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import auth from '@react-native-firebase/auth';
-import Config from 'react-native-config';
 
-import {
-  LoginButton,
-  AccessToken,
-  GraphRequest,
-  GraphRequestManager,
-} from 'react-native-fbsdk-next';
+import FacebookLogin from '../authentication/FacebookLogin';
+import GoogleLogin from '../authentication/GoogleLogin';
 
-import {emailLogin, facebookLogin, googleLogin} from '../services/axios';
-
-import {
-  GoogleSignin,
-  GoogleSigninButton,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
+import {emailLogin} from '../services/axios';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -33,51 +20,16 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [loggedIn, setloggedIn] = useState(false);
 
-  const signInWithGoggle = async () => {
+  const handleEmailLogin = async (email, password) => {
     try {
-      GoogleSignin.configure({
-        scopes: ['profile', 'email'],
-        webClientId: Config.GOOGLE_WEB_CLIENT_ID,
-        offlineAccess: true,
-        iosClientId: Config.GOOGLE_IOS_CLIENT_ID,
-      });
-
-      await GoogleSignin.hasPlayServices();
-      const {idToken, serverAuthCode} = await GoogleSignin.signIn();
-
-      googleLogin(serverAuthCode);
-      setloggedIn(true);
-
-      // // Create a Google credential with the token
-      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-      // Sign-in the user with the credential
-      auth().signInWithCredential(googleCredential);
-      return idToken;
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-        console.log('Cancel');
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        console.log('Signin in progress');
-        // operation (f.e. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        console.log('PLAY_SERVICES_NOT_AVAILABLE');
-        // play services not available or outdated
-      } else {
-        // some other error happened
-        console.log(error);
+      validateEmail();
+      validatePassword();
+      if (emailError || passwordError) {
+        return;
       }
-    }
-  };
-
-  const signOutGoogle = async () => {
-    try {
-      await GoogleSignin.revokeAccess();
-      await GoogleSignin.signOut();
-      setloggedIn(false);
+      await emailLogin(email, password);
+      navigation.navigate('FeedPage');
     } catch (error) {
       console.error(error);
     }
@@ -143,7 +95,7 @@ const LoginScreen = () => {
           styles.button,
           emailError || passwordError ? styles.disabledButton : null,
         ]}
-        onPress={() => emailLogin(email, password)}
+        onPress={() => handleEmailLogin(email, password)}
         disabled={Boolean(emailError || passwordError)}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
@@ -157,66 +109,8 @@ const LoginScreen = () => {
 
       {/* Social Login Buttons */}
       <View style={styles.socialButtonsContainer}>
-        <LoginButton
-          onLoginFinished={(error, result) => {
-            if (error) {
-              console.error('login has error: ' + result.error);
-            } else if (result.isCancelled) {
-              console.log('login is cancelled.');
-            } else {
-              AccessToken.getCurrentAccessToken().then(data => {
-                let accessToken = data.accessToken;
-
-                facebookLogin(data.accessToken);
-
-                const responseInfoCallback = (err, res) => {
-                  if (err) {
-                    console.log(err);
-                    console.error('Error fetching data: ' + err.toString());
-                  } else {
-                    console.log(res);
-                    console.log('Success fetching data: ' + res.toString());
-                  }
-                };
-
-                const infoRequest = new GraphRequest(
-                  '/me',
-                  {
-                    accessToken: accessToken,
-                    parameters: {
-                      fields: {
-                        string: 'email,name,first_name,middle_name,last_name',
-                      },
-                    },
-                  },
-                  responseInfoCallback,
-                );
-
-                // Start the graph request.
-                new GraphRequestManager().addRequest(infoRequest).start();
-              });
-            }
-          }}
-          onLogoutFinished={() => console.log('Implement Facebook Logout')}
-        />
-        <View style={styles.body}>
-          <View style={styles.sectionContainer}>
-            <GoogleSigninButton
-              // eslint-disable-next-line react-native/no-inline-styles
-              style={{width: 192, height: 48}}
-              size={GoogleSigninButton.Size.Wide}
-              color={GoogleSigninButton.Color.Dark}
-              onPress={signInWithGoggle}
-            />
-          </View>
-          <View style={styles.buttonContainer}>
-            {!loggedIn && <Text>You are currently logged out</Text>}
-            {loggedIn && (
-              <Button onPress={signOutGoogle} title="Log Out" color="red" />
-            )}
-          </View>
-        </View>
-        {/* Add buttons for other social providers as needed */}
+        <FacebookLogin />
+        <GoogleLogin />
       </View>
 
       {/* Text for not a user */}
