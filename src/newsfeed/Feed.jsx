@@ -351,22 +351,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
-  pickerContainer: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    marginBottom: 8,
-  },
-  picker: {
-    height: 50,
-    width: '100%',
-  },
-  pickerItem: {
-    justifyContent: 'flex-start',
-  },
-  dropDown: {
-    backgroundColor: '#fafafa',
-  },
 });
 
 export default Feed;

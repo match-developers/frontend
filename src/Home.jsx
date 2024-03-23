@@ -17,10 +17,6 @@ const HomePage = ({navigation}) => {
             title="Feed_test"
             onPress={() => navigation.navigate('Feed')}
           />
-          <Button
-            title="Full Info"
-            onPress={() => navigation.navigate('MatchInfo')}
-          />
         </View>
       </ImageBackground>
     </View>
