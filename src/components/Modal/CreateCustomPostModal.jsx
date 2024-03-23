@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Modal,
   View,
@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const CustomPostModal = ({
   isCreatePostModalVisible,
@@ -15,8 +16,19 @@ const CustomPostModal = ({
   setNewPostCaption,
   newPostContent,
   setNewPostContent,
+  selectedOption,
+  setSelectedOption,
   createPost,
+  pickFile,
+  attachedFiles,
 }) => {
+  const [open, setOpen] = useState(false);
+  const [items, setItems] = useState([
+    {label: 'Match Post', value: 'Match Post'},
+    {label: 'League table post', value: 'League table post'},
+    {label: 'Club transfer post', value: 'Club transfer post'},
+    {label: 'Rank change post', value: 'Rank change post'},
+  ]);
   return (
     <Modal
       visible={isCreatePostModalVisible}
@@ -24,6 +36,14 @@ const CustomPostModal = ({
       transparent={true}>
       <View style={styles.modalBackground}>
         <View style={styles.modalContent}>
+          <DropDownPicker
+            open={open}
+            value={selectedOption}
+            items={items}
+            setOpen={setOpen}
+            setValue={setSelectedOption}
+            setItems={setItems}
+          />
           <TextInput
             placeholder="Caption"
             style={styles.input}
@@ -37,6 +57,14 @@ const CustomPostModal = ({
             value={newPostContent}
             onChangeText={setNewPostContent}
           />
+          <TouchableOpacity onPress={pickFile} style={styles.attachmentButton}>
+            <Text>Attachment</Text>
+          </TouchableOpacity>
+          <View>
+            {attachedFiles.map((file, index) => (
+              <Text key={index}>{file.fileName}</Text>
+            ))}
+          </View>
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               onPress={() => setCreatePostModalVisible(false)}
@@ -92,6 +120,13 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 5,
+  },
+  attachmentButton: {
+    backgroundColor: '#ccc',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 5,
+    marginBottom: 8,
   },
   buttonText: {
     color: '#fff',

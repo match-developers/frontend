@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
 import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 import FeedHeader from '../components/Header/FeedHeader';
 import CustomPostModal from '../components/Modal/CreateCustomPostModal';
 import FeedFooter from '../components/Footer/FeedFooter';
 import Post from '../components/Post/Post';
 
-const FeedPage = () => {
+const FeedPage = ({navigation}) => {
   const [posts, setPosts] = useState([
     {
       id: 1,
       user: 'User1',
       caption: '',
       content: 'This is post 1',
+      selectedOption: 'Match Post',
       likes: 0,
       comments: [],
     },
@@ -29,6 +31,8 @@ const FeedPage = () => {
   const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
   const [newPostCaption, setNewPostCaption] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
+  const [selectedOption, setSelectedOption] = useState('Match Post');
+  const [attachedFiles, setAttachedFiles] = useState([]);
 
   const createPost = () => {
     const newPost = {
@@ -38,11 +42,14 @@ const FeedPage = () => {
       caption: newPostCaption,
       likes: 0,
       comments: [],
+      selectedOption: selectedOption, // Added selected option to post
     };
     setPosts([newPost, ...posts]);
     setCreatePostModalVisible(false);
     setNewPostCaption('');
     setNewPostContent('');
+    setAttachedFiles([]);
+    setSelectedOption('Match Post');
   };
 
   const likePost = postId => {
@@ -60,14 +67,50 @@ const FeedPage = () => {
     setPosts(updatedPosts);
   };
 
+  const pickFile = () => {
+    const options = {
+      title: 'Select File',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+
+    launchImageLibrary(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        const {uri, fileName, type} = response;
+        // Add the selected file to the attached files state
+        setAttachedFiles([...attachedFiles, {uri, fileName, type}]);
+      }
+    });
+  };
+
+  const handlePostPress = post => {
+    if (post.selectedOption === 'Match Post') {
+      navigation.navigate('MatchInfo');
+    }
+  };
+
   const renderPostItem = ({item}) => (
-    <Post item={item} likePost={likePost} deletePost={deletePost} />
+    <Post
+      item={item}
+      likePost={likePost}
+      deletePost={deletePost}
+      handlePostPress={handlePostPress}
+    />
   );
 
   return (
     <View style={containerStyles.container}>
       <FeedHeader />
       <View style={topBarStyles.topBar}>
+        <TouchableOpacity style={topBarStyles.logoButton}>
+          <Text style={topBarStyles.logo}>Posts</Text>
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setCreatePostModalVisible(true)}
           style={topBarStyles.createPostButton}>
@@ -89,7 +132,11 @@ const FeedPage = () => {
         setNewPostCaption={setNewPostCaption}
         newPostContent={newPostContent}
         setNewPostContent={setNewPostContent}
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
         createPost={createPost}
+        pickFile={pickFile}
+        attachedFiles={attachedFiles}
       />
       <FeedFooter />
     </View>
@@ -106,23 +153,31 @@ const containerStyles = StyleSheet.create({
 const topBarStyles = StyleSheet.create({
   topBar: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundColor: '#fff',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 3,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
+  },
+  logoButton: {
+    marginRight: 'auto',
   },
   logo: {
     fontWeight: 'bold',
     fontSize: 18,
+    marginBottom: 10,
+  },
+  headerButton: {
+    marginLeft: 20,
   },
   createPostButton: {
     backgroundColor: '#3498db',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 5,
+    marginBottom: 10,
   },
   createPostButtonText: {
     color: '#fff',

@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     height: 50,
     backgroundColor: '#333',
-    marginBottom: 20,
+    marginBottom: 10,
     borderRadius: 6,
   },
   newsFeedIcon: {
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontSize: 16,
+    paddingHorizontal: 10,
   },
 });
 

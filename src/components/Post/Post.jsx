@@ -2,25 +2,34 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import PostHeader from '../Header/PostHeader';
 
-const Post = ({item, likePost, deletePost}) => {
+const Post = ({item, likePost, deletePost, handlePostPress}) => {
   return (
-    <View style={styles.postContainer}>
-      <Text style={styles.username}>{item.user}</Text>
-      <PostHeader item={item} />
-      <Text>{item.content}</Text>
-      <View style={styles.postActions}>
-        <TouchableOpacity
-          onPress={() => likePost(item.id)}
-          style={styles.actionButton}>
-          <Text>Like ({item.likes})</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => deletePost(item.id)}
-          style={styles.actionButton}>
-          <Text>Delete</Text>
-        </TouchableOpacity>
+    <TouchableOpacity onPress={() => handlePostPress(item)}>
+      <View style={styles.postContainer}>
+        <Text style={styles.username}>{item.user}</Text>
+        <PostHeader item={item} />
+        <Text>{item.content}</Text>
+        <Text>{item.selectedOption}</Text>
+        <View style={styles.postActions}>
+          <TouchableOpacity
+            onPress={() => likePost(item.id)}
+            style={styles.actionButton}>
+            <Text>Like ({item.likes})</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text>Comment</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text>Share</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => deletePost(item.id)}
+            style={styles.actionButton}>
+            <Text>Delete</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -38,10 +47,11 @@ const styles = StyleSheet.create({
   },
   postActions: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     marginTop: 8,
   },
   actionButton: {
+    marginRight: 8,
     padding: 8,
     borderRadius: 5,
     borderWidth: 1,
