@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
-import match from '../../public/images/match.png';
+import match from '../../../assets/images/match.png';
 
-const Header = () => {
+const FeedHeader = () => {
   const handleNewsFeedPress = () => {};
 
   return (
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Header;
+export default FeedHeader;
