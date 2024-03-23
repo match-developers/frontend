@@ -105,16 +105,7 @@ const Feed = () => {
       <Header style={styles.header} />
       <View style={styles.topBar}>
         <TouchableOpacity style={styles.logoButton}>
-          <Text style={styles.logo}>Match</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.headerButton}>
-          <Text>Notifications</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.headerButton}>
-          <Text>Assistant</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.headerButton}>
-          <Text>Chat</Text>
+          <Text style={styles.logo}>Posts</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setCreatePostModalVisible(true)}
@@ -205,7 +196,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 3,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
   },
@@ -215,6 +206,7 @@ const styles = StyleSheet.create({
   logo: {
     fontWeight: 'bold',
     fontSize: 18,
+    marginBottom: 10,
   },
   headerButton: {
     marginLeft: 20,
@@ -224,6 +216,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 5,
+    marginBottom: 10,
   },
   createPostButtonText: {
     color: '#fff',
