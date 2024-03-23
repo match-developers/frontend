@@ -9,14 +9,32 @@ import {
   TextInput,
 } from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 import Header from '../components/Header';
 
-const Feed = () => {
+const Feed = ({navigation}) => {
   const [posts, setPosts] = useState([
-    {id: 1, user: 'User1', content: 'This is post 1', likes: 0, comments: []},
+    {
+      id: 1,
+      user: 'User1',
+      content: 'This is post 1',
+      selectedOption: 'Match Post',
+      likes: 0,
+      comments: [],
+    },
     {id: 2, user: 'User2', content: 'This is post 2', likes: 0, comments: []},
   ]);
+
+  const [open, setOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('Match Post');
+  const [items, setItems] = useState([
+    {label: 'Match Post', value: 'Match Post'},
+    {label: 'League table post', value: 'League table post'},
+    {label: 'Club transfer post', value: 'Club transfer post'},
+    {label: 'Rank change post', value: 'Rank change post'},
+  ]);
+
   const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
   const [newPostCaption, setNewPostCaption] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
@@ -29,12 +47,14 @@ const Feed = () => {
       content: newPostContent,
       likes: 0,
       comments: [],
+      selectedOption: selectedOption, // Added selected option to post
     };
     setPosts([newPost, ...posts]);
     setCreatePostModalVisible(false);
     setNewPostCaption('');
     setNewPostContent('');
     setAttachedFiles([]);
+    setSelectedOption('Match Post');
   };
 
   // Should add feature: max 1 like per each user
@@ -75,29 +95,38 @@ const Feed = () => {
     });
   };
 
+  const handlePostPress = post => {
+    if (post.selectedOption === 'Match Post') {
+      navigation.navigate('MatchInfo');
+    }
+  };
+
   const renderPostItem = ({item}) => (
-    <View style={styles.postContainer}>
-      <Text style={styles.username}>{item.user}</Text>
-      <Text>{item.content}</Text>
-      <View style={styles.postActions}>
-        <TouchableOpacity
-          onPress={() => likePost(item.id)}
-          style={styles.actionButton}>
-          <Text>Like ({item.likes})</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.actionButton}>
-          <Text>Comment</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.actionButton}>
-          <Text>Share</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => deletePost(item.id)}
-          style={styles.actionButton}>
-          <Text>Delete</Text>
-        </TouchableOpacity>
+    <TouchableOpacity onPress={() => handlePostPress(item)}>
+      <View style={styles.postContainer}>
+        <Text style={styles.username}>{item.user}</Text>
+        <Text>{item.content}</Text>
+        <Text>Selected Option: {item.selectedOption}</Text>
+        <View style={styles.postActions}>
+          <TouchableOpacity
+            onPress={() => likePost(item.id)}
+            style={styles.actionButton}>
+            <Text>Like ({item.likes})</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text>Comment</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text>Share</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => deletePost(item.id)}
+            style={styles.actionButton}>
+            <Text>Delete</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
@@ -127,6 +156,14 @@ const Feed = () => {
         transparent={true}>
         <View style={styles.modalBackground}>
           <View style={styles.modalContent}>
+            <DropDownPicker
+              open={open}
+              value={selectedOption}
+              items={items}
+              setOpen={setOpen}
+              setValue={setSelectedOption}
+              setItems={setItems}
+            />
             <TextInput
               placeholder="Caption"
               style={styles.input}
@@ -140,6 +177,7 @@ const Feed = () => {
               value={newPostContent}
               onChangeText={setNewPostContent}
             />
+
             <TouchableOpacity
               onPress={pickFile}
               style={styles.attachmentButton}>
@@ -312,6 +350,22 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+  },
+  pickerContainer: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    marginBottom: 8,
+  },
+  picker: {
+    height: 50,
+    width: '100%',
+  },
+  pickerItem: {
+    justifyContent: 'flex-start',
+  },
+  dropDown: {
+    backgroundColor: '#fafafa',
   },
 });
 
