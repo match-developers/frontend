@@ -6,6 +6,7 @@ import FeedHeader from '../components/Header/FeedHeader';
 import CustomPostModal from '../components/Modal/CreateCustomPostModal';
 import FeedFooter from '../components/Footer/FeedFooter';
 import Post from '../components/Post/Post';
+import GameContents from '../components/GameContents';
 
 const FeedPage = ({navigation}) => {
   const [posts, setPosts] = useState([
@@ -138,6 +139,7 @@ const FeedPage = ({navigation}) => {
         pickFile={pickFile}
         attachedFiles={attachedFiles}
       />
+      <GameContents />
       <FeedFooter />
     </View>
   );
