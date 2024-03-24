@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
 
 import LeagueHeader from '../Header/LeagueHeader';
 
@@ -11,6 +11,9 @@ const teams = [
 const LeagueTable = ({route}) => {
   const [activeTab, setActiveTab] = useState('matches');
   const {matchPosts} = route.params;
+  const filteredMatchPosts = matchPosts.filter(
+    post => post.selectedOption === 'Match Post',
+  );
   const [stats] = useState({
     ranking: 1,
     goalScored: 25,
@@ -18,20 +21,11 @@ const LeagueTable = ({route}) => {
     mvpSelected: 'Player 1',
     mannerScore: 4.5,
   });
-
-  const renderMatches = () => {
-    return (
-      <View style={styles.container}>
-        {/* Render match posts */}
-        {matchPosts.map(post => (
-          <View key={post.id} style={styles.postContainer}>
-            <Text>{post.content}</Text>
-            {/* Add other post details here */}
-          </View>
-        ))}
-      </View>
-    );
-  };
+  const renderMatches = ({item}) => (
+    <View style={styles.postContainer}>
+      <Text>{item.content}</Text>
+    </View>
+  );
 
   const renderTable = () => {
     return (
@@ -64,7 +58,7 @@ const LeagueTable = ({route}) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       {/* Include LeagueHeader component */}
       <LeagueHeader
         onMatchesPress={() => setActiveTab('matches')}
@@ -72,14 +66,18 @@ const LeagueTable = ({route}) => {
         onStatsPress={() => setActiveTab('stats')}
       />
       <View style={styles.contentContainer}>
-        <View style={styles.tableContainer}>
-          {/* Render content based on activeTab state */}
-          {activeTab === 'matches' && renderMatches()}
-          {activeTab === 'table' && renderTable()}
-          {activeTab === 'stats' && renderStats()}
-        </View>
+        {activeTab === 'matches' && (
+          <FlatList
+            data={filteredMatchPosts}
+            keyExtractor={post => post.id.toString()}
+            renderItem={renderMatches}
+            style={styles.postsList}
+          />
+        )}
+        {activeTab === 'table' && renderTable()}
+        {activeTab === 'stats' && renderStats()}
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -100,6 +98,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderRadius: 10,
     padding: 20,
+  },
+  postsList: {
+    marginTop: 10,
+  },
+  postContainer: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
   },
 });
 
