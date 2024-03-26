@@ -31,7 +31,6 @@ const LeagueTable = ({route}) => {
     return (
       <View>
         <Text style={styles.leagueTitle}>K-League - Round 2 of 5</Text>
-        {/* Render league table here */}
         <Text>League Table</Text>
         {teams.map((team, index) => (
           <Text key={index}>
@@ -46,7 +45,6 @@ const LeagueTable = ({route}) => {
   const renderStats = () => {
     return (
       <View>
-        {/* Render stats page here */}
         <Text>Stats Page</Text>
         <Text>Ranking: {stats.ranking}</Text>
         <Text>Goal Scored: {stats.goalScored}</Text>
@@ -59,7 +57,6 @@ const LeagueTable = ({route}) => {
 
   return (
     <View style={styles.container}>
-      {/* Include LeagueHeader component */}
       <LeagueHeader
         onMatchesPress={() => setActiveTab('matches')}
         onTablePress={() => setActiveTab('table')}

@@ -43,7 +43,7 @@ const FeedPage = ({navigation}) => {
       caption: newPostCaption,
       likes: 0,
       comments: [],
-      selectedOption: selectedOption, // Added selected option to post
+      selectedOption: selectedOption,
     };
     setPosts([newPost, ...posts]);
     setCreatePostModalVisible(false);
@@ -84,7 +84,6 @@ const FeedPage = ({navigation}) => {
         console.log('ImagePicker Error: ', response.error);
       } else {
         const {uri, fileName, type} = response;
-        // Add the selected file to the attached files state
         setAttachedFiles([...attachedFiles, {uri, fileName, type}]);
       }
     });
