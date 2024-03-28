@@ -26,7 +26,7 @@ const FeedPage = () => {
   const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
   const [newPostCaption, setNewPostCaption] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
-  const [selectedOption, setSelectedOption] = useState('Match Post');
+  const [selectedOption, setSelectedOption] = useState('');
   const [attachedFiles, setAttachedFiles] = useState([]);
 
   const createPost = () => {
@@ -37,14 +37,14 @@ const FeedPage = () => {
       caption: newPostCaption,
       likes: 0,
       comments: [],
-      selectedOption: selectedOption, // Added selected option to post
+      selectedOption: selectedOption,
     };
     setPosts([newPost, ...posts]);
     setCreatePostModalVisible(false);
     setNewPostCaption('');
     setNewPostContent('');
     setAttachedFiles([]);
-    setSelectedOption('Match Post');
+    setSelectedOption('');
   };
 
   const handleLogout = async () => {
@@ -83,7 +83,6 @@ const FeedPage = () => {
         console.log('ImagePicker Error: ', response.error);
       } else {
         const {uri, fileName, type} = response;
-        // Add the selected file to the attached files state
         setAttachedFiles([...attachedFiles, {uri, fileName, type}]);
       }
     });
@@ -92,6 +91,9 @@ const FeedPage = () => {
   const handlePostPress = post => {
     if (post.selectedOption === 'Match Post') {
       navigation.navigate('MatchInfo');
+    }
+    if (post.selectedOption === 'League Table') {
+      navigation.navigate('LeagueTable', {matchPosts: posts});
     }
   };
 
