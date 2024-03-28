@@ -13,7 +13,7 @@ const FeedPage = ({navigation}) => {
       id: 1,
       user: 'User1',
       caption: '',
-      content: 'This is post 1',
+      content: 'This is Match Post',
       selectedOption: 'Match Post',
       likes: 0,
       comments: [],
@@ -22,7 +22,8 @@ const FeedPage = ({navigation}) => {
       id: 2,
       user: 'User2',
       caption: '',
-      content: 'This is post 2',
+      content: 'This is League Table Post',
+      selectedOption: 'League Table',
       likes: 0,
       comments: [],
     },
@@ -31,7 +32,7 @@ const FeedPage = ({navigation}) => {
   const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
   const [newPostCaption, setNewPostCaption] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
-  const [selectedOption, setSelectedOption] = useState('Match Post');
+  const [selectedOption, setSelectedOption] = useState('');
   const [attachedFiles, setAttachedFiles] = useState([]);
 
   const createPost = () => {
@@ -42,14 +43,14 @@ const FeedPage = ({navigation}) => {
       caption: newPostCaption,
       likes: 0,
       comments: [],
-      selectedOption: selectedOption, // Added selected option to post
+      selectedOption: selectedOption,
     };
     setPosts([newPost, ...posts]);
     setCreatePostModalVisible(false);
     setNewPostCaption('');
     setNewPostContent('');
     setAttachedFiles([]);
-    setSelectedOption('Match Post');
+    setSelectedOption('');
   };
 
   const likePost = postId => {
@@ -83,7 +84,6 @@ const FeedPage = ({navigation}) => {
         console.log('ImagePicker Error: ', response.error);
       } else {
         const {uri, fileName, type} = response;
-        // Add the selected file to the attached files state
         setAttachedFiles([...attachedFiles, {uri, fileName, type}]);
       }
     });
@@ -92,6 +92,9 @@ const FeedPage = ({navigation}) => {
   const handlePostPress = post => {
     if (post.selectedOption === 'Match Post') {
       navigation.navigate('MatchInfo');
+    }
+    if (post.selectedOption === 'League Table') {
+      navigation.navigate('LeagueTable', {matchPosts: posts});
     }
   };
 
