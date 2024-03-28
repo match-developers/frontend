@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import PostHeader from '../Header/PostHeader';
+import GenericContent from './content/GenericContent';
 
 const Post = ({item, likePost, deletePost, handlePostPress}) => {
   return (
@@ -8,8 +9,7 @@ const Post = ({item, likePost, deletePost, handlePostPress}) => {
       <View style={styles.postContainer}>
         <Text style={styles.username}>{item.user}</Text>
         <PostHeader item={item} />
-        <Text>{item.content}</Text>
-        <Text>{item.selectedOption}</Text>
+        <GenericContent item={item} />
         <View style={styles.postActions}>
           <TouchableOpacity
             onPress={() => likePost(item.id)}
