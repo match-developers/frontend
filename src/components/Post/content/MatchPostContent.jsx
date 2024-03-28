@@ -1,14 +1,9 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
-const GameContents = () => {
+const MatchPostContent = () => {
   return (
     <View style={styles.container}>
-      {/* Header -- Top Container */}
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Headline Text</Text>
-      </View>
-
       {/* Media -- middle container */}
       <View style={styles.mediaContainer}>
         {/* top left text*/}
@@ -29,31 +24,6 @@ const GameContents = () => {
         </View>
         {/* top right text*/}
         <Text style={styles.topRightText}>Date: 00/00/00</Text>
-      </View>
-
-      {/*Footer -- bottom coontainer*/}
-      <View style={styles.footerContainer}>
-        <View style={styles.footerLeft}>
-          {/* footer buttons, like comment share*/}
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Like</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Comment</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Share</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.footerRight}>
-          {/*footer buttons, join and add*/}
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Join</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Add</Text>
-          </TouchableOpacity>
-        </View>
       </View>
     </View>
   );
@@ -166,4 +136,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GameContents;
+export default MatchPostContent;
