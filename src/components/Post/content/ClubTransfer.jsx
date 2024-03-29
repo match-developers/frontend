@@ -9,7 +9,9 @@ export const ClubTransfer = ({data}) => {
           <View style={styles.postLogo} />
           <View>
             <Text>
-              <Text style={styles.bold}>{data.user}</Text> {data.content}
+              {data.user}
+              {'\n'}
+              <Text style={styles.bold}>{data.content}</Text>
             </Text>
             <Text style={styles.smallText}>{data.details}</Text>
           </View>
@@ -23,23 +25,32 @@ export const clubtransferData = [
   {
     id: 101,
     user: 'Transfer News',
-    content: 'Manchester United is interested in John Doe',
+    type: 'clubisInterested',
+    content: 'FC Seoul is interested in John Doe',
     details:
-      'Ranking in League: 2 | Number of Players: 24 | Win: 18 Draw: 5 Lost: 2 | Established Year: 1878',
+      'Ranking in League: 2 \n Number of Players: 24 \n Win: 18 Draw: 5 Lost: 2 \n Established Year: 2020',
   },
   {
     id: 102,
     user: 'Transfer News',
-    content:
-      'John Doe has been transferred from Arsenal FC to Manchester United',
+    type: 'userTransferred',
+    content: 'John Doe transferred! \n Arsenal FC to FC Seoul',
     details: 'Joining as a key player | Date: 2023-04-15',
   },
   {
     id: 103,
     user: 'Transfer News',
+    type: 'userQuitClub',
     content: 'John Doe has quit from Arsenal FC',
     details:
-      'Stats: Total Match Played: 250 | Win: 150 Draw: 50 Lost: 50 | Total MVP Selected: 20 | Manner Score: 9.5',
+      'Stats: Total Match Played: 20\nWin: 9\nDraw: 5\nLost: 6\nTotal MVP Selected: 20\nManner Score: 9.5',
+  },
+  {
+    id: 104,
+    user: 'Transfer News',
+    type: 'userJoinClub',
+    content: 'John Doe joined Arsenal FC',
+    details: "Let's go!",
   },
 ];
 
@@ -67,6 +78,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#d1d5db',
     borderRadius: 25,
     marginRight: 10,
+  },
+  postContent: {
+    flex: 1,
   },
   bold: {
     fontWeight: 'bold',

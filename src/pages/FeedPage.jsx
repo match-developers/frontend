@@ -25,7 +25,7 @@ const FeedPage = ({navigation}) => {
     {
       id: 2,
       user: 'User2',
-      caption: 'Title1',
+      caption: 'Title2',
       content: 'This is post 2',
       selectedOption: 'League Table',
       likes: 0,
