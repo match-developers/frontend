@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const BASE_URL = Config.BACKEND_URL;
 
-export const getPosts = async () => {
+export const getCustomPosts = async () => {
   try {
     const token = await AsyncStorage.getItem('access_token');
     const response = await axios.get(`${BASE_URL}/newsfeed/custom_posts`, {
@@ -18,7 +18,7 @@ export const getPosts = async () => {
   }
 };
 
-export const createPost = async post => {
+export const createCustomPost = async post => {
   try {
     const token = await AsyncStorage.getItem('access_token');
     const response = await axios.post(
