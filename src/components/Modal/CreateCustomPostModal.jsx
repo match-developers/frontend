@@ -8,27 +8,68 @@ import {
   Text,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
+import {createCustomPost as createCustomPostService} from '../../services/postServices';
 
 const CustomPostModal = ({
+  setPosts,
+  posts,
   isCreatePostModalVisible,
   setCreatePostModalVisible,
-  newPostCaption,
-  setNewPostCaption,
-  newPostContent,
-  setNewPostContent,
-  selectedOption,
-  setSelectedOption,
-  createPost,
-  pickFile,
-  attachedFiles,
 }) => {
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([
+    {label: 'Custom Post', value: 'Custom Post'},
     {label: 'Match Post', value: 'Match Post'},
     {label: 'League Table', value: 'League Table'},
     {label: 'Club Transfer', value: 'Club Transfer'},
     {label: 'Rank Change', value: 'Rank Change'},
   ]);
+  const [newPostCaption, setNewPostCaption] = useState('');
+  const [newPostContent, setNewPostContent] = useState('');
+  const [selectedOption, setSelectedOption] = useState('');
+  const [attachedFiles, setAttachedFiles] = useState([]);
+
+  const createPost = async () => {
+    const newPost = {
+      title: newPostCaption,
+      text: newPostContent,
+    };
+
+    try {
+      const createdPost = await createCustomPostService(newPost);
+      // setPosts([createdPost, ...posts]);
+      setCreatePostModalVisible(false);
+      setNewPostCaption('');
+      setNewPostContent('');
+      setAttachedFiles([]);
+      setSelectedOption('');
+    } catch (error) {
+      console.error('Failed to create post', error);
+    }
+  };
+
+  const pickFile = () => {
+    const options = {
+      title: 'Select File',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+
+    launchImageLibrary(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        const {uri, fileName, type} = response;
+        setAttachedFiles([...attachedFiles, {uri, fileName, type}]);
+      }
+    });
+  };
+
   return (
     <Modal
       visible={isCreatePostModalVisible}

@@ -1,51 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
-import {launchImageLibrary} from 'react-native-image-picker';
 import {useNavigation} from '@react-navigation/native';
 
 import FeedHeader from '../components/Header/FeedHeader';
 import CustomPostModal from '../components/Modal/CreateCustomPostModal';
 import FeedFooter from '../components/Footer/FeedFooter';
 import Post from '../components/Post/Post';
-import {getPosts} from '../services/postServices';
+import {getCustomPosts} from '../services/postServices';
 import {logout} from '../services/axios';
 
 const FeedPage = () => {
   const navigation = useNavigation();
   const [posts, setPosts] = useState([]);
+  const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const posts = await getPosts();
+      const posts = await getCustomPosts();
       setPosts(posts);
     };
 
     fetchPosts();
   }, []);
-
-  const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
-  const [newPostCaption, setNewPostCaption] = useState('');
-  const [newPostContent, setNewPostContent] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
-  const [attachedFiles, setAttachedFiles] = useState([]);
-
-  const createPost = () => {
-    const newPost = {
-      id: posts.length + 1,
-      user: 'CurrentUser',
-      content: newPostContent,
-      caption: newPostCaption,
-      likes: 0,
-      comments: [],
-      selectedOption: selectedOption,
-    };
-    setPosts([newPost, ...posts]);
-    setCreatePostModalVisible(false);
-    setNewPostCaption('');
-    setNewPostContent('');
-    setAttachedFiles([]);
-    setSelectedOption('');
-  };
 
   const handleLogout = async () => {
     await logout();
@@ -65,27 +41,6 @@ const FeedPage = () => {
   const deletePost = postId => {
     const updatedPosts = posts.filter(post => post.id !== postId);
     setPosts(updatedPosts);
-  };
-
-  const pickFile = () => {
-    const options = {
-      title: 'Select File',
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
-
-    launchImageLibrary(options, response => {
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else {
-        const {uri, fileName, type} = response;
-        setAttachedFiles([...attachedFiles, {uri, fileName, type}]);
-      }
-    });
   };
 
   const handlePostPress = post => {
@@ -133,17 +88,10 @@ const FeedPage = () => {
       />
 
       <CustomPostModal
+        setPosts={setPosts}
+        posts={posts}
         isCreatePostModalVisible={isCreatePostModalVisible}
         setCreatePostModalVisible={setCreatePostModalVisible}
-        newPostCaption={newPostCaption}
-        setNewPostCaption={setNewPostCaption}
-        newPostContent={newPostContent}
-        setNewPostContent={setNewPostContent}
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
-        createPost={createPost}
-        pickFile={pickFile}
-        attachedFiles={attachedFiles}
       />
       <FeedFooter />
     </View>
