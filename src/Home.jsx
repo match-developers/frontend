@@ -17,10 +17,6 @@ const HomePage = ({navigation}) => {
             title="Feed_test"
             onPress={() => navigation.navigate('Feed')}
           />
-          <Button
-            title="club"
-            onPress={() => navigation.navigate('ClubTransfer')}
-          />
         </View>
       </ImageBackground>
     </View>
