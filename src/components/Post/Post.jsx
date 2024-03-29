@@ -9,12 +9,8 @@ const Post = ({item, likePost, deletePost, handlePostPress}) => {
       <View style={styles.postContainer}>
         <Text style={styles.username}>{item.user}</Text>
         <PostHeader item={item} />
-<<<<<<< HEAD
         <Text>{item.content}</Text>
         {item.selectedOption && <Text>{item.selectedOption}</Text>}
-=======
-        <GenericContent item={item} />
->>>>>>> 060040f260e7d8e3622af23e2443097d718cf362
         <View style={styles.postActions}>
           <TouchableOpacity
             onPress={() => likePost(item.id)}

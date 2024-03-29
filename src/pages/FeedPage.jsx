@@ -16,13 +16,8 @@ const FeedPage = ({navigation}) => {
     {
       id: 1,
       user: 'User1',
-<<<<<<< HEAD
       caption: 'Title1',
       content: 'This is post 1',
-=======
-      caption: '',
-      content: 'This is Match Post',
->>>>>>> 060040f260e7d8e3622af23e2443097d718cf362
       selectedOption: 'Match Post',
       likes: 0,
       comments: [],
@@ -30,13 +25,8 @@ const FeedPage = ({navigation}) => {
     {
       id: 2,
       user: 'User2',
-<<<<<<< HEAD
       caption: 'Title2',
       content: 'This is post 2',
-=======
-      caption: '',
-      content: 'This is League Table Post',
->>>>>>> 060040f260e7d8e3622af23e2443097d718cf362
       selectedOption: 'League Table',
       likes: 0,
       comments: [],
