@@ -25,9 +25,9 @@ const CustomPostModal = ({
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([
     {label: 'Match Post', value: 'Match Post'},
-    {label: 'League table post', value: 'League table post'},
-    {label: 'Club transfer post', value: 'Club transfer post'},
-    {label: 'Rank change post', value: 'Rank change post'},
+    {label: 'League Table', value: 'League Table'},
+    {label: 'Club Transfer', value: 'Club Transfer'},
+    {label: 'Rank Change', value: 'Rank Change'},
   ]);
   return (
     <Modal
