@@ -28,21 +28,28 @@ const CustomPostModal = ({
   const [newPostCaption, setNewPostCaption] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
-  const [attachedFiles, setAttachedFiles] = useState([]);
+  const [attachedFile, setAttachedFile] = useState(null);
 
   const createPost = async () => {
-    const newPost = {
-      title: newPostCaption,
-      text: newPostContent,
-    };
+    const formData = new FormData();
+    formData.append('title', newPostCaption);
+    if (newPostContent !== '') {
+      formData.append('text', newPostContent);
+    }
+    if (attachedFile) {
+      if (attachedFile['type'].startsWith('image/')) {
+        formData.append('image', attachedFile);
+      } else if (attachedFile['type'].startsWith('video/')) {
+        formData.append('video', attachedFile);
+      }
+    }
 
     try {
-      const createdPost = await createCustomPostService(newPost);
-      // setPosts([createdPost, ...posts]);
+      const createdPost = await createCustomPostService(formData);
       setCreatePostModalVisible(false);
       setNewPostCaption('');
       setNewPostContent('');
-      setAttachedFiles([]);
+      setAttachedFile(null);
       setSelectedOption('');
     } catch (error) {
       console.error('Failed to create post', error);
@@ -52,9 +59,10 @@ const CustomPostModal = ({
   const pickFile = () => {
     const options = {
       title: 'Select File',
+      mediaType: 'mixed',
       storageOptions: {
         skipBackup: true,
-        path: 'images',
+        path: 'media',
       },
     };
 
@@ -64,8 +72,13 @@ const CustomPostModal = ({
       } else if (response.error) {
         console.log('ImagePicker Error: ', response.error);
       } else {
-        const {uri, fileName, type} = response;
-        setAttachedFiles([...attachedFiles, {uri, fileName, type}]);
+        const {fileName, uri, type} = response.assets[0];
+        const file = {
+          uri,
+          name: fileName,
+          type,
+        };
+        setAttachedFile(file);
       }
     });
   };
@@ -101,11 +114,7 @@ const CustomPostModal = ({
           <TouchableOpacity onPress={pickFile} style={styles.attachmentButton}>
             <Text>Attachment</Text>
           </TouchableOpacity>
-          <View>
-            {attachedFiles.map((file, index) => (
-              <Text key={index}>{file.fileName}</Text>
-            ))}
-          </View>
+          <View>{attachedFile && <Text>{attachedFile.name}</Text>}</View>
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               onPress={() => setCreatePostModalVisible(false)}
