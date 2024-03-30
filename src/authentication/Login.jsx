@@ -21,14 +21,14 @@ const LoginScreen = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const handleEmailLogin = async (email, password) => {
+  const handleEmailLogin = async (userEmail, userPassword) => {
     try {
       validateEmail();
       validatePassword();
       if (emailError || passwordError) {
         return;
       }
-      await emailLogin(email, password);
+      await emailLogin(userEmail, userPassword);
       navigation.navigate('FeedPage');
     } catch (error) {
       console.error(error);

@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import FeedHeader from '../components/Header/FeedHeader';
 import CustomPostModal from '../components/Modal/CreateCustomPostModal';
+import FeedHeader from '../components/Header/FeedHeader';
 import FeedFooter from '../components/Footer/FeedFooter';
 import Post from '../components/Post/Post';
 import {getCustomPosts} from '../services/postServices';
 import {logout} from '../services/axios';
+import ClubTransfer from '../components/ClubTransfer/ClubTransfer';
 
 const FeedPage = () => {
   const navigation = useNavigation();
@@ -61,6 +62,8 @@ const FeedPage = () => {
     />
   );
 
+  const renderClubTransferItem = ({item}) => <ClubTransfer data={item} />;
+
   return (
     <View style={containerStyles.container}>
       <FeedHeader />
@@ -82,8 +85,13 @@ const FeedPage = () => {
 
       <FlatList
         data={posts}
-        keyExtractor={post => post.id.toString()}
-        renderItem={renderPostItem}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({item}) => {
+          if (item.user === 'Transfer News') {
+            return renderClubTransferItem({item});
+          }
+          return renderPostItem({item});
+        }}
         style={postsListStyles.postsList}
       />
 

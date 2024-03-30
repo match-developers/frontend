@@ -37,9 +37,9 @@ const CustomPostModal = ({
       formData.append('text', newPostContent);
     }
     if (attachedFile) {
-      if (attachedFile['type'].startsWith('image/')) {
+      if (attachedFile.type.startsWith('image/')) {
         formData.append('image', attachedFile);
-      } else if (attachedFile['type'].startsWith('video/')) {
+      } else if (attachedFile.type.startsWith('video/')) {
         formData.append('video', attachedFile);
       }
     }

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 
-import LeagueHeader from '../Header/LeagueHeader';
+import LeagueHeader from '../../Header/LeagueHeader';
 
 const teams = [
   {name: 'Team 1', MP: 10, W: 6, D: 2, L: 2, PTs: 20},
