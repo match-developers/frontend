@@ -1,19 +1,23 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, FlatList, TouchableOpacity, Text} from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
 
-import FeedHeader from '../components/Header/FeedHeader';
 import CustomPostModal from '../components/Modal/CreateCustomPostModal';
+import FeedHeader from '../components/Header/FeedHeader';
 import FeedFooter from '../components/Footer/FeedFooter';
 import Post from '../components/Post/Post';
+import {
+  ClubTransfer,
+  clubtransferData,
+} from '../components/Post/content/ClubTransfer';
 
 const FeedPage = ({navigation}) => {
   const [posts, setPosts] = useState([
     {
       id: 1,
       user: 'User1',
-      caption: '',
-      content: 'This is Match Post',
+      caption: 'Title1',
+      content: 'This is post 1',
       selectedOption: 'Match Post',
       likes: 0,
       comments: [],
@@ -21,19 +25,21 @@ const FeedPage = ({navigation}) => {
     {
       id: 2,
       user: 'User2',
-      caption: '',
-      content: 'This is League Table Post',
+      caption: 'Title2',
+      content: 'This is post 2',
       selectedOption: 'League Table',
       likes: 0,
       comments: [],
     },
-    // Add more posts as needed
   ]);
+
   const [isCreatePostModalVisible, setCreatePostModalVisible] = useState(false);
   const [newPostCaption, setNewPostCaption] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [attachedFiles, setAttachedFiles] = useState([]);
+
+  const allPosts = [...posts, ...clubtransferData];
 
   const createPost = () => {
     const newPost = {
@@ -107,6 +113,8 @@ const FeedPage = ({navigation}) => {
     />
   );
 
+  const renderClubTransferItem = ({item}) => <ClubTransfer data={item} />;
+
   return (
     <View style={containerStyles.container}>
       <FeedHeader />
@@ -122,9 +130,14 @@ const FeedPage = ({navigation}) => {
       </View>
 
       <FlatList
-        data={posts}
-        keyExtractor={post => post.id.toString()}
-        renderItem={renderPostItem}
+        data={allPosts}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({item}) => {
+          if (item.user === 'Transfer News') {
+            return renderClubTransferItem({item});
+          }
+          return renderPostItem({item});
+        }}
         style={postsListStyles.postsList}
       />
 
