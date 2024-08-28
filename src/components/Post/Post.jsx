@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import PostHeader from '../Header/PostHeader';
-import GenericContent from './content/GenericContent';
 
 const Post = ({item, likePost, deletePost, handlePostPress}) => {
   return (
