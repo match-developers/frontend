@@ -15,7 +15,7 @@ const InboxButton = ({ onPress, size = 24, color = '#000' }) => {
 InboxButton.propTypes = {
   onPress: PropTypes.func.isRequired,
   size: PropTypes.number,
-  color: PropTypes.string,
+  color: PropTypes.string
 };
 
 const styles = StyleSheet.create({
@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 });
 
 export default InboxButton;

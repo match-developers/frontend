@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     borderRadius: 18, // Circular mask
     backgroundColor: '#D9D9D9', // Default background color
     borderColor: 'black',
-    borderWidth: 1,
-  },
+    borderWidth: 1
+  }
 });
 
 export default ClubAvatar;

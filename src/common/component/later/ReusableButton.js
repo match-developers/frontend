@@ -16,7 +16,7 @@ function ReusableButton({
   height = 48, // Height of the button
   borderRadius = 8, // Border radius of the button
   iconPosition = 'right', // Position of the icon ('right', 'left', 'top')
-  fontSize = 16, // Font size for the text
+  fontSize = 16 // Font size for the text
 }) {
   return (
     <TouchableOpacity
@@ -30,8 +30,8 @@ function ReusableButton({
           width,
           height,
           flexDirection: iconPosition === 'top' ? 'column' : 'row', // Control the icon position
-          borderWidth: borderColor !== 'transparent' ? 1 : 0,
-        },
+          borderWidth: borderColor !== 'transparent' ? 1 : 0
+        }
       ]}
       onPress={onPress}
       activeOpacity={0.7} // Make the button visually responsive to touch
@@ -49,7 +49,11 @@ function ReusableButton({
       )}
 
       {/* Render Text if it exists */}
-      {text && <Text style={[styles.text, { color: textColor, fontSize }]}>{text}</Text>}
+      {text && (
+        <Text style={[styles.text, { color: textColor, fontSize }]}>
+          {text}
+        </Text>
+      )}
 
       {/* Render Icon if SVG is provided and should be on the right */}
       {SvgIcon && iconPosition === 'right' && (
@@ -67,27 +71,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   text: {
     fontWeight: '600',
-    fontFamily: 'Exo 2',
+    fontFamily: 'Exo 2'
   },
   leftIcon: {
     marginRight: 8, // Moved from inline style
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   topIcon: {
     marginBottom: 5, // Moved from inline style
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   rightIcon: {
     marginLeft: 8, // Moved from inline style
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 });
 
 ReusableButton.propTypes = {
@@ -101,14 +105,14 @@ ReusableButton.propTypes = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   borderRadius: PropTypes.number,
   iconPosition: PropTypes.oneOf(['left', 'right', 'top']),
-  fontSize: PropTypes.number,
+  fontSize: PropTypes.number
 };
 
 ReusableButton.defaultProps = {
   text: 'Click Me',
   backgroundColor: '#007AFF',
   textColor: '#FFF',
-  borderRadius: 8,
+  borderRadius: 8
 };
 
 export default ReusableButton;
