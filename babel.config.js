@@ -1,3 +1,1 @@
-module.exports = {
-  presets: ['module:@react-native/babel-preset', '@babel/preset-react'],
-};
+export const presets = ['module:@react-native/babel-preset', '@babel/preset-react'];
