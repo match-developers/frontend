@@ -2,7 +2,7 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import NotificationIcon from 'PS C:/Users/USER/Match/frontend/assets/SVGs/default/IconBellDefault'; // Adjust the path to your SVG
+import NotificationIcon from 'match/frontend/assets/SVGs/default/IconBellDefault'; // Adjust the path to your SVG
 
 const NotificationButton = ({ onPress, size = 24, color = '#000' }) => {
   return (

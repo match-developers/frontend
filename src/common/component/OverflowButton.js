@@ -2,7 +2,7 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import OverflowIcon from 'PS C:/Users/USER/Match/frontend/assets/SVGs/default/IconOverflowDefault'; // Adjust the path to your SVG
+import OverflowIcon from 'match/frontend/assets/SVGs/default/IconOverflowDefault'; // Adjust the path to your SVG
 
 const OverflowButton = ({ onPress, size = 24, color = '#000' }) => {
   return (
