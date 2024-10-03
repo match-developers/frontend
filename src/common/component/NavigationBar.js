@@ -1,11 +1,11 @@
-/* eslint-disable prettier/prettier */
+//bottom nav bar(newsfeed, explore, club, user profile)//
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Logo from './Logo';
-import OverflowButton from './OverflowButton';
-import NotificationButton from './NotificationButton';
-import CreateButton from './CreateButton';
-import InboxButton from './InboxButton';
+import OverflowButton from './later/OverflowButton';
+import NotificationButton from './later/NotificationButton';
+import CreateButton from './later/CreateButton';
+import InboxButton from './later/InboxButton';
 import PropTypes from 'prop-types';
 
 const NavBar = ({ screenType = 'default', onLogoPress, onOverflowPress }) => {
@@ -25,7 +25,9 @@ const NavBar = ({ screenType = 'default', onLogoPress, onOverflowPress }) => {
 
         {screenType === 'newsfeed' && (
           <>
-            <NotificationButton onPress={() => console.log('Notification Pressed')} />
+            <NotificationButton
+              onPress={() => console.log('Notification Pressed')}
+            />
             <InboxButton onPress={() => console.log('Inbox Pressed')} />
           </>
         )}
@@ -44,9 +46,14 @@ const NavBar = ({ screenType = 'default', onLogoPress, onOverflowPress }) => {
 };
 
 NavBar.propTypes = {
-  screenType: PropTypes.oneOf(['default', 'matchmaking', 'newsfeed', 'sportsground']).isRequired,
+  screenType: PropTypes.oneOf([
+    'default',
+    'matchmaking',
+    'newsfeed',
+    'sportsground'
+  ]).isRequired,
   onLogoPress: PropTypes.func.isRequired,
-  onOverflowPress: PropTypes.func.isRequired,
+  onOverflowPress: PropTypes.func.isRequired
 };
 
 const styles = StyleSheet.create({
@@ -58,12 +65,12 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderBottomWidth: 1,
     borderBottomColor: '#000',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#F5F5F5'
   },
   buttonContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 });
 
 export default NavBar;

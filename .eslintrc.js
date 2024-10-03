@@ -4,11 +4,15 @@ module.exports = {
   parserOptions: {
     requireConfigFile: false,
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 2020,
-    sourceType: 'module',
+    sourceType: 'module'
   },
-  extends: ['plugin:react/recommended', '@react-native-community'],
-  plugins: ['react'],
+  extends: [
+    'plugin:react/recommended',
+    '@react-native-community',
+    'plugin:prettier/recommended'
+  ],
+  plugins: ['react']
 };

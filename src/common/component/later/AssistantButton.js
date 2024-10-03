@@ -1,21 +1,20 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import OverflowIcon from 'match/frontend/assets/SVGs/default/IconOverflowDefault'; // Adjust the path to your SVG
+import WhistleIcon from 'match/frontend/assets/SVGs/default/assets/SVGs/default/IconWhistleDefault'; // Adjust the path to your SVG
 
-const OverflowButton = ({ onPress, size = 24, color = '#000' }) => {
+const AssistantButton = ({ onPress, size = 24, color = '#000' }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.iconContainer}>
-      <OverflowIcon width={size} height={size} fill={color} />
+      <WhistleIcon width={size} height={size} fill={color} />
     </TouchableOpacity>
   );
 };
 
-OverflowButton.propTypes = {
+AssistantButton.propTypes = {
   onPress: PropTypes.func.isRequired,
   size: PropTypes.number,
-  color: PropTypes.string,
+  color: PropTypes.string
 };
 
 const styles = StyleSheet.create({
@@ -23,8 +22,8 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 });
 
-export default OverflowButton;
+export default AssistantButton;

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -21,8 +20,8 @@ const styles = StyleSheet.create({
     borderRadius: 40, // Circular mask
     backgroundColor: '#D9D9D9', // Default background color
     borderColor: 'black',
-    borderWidth: 1,
-  },
+    borderWidth: 1
+  }
 });
 
 export default ProfileAvatar;
