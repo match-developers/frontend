@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import OverflowCard from './OverflowCard'; // Import the OverflowCard molecule
