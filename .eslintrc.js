@@ -9,6 +9,6 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  extends: ['plugin:react/recommended', '@react-native-community'],
+  extends: ['plugin:react/recommended', '@react-native-community', 'react-app'],
   plugins: ['react'],
 };
