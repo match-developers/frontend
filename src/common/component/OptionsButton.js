@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import OverflowIcon from 'match/frontend/assets/SVGs/default/IconOverflowDefault'; // Correct SVG file path
@@ -11,15 +10,6 @@ const OverflowButton = ({ onPress }) => {
   );
 };
 
-<<<<<<< Updated upstream:src/common/component/OverflowButton.js
-OverflowButton.propTypes = {
-  onPress: PropTypes.func.isRequired,
-  size: PropTypes.number,
-  color: PropTypes.string,
-};
-
-=======
->>>>>>> Stashed changes:src/common/component/later/OverflowButton.js
 const styles = StyleSheet.create({
   iconContainer: {
     width: 24,

@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
 
 export default ClubAvatar;
 
-// Comment: If any SVGs are needed, they'll be added later.
+
