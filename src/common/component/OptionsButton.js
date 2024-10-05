@@ -1,11 +1,12 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import OverflowIcon from 'match/frontend/assets/SVGs/default/IconOverflowDefault'; // Correct SVG file path
+import OptionsIcon from 'match/frontend/assets/SVGs/default/IconOptionsDefault'; // Correct SVG file path
 
-const OverflowButton = ({ onPress }) => {
+const OptionsButton = ({ onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.iconContainer}>
-      <OverflowIcon width={24} height={24} fill={'#000'} />
+      <OptionsIcon width={24} height={24} fill={'#000'} />
     </TouchableOpacity>
   );
 };
@@ -19,4 +20,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default OverflowButton;
+export default OptionsButton;

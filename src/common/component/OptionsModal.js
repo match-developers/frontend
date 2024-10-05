@@ -15,7 +15,7 @@ import SwapIcon from 'match/frontend/assets/SVGs/default/IconSwap';
 import ReportIssueIcon from 'match/frontend/assets/SVGs/default/IconReportIssue';
 import LogoutIcon from 'match/frontend/assets/SVGs/default/IconLogout';
 
-const OverflowMenu = ({ visible, onClose }) => {
+const OptionsModal = ({ visible, onClose }) => {
   const menuItems = [
     { label: 'Edit Profile', SvgIcon: EditIcon, id: '1' },
     { label: 'Settings', SvgIcon: SettingsIcon, id: '2' },
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default OverflowMenu;
+export default OptionsModal;
