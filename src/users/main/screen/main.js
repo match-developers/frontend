@@ -1,5 +1,4 @@
 //main screen that shows up when user presses the profile button on the nav bar
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
