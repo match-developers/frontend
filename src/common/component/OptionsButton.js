@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import OptionsIcon from 'match/frontend/assets/SVGs/default/IconOptionsDefault'; // Correct SVG file path
