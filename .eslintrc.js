@@ -11,8 +11,14 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    '@react-native-community',
-    'plugin:prettier/recommended'
   ],
-  plugins: ['react']
+  plugins: ['react'],
+  rules: {
+    'react/prop-types': 'off'
+  },
+  settings: {
+    react: {
+      version: 'detect', // Automatically detect the react version
+    },
+  },
 };
