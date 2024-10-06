@@ -2,7 +2,7 @@
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const MBTIButton = ({ onPress }) => {
+const PlaystyleButton = ({ onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>
       <Text style={[styles.letters, styles.greenLetter]}>M</Text>
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default MBTIButton;
+export default PlaystyleButton;
