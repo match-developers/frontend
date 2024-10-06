@@ -4,10 +4,10 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
 // Import components
-import NavBar from './NavBar';
-import ProfileHeader from './ProfileHeader';
-import PostFeedContainer from './PostsContainer';
-import TabBar from './TabBar';
+import NavBar from 'match/frontend/src/users/main/container/NavBar';
+import ProfileHeader from 'match/frontend/src/users/main/container/ProfileHeader';
+import PostFeedContainer from 'match/frontend/src/users/main/container/PostsContainer';
+import TabBar from 'match/frontend/src/common/component/laterTabBar';
 
 const ProfileScreen = () => {
   return (

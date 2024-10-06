@@ -1,39 +1,90 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import ArrowFilterIcon from 'match/frontend/src/common/assets/SVGs/IconArrowFilter';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Modal,
+  TouchableOpacity,
+  FlatList,
+  TouchableWithoutFeedback
+} from 'react-native';
 
-const PostFilter = ({ sortOption = 'Oldest', onPress }) => {
-  return (
-    <TouchableOpacity style={styles.filterContainer} onPress={onPress}>
-      <Text style={styles.sortByText}>Sort By</Text>
-      <ArrowFilterIcon width={12} height={8} style={styles.arrowIcon} />
-      <Text style={styles.sortOptionText}>{sortOption}</Text>
+// Reusable OptionsModal component that can take any set of menu items through props
+const OptionsModal = ({ visible, onClose, menuItems }) => {
+  // Render each menu item do they are individuals and can have their own logic. they have text and an svg in them and an toucahbel opacity prop
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.menuItem}
+      onPress={item.onPress} // Action to be executed when the item is pressed
+    >
+      <Text style={styles.menuText}>{item.label}</Text>
+      {item.SvgIcon && (
+        <item.SvgIcon width={24} height={24} style={styles.icon} />
+      )}
     </TouchableOpacity>
+  );
+
+  return (
+    <Modal
+      transparent={true}
+      visible={visible}
+      onRequestClose={onClose} // Action to close the modal
+      animationType="none"
+    >
+      {/* Close modal on outside press */}
+      <TouchableWithoutFeedback onPress={onClose}>
+        <View style={styles.modalBackground}>
+          {/* Modal content */}
+          <TouchableWithoutFeedback>
+            <View style={styles.modalContainer}>
+              <FlatList
+                data={menuItems} // List of menu items to display
+                keyExtractor={item => item.id} // Unique key for each item
+                renderItem={renderItem} // Render each item using renderItem
+                scrollEnabled={true}
+                bounces={true}
+              />
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+      </TouchableWithoutFeedback>
+    </Modal>
   );
 };
 
+// Styles for the modal and menu items
 const styles = StyleSheet.create({
-  filterContainer: {
-    flexDirection: 'row',
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    width: '100%'
+    backgroundColor: 'rgba(0, 0, 0, 0.5)' // Dim background when modal is open
   },
-  sortByText: {
-    fontSize: 13,
+  modalContainer: {
+    width: '60%',
+    backgroundColor: '#E6E6E6',
+    borderRadius: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+    maxHeight: 'auto'
+  },
+  menuItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#CCCCCC' // Border between each menu item
+  },
+  menuText: {
+    fontSize: 20,
     fontFamily: 'Exo 2',
-    color: '#737373',
-    marginRight: 8
+    fontWeight: '500' // Styling for the text label
   },
-  arrowIcon: {
-    marginRight: 8
-  },
-  sortOptionText: {
-    fontSize: 14,
-    fontWeight: '500',
-    fontFamily: 'Exo 2',
-    color: '#000'
+  icon: {
+    marginLeft: 10 // Space between the label and the icon
   }
 });
 
-export default PostFilter;
+export default OptionsModal;
