@@ -1,5 +1,4 @@
-//the user main instance of the options modal. defining the labels and svgs all styling is done in the common component
-import React from 'react';
+import React, { useState } from 'react';
 import OptionsModal from './OptionsModal'; // Import the reusable OptionsModal component
 
 // Import the specific SVG icons for the user profile options

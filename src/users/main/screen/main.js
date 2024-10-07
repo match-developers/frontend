@@ -1,4 +1,3 @@
-//just imported the components of the main screen and applied layout styling
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
@@ -8,7 +7,7 @@ import ProfileHeader from 'match/frontend/src/users/main/container/ProfileHeader
 import PostFeedContainer from 'match/frontend/src/users/main/container/PostsContainer';
 import TabBar from 'match/frontend/src/common/component/laterTabBar';
 
-//order of componetns top to bottom on screen
+// Order of components top to bottom on screen
 const ProfileScreen = () => {
   return (
     <View style={styles.screenContainer}>
@@ -18,7 +17,9 @@ const ProfileScreen = () => {
       <View style={styles.profileHeader}>
         <ProfileHeader />
       </View>
-      <PostFeedContainer />
+      <View style={styles.postFeedContainer}>
+        <PostFeedContainer />
+      </View>
       <View style={styles.tabBar}>
         <TabBar />
       </View>
