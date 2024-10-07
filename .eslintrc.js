@@ -7,7 +7,10 @@ module.exports = {
       jsx: true // JSX 파싱 활성화
     },
     ecmaVersion: 2020,
-    sourceType: 'module' // ES 모듈 설정
+    sourceType: 'module',
+    babelOptions: {
+      presets: ['@babel/preset-react']
+    }
   },
   env: {
     browser: true,
