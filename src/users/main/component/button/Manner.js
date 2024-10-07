@@ -1,3 +1,4 @@
+// the manner rate hert svg with a text over it. its clickable, nothing applied to on press. did the styling myself.
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import HeartIcon from 'match/frontend/assets/SVGs/default/IconOverflowDefault';

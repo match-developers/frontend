@@ -1,3 +1,4 @@
+//profile button is the tab bars profile tab button to view profile
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import ProfileIcon from 'match/frontend/assets/SVGs/default/IconProfile';

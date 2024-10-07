@@ -1,8 +1,8 @@
+// the explore button fo rthe tab bar. its clickable and has styling applied.
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import ExploreIcon from 'match/frontend/assets/SVGs/default/IconExplore';
 import ExploreIconSelected from 'match/frontend/assets/SVGs/selected/IconExploreSelected';
-
 const ExploreButton = ({ selected, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>

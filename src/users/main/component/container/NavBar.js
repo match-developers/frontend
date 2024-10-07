@@ -1,8 +1,6 @@
-//* eslint-disable prettier/prettier */
+//this is the nav bar for the user main page. clickable logo and options button
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-
-// Import OptionsButton from the correct path
 import OptionsButton from 'match/frontend/src/common/components/OptionsButton';
 
 const NavBar = () => {
@@ -19,6 +17,7 @@ const NavBar = () => {
   );
 };
 
+//i customised the styling
 const styles = StyleSheet.create({
   navBarContainer: {
     flexDirection: 'row',

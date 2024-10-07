@@ -1,4 +1,4 @@
-//main screen that shows up when user presses the profile button on the nav bar
+//just imported the components of the main screen and applied layout styling
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
@@ -8,25 +8,17 @@ import ProfileHeader from 'match/frontend/src/users/main/container/ProfileHeader
 import PostFeedContainer from 'match/frontend/src/users/main/container/PostsContainer';
 import TabBar from 'match/frontend/src/common/component/laterTabBar';
 
+//order of componetns top to bottom on screen
 const ProfileScreen = () => {
   return (
     <View style={styles.screenContainer}>
-      {/* NavBar at the top */}
       <View style={styles.navBar}>
         <NavBar />
       </View>
-
-      {/* ProfileHeader directly below the NavBar */}
       <View style={styles.profileHeader}>
         <ProfileHeader />
       </View>
-
-      {/* PostFeedContainer fills the space between ProfileHeader and TabBar */}
-      <View style={styles.postFeedContainer}>
-        <PostFeedContainer />
-      </View>
-
-      {/* TabBar at the bottom */}
+      <PostFeedContainer />
       <View style={styles.tabBar}>
         <TabBar />
       </View>

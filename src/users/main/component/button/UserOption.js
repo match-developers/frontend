@@ -1,4 +1,4 @@
-//user option that uses common/Option.js//
+//user option that uses common/Option.js/
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import OptionsButton from './OptionsButton'; // Importing OptionsButton

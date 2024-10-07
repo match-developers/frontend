@@ -1,3 +1,4 @@
+// this goes in the matchmaking nav bar and the sportsground nav bar its just a pressabel inbox icon. i
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
@@ -10,11 +11,9 @@ const InboxButton = ({ onPress, size = 24, color = '#000' }) => {
     </TouchableOpacity>
   );
 };
-
+//placeholder that is here for when you come along to give it logic. its saying that an onpress fucntion is required but not set
 InboxButton.propTypes = {
-  onPress: PropTypes.func.isRequired,
-  size: PropTypes.number,
-  color: PropTypes.string
+  onPress: PropTypes.func.isRequired
 };
 
 const styles = StyleSheet.create({

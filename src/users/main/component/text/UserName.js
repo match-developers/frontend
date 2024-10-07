@@ -1,3 +1,4 @@
+//textbox displaying the usenrame. no interactions
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
@@ -11,6 +12,7 @@ const UsernameTextbox = ({ username = 'Username' }) => {
   );
 };
 
+//I customsied the styles
 const styles = StyleSheet.create({
   container: {
     padding: 8

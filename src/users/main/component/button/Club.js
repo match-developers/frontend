@@ -1,56 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import {
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-  ActivityIndicator,
-  Text
-} from 'react-native';
+// club button is just an image that is has set shape and size, and a default of a grey circle.
+import React from 'react';
+import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
 
-const ClubButton = ({ clubId }) => {
-  const [clubData, setClubData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    const fetchClubData = async () => {
-      try {
-        const response = await axios.get(
-          `https://your-backend-url/clubs/${clubId}/`
-        );
-        setClubData(response.data);
-      } catch (err) {
-        setError('Failed to load club data');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchClubData();
-  }, [clubId]);
-
-  if (loading) {
-    return <ActivityIndicator size="small" color="#0000ff" />;
-  }
-
-  if (error) {
-    return <Text>{error}</Text>;
-  }
-
+//its defined as a clickable image.
+const ClubButton = ({ onPress, imageUri }) => {
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() =>
-        navigation.navigate('ClubMainScreen', { clubId: clubData.club.id })
-      }
-    >
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image
-        source={{ uri: clubData.club.profile_photo }}
-        style={styles.clubImage} // Apply the clubImage style here
+        source={{ uri: imageUri }}
+        style={styles.clubImage}
         defaultSource={{ uri: null }}
       />
     </TouchableOpacity>
@@ -58,16 +17,17 @@ const ClubButton = ({ clubId }) => {
 };
 
 ClubButton.propTypes = {
-  clubId: PropTypes.number.isRequired
-};
-
+  onPress: PropTypes.func, // Optional onPress function for interaction if needed later
+  imageUri: PropTypes.
+  
+//i customised the styling
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center'
   },
   clubImage: {
-    width: 36, // Use the same size as avatarStyles
+    width: 36, // Size of the button image
     height: 36,
     borderRadius: 18, // Circular image
     backgroundColor: '#D9D9D9', // Default background color

@@ -1,3 +1,4 @@
+//the club tab button. it is clickable and has styling applied
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import ClubIcon from 'match/frontend/assets/SVGs/default/IconClub';
