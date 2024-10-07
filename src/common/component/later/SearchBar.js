@@ -1,6 +1,7 @@
+// this is just a seaerchbar component only the styling has been done
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
-import SearchIcon from 'match/frontend/assets/SVGs/default/IconSearch'; // Correct SVG import path
+import SearchIcon from 'match/frontend/assets/SVGs/default/IconSearch';
 
 const SearchBar = ({ placeholderText = 'Search...' }) => {
   return (
@@ -11,7 +12,6 @@ const SearchBar = ({ placeholderText = 'Search...' }) => {
         placeholderTextColor="#000000"
       />
       <SearchIcon width={24} height={24} style={styles.magnifyingGlass} />{' '}
-      {/* Adjusting for consistency */}
     </View>
   );
 };
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: '#E6E6E6',
     borderRadius: 8,
-    padding: 8, // Padding inside the search bar
+    padding: 8,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,

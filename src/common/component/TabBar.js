@@ -1,3 +1,4 @@
+//tab bar imports clickable buttons. only styling applied
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import MatchmakingButton from 'match/frontend/src/common/components/later/MatchmakingButton';

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import StatsIcon from 'match/frontend/assests/SVGs/default/IconStatsColour';
 
+// stats button with a label below that has no set onpress fucntion
 const StatsButton = ({ label = 'Statistics', onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
@@ -13,6 +14,7 @@ const StatsButton = ({ label = 'Statistics', onPress }) => {
   );
 };
 
+//i did all the styling
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',

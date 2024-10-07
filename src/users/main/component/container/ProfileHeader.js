@@ -1,3 +1,4 @@
+//imported all the components needed to make the header then styled them create the correct layout
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
@@ -15,10 +16,8 @@ const ProfileHeader = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        {/* Replace ProfileImage with ProfileAvatar */}
         <ProfileAvatar uri="https://example.com/avatar.jpg" />
 
-        {/* Replace Icon Buttons with Club, Playstyle, and Manner */}
         <View style={styles.iconsContainer}>
           <ClubButton clubId={1} />
           <MBTIButton />
@@ -26,14 +25,12 @@ const ProfileHeader = () => {
         </View>
       </View>
 
-      {/* Replace ProfileInfo Text Components with Username, Location, and Bio */}
       <View style={styles.profileInfoContainer}>
         <Username username="username max 16 ch" />
         <LocationLabel location="Location, max of 30 characters" />
         <Bio bio="this text box will be for profile bios. It should be no more than 80 characters." />
       </View>
 
-      {/* Replace ActionButton with StatsButton */}
       <View style={styles.actionButtonContainer}>
         <StatsButton label="Statistics" />
       </View>

@@ -9,43 +9,37 @@ import SwapIcon from 'match/frontend/assets/SVGs/default/IconSwap';
 import ReportIssueIcon from 'match/frontend/assets/SVGs/default/IconReportIssue';
 import LogoutIcon from 'match/frontend/assets/SVGs/default/IconLogout';
 
-const UserProfileOptionsModal = ({ visible, onClose }) => {
-  // Define the specific menu items for the user profile options each one is a menu item and they have labels and svg options but the console.log is just a placeholder for the logic applied to onpress.
+// the menu items relate directly to the user profile options modal in figma
+const UserProfileOptionsModal = ({ visible }) => {
   const menuItems = [
     {
       label: 'Edit Profile',
       SvgIcon: EditIcon,
-      onPress: () => console.log('Edit Profile clicked'),
       id: '1'
     },
     {
       label: 'Settings',
       SvgIcon: SettingsIcon,
-      onPress: () => console.log('Settings clicked'),
       id: '2'
     },
     {
       label: 'Share Profile',
       SvgIcon: ShareIcon,
-      onPress: () => console.log('Share Profile clicked'),
       id: '3'
     },
     {
       label: 'Sportsground Profile',
       SvgIcon: SwapIcon,
-      onPress: () => console.log('Sportsground Profile clicked'),
       id: '4'
     },
     {
       label: 'Report a Problem',
       SvgIcon: ReportIssueIcon,
-      onPress: () => console.log('Report a Problem clicked'),
       id: '5'
     },
     {
       label: 'Log out',
       SvgIcon: LogoutIcon,
-      onPress: () => console.log('Log out clicked'),
       id: '6'
     }
   ];
@@ -53,7 +47,6 @@ const UserProfileOptionsModal = ({ visible, onClose }) => {
   return (
     <OptionsModal
       visible={visible}
-      onClose={onClose} // Pass the onClose function to close the modal
       menuItems={menuItems} // Pass the user profile-specific menu items
     />
   );

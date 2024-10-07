@@ -1,6 +1,7 @@
+//all that I have done is imported the files and styled th elayout on the screen.
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Header from 'match/frontend/src/components/later/header-comp.js';
+import Header from 'match/frontend/src/components/PageHeader.js';
 import ChangePictureButton from 'match/frontend/src/users/edit/components/EditProfile';
 import UsernameInput from 'match/frontend/src/users/edit/components/EditUsername';
 import BioInput from 'match/frontend/src/users/edit/components/EditBio';

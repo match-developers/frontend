@@ -1,4 +1,4 @@
-//I named it Playstlye button.js to make it clear its not part of the playstyle test screen or components, its the button you can click on a profile
+//this is just 4 different coloured letters that are in a clickable container to makethe playstyle button
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 

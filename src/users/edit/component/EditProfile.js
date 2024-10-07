@@ -1,3 +1,4 @@
+// this is the edit button over the profile.js avatar and making the whole thign clickable. i customised the styling and made it clickable
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import ProfileAvatar from './Profile';

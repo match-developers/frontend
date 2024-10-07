@@ -1,3 +1,4 @@
+//i made this a text that is clickable no function applied to the on press prop yet.
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TouchableOpacity, Text } from 'react-native';
@@ -17,6 +18,7 @@ const LocationLabel = ({
   );
 };
 
+//i did the styling
 const styles = StyleSheet.create({
   container: {
     width: '100%', // Fill container width

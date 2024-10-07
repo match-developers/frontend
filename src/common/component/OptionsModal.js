@@ -1,72 +1,46 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Modal,
-  TouchableOpacity,
-  FlatList,
-  TouchableWithoutFeedback
-} from 'react-native';
-import EditIcon from 'match/frontend/assets/SVGs/default/IconEdit';
-import SettingsIcon from 'match/frontend/assets/SVGs/default/IconSettings';
-import ShareIcon from 'match/frontend/assets/SVGs/default/IconShare';
-import SwapIcon from 'match/frontend/assets/SVGs/default/IconSwap';
-import ReportIssueIcon from 'match/frontend/assets/SVGs/default/IconReportIssue';
-import LogoutIcon from 'match/frontend/assets/SVGs/default/IconLogout';
+import { View, Text, StyleSheet, Modal, FlatList } from 'react-native';
 
-const OptionsModal = ({ visible, onClose }) => {
-  const menuItems = [
-    { label: 'Edit Profile', SvgIcon: EditIcon, id: '1' },
-    { label: 'Settings', SvgIcon: SettingsIcon, id: '2' },
-    { label: 'Share Profile', SvgIcon: ShareIcon, id: '3' },
-    { label: 'Sportsground Profile', SvgIcon: SwapIcon, id: '4' },
-    { label: 'Report a Problem', SvgIcon: ReportIssueIcon, id: '5' },
-    { label: 'Log out', SvgIcon: LogoutIcon, id: '6' }
-  ];
-
+// i made a component that can be customed where it is imported. i made this component to only have definitions and styling so that its completely blank and ready for new files
+const OptionsModal = ({ visible, menuItems }) => {
+  // Function to render each menu item
   const renderItem = ({ item }) => (
-    <TouchableOpacity
-      style={styles.menuItem}
-      onPress={() => console.log(`${item.label} clicked`)}
-    >
+    <View style={styles.menuItem}>
       <Text style={styles.menuText}>{item.label}</Text>
-      <item.SvgIcon width={24} height={24} style={styles.icon} />
-    </TouchableOpacity>
+      {item.SvgIcon && (
+        <item.SvgIcon width={24} height={24} style={styles.icon} />
+      )}
+    </View>
   );
 
   return (
     <Modal
       transparent={true}
-      visible={visible}
-      onRequestClose={onClose}
+      visible={visible} // modal opens when visible is true and closes when it's false
       animationType="none"
     >
-      <TouchableWithoutFeedback onPress={onClose}>
-        <View style={styles.modalBackground}>
-          <TouchableWithoutFeedback>
-            <View style={styles.modalContainer}>
-              <FlatList
-                data={menuItems}
-                keyExtractor={item => item.id}
-                renderItem={renderItem}
-                scrollEnabled={true}
-                bounces={true}
-              />
-            </View>
-          </TouchableWithoutFeedback>
+      <View style={styles.modalBackground}>
+        <View style={styles.modalContainer}>
+          <FlatList
+            data={menuItems} // List of menu items to display
+            keyExtractor={item => item.id} // Unique key for each item
+            renderItem={renderItem} // Render each item using renderItem
+            scrollEnabled={true}
+            bounces={true}
+          />
         </View>
-      </TouchableWithoutFeedback>
+      </View>
     </Modal>
   );
 };
 
+// i customized all the styling
 const styles = StyleSheet.create({
   modalBackground: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0)'
+    backgroundColor: 'rgba(0, 0, 0, 0.5)' // Dim background when modal is open
   },
   modalContainer: {
     width: '60%',
@@ -83,15 +57,15 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 8,
     borderBottomWidth: 1,
-    borderBottomColor: '#CCCCCC'
+    borderBottomColor: '#CCCCCC' // Border between each menu item
   },
   menuText: {
     fontSize: 20,
     fontFamily: 'Exo 2',
-    fontWeight: '500'
+    fontWeight: '500' // Styling for the text label
   },
   icon: {
-    marginLeft: 10
+    marginLeft: 10 // Space between the label and the icon
   }
 });
 

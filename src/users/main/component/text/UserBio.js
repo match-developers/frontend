@@ -1,3 +1,4 @@
+//text componetn displaying the userbio. no interactions
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
@@ -11,6 +12,7 @@ const BioBox = ({ bio = 'Bio text goes here' }) => {
   );
 };
 
+//customised styles
 const styles = StyleSheet.create({
   container: {
     padding: 8

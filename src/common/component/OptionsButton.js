@@ -1,7 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import OptionsIcon from 'match/frontend/assets/SVGs/default/IconOptionsDefault'; // Correct SVG file path
+import OptionsIcon from 'match/frontend/assets/SVGs/default/IconOptionsDefault';
 
+//i created an options button and styled it then made it clickable
 const OptionsButton = ({ onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.iconContainer}>
