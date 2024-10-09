@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
       android:name=".MainApplication"
@@ -11,6 +13,9 @@
       android:theme="@style/AppTheme">
       <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/FB_APP_ID"/>
       <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/FB_CLIENT_TOKEN"/>
+      <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyAJuS68_xLUCe2Lu2Fmpv6o8EIUp7C05VA"/>
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

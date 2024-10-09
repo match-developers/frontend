@@ -2,10 +2,9 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import BackIcon from 'match/frontend/assets/SVGs/default/IconBackDefault';
 
-//i created a back button and styled it then made it clickable
-const BackButton = ({ onPress }) => {
+const BackButton = ({ onPress, style = {} }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.iconContainer}>
+    <TouchableOpacity onPress={onPress} style={[styles.iconContainer, style]} activeOpacity={0.7}>
       <BackIcon width={24} height={24} fill={'#000'} />
     </TouchableOpacity>
   );
@@ -13,10 +12,12 @@ const BackButton = ({ onPress }) => {
 
 const styles = StyleSheet.create({
   iconContainer: {
-    width: 24,
-    height: 24,
+    width: 40, // 터치 영역을 넓게 설정
+    height: 40, // 터치 영역을 넓게 설정
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius: 20, // 둥근 버튼으로 설정
+    backgroundColor: '#f0f0f0', // 기본 배경색 추가
   }
 });
 
