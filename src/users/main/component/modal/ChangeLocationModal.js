@@ -1,90 +1,172 @@
-//it takes up the whole screen. interactions are just clickable buttons atm. the pin doesnt move, there is no map, just  acontainer for it.
-import React from 'react';
-import { View, Text, StyleSheet, Modal, TouchableOpacity } from 'react-native';
-import BackButton from 'match/frontend/src/common/components/BackButton';
-import PinIcon from 'match/frontend/assets/SVGs/default/IconPin';
+// ChangeLocationModal.js
+// This component is a modal for changing the user's location.
+// It includes a search bar for the user to input a location, a map displaying the selected location with a pin, and buttons to confirm or cancel the location change.
+// The component interacts with the Google Maps API to convert the location input into coordinates and sends the updated location to the backend.
 
-const ChangeLocationModal = ({ visible, location = 'Location Name' }) => {
+import React, { useState } from 'react';
+import { View, TextInput, TouchableOpacity, Text, StyleSheet, ActivityIndicator, Alert } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
+import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';  // Import axios for API calls
+import BackButton from 'match/frontend/src/common/components/BackButton';  // Import the common BackButton component
+import PinIcon from 'match/frontend/assets/SVGs/default/IconPin';  // Import the PinIcon for map markers
+
+const ChangeLocationModal = () => {
+  const [searchQuery, setSearchQuery] = useState('');  // State for storing the search query
+  const [location, setLocation] = useState(null);      // State for storing the selected location's coordinates
+  const [loading, setLoading] = useState(false);       // State for handling loading status
+  const [error, setError] = useState(null);            // State for handling error messages
+  const [saving, setSaving] = useState(false);         // State for saving location data
+  const navigation = useNavigation();  // Hook for handling navigation between screens
+
+  // Function to fetch coordinates from Google Maps Geocoding API
+  const getCoordinates = async (address) => {
+    const apiKey = 'AIzaSyCBzIf-rYBAh2I-PSn8iENxo2DEkS-q0ts';  // Your Google Maps API key
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`;
+
+    try {
+      setLoading(true);  // Start loading
+      setError(null);    // Reset error state
+      const response = await axios.get(url);  // Make a request to the Geocoding API
+      if (response.data.status === 'OK') {
+        const { lat, lng } = response.data.results[0].geometry.location;  // Extract latitude and longitude from the response
+        setLocation({ latitude: lat, longitude: lng });  // Update location state with the coordinates
+      } else {
+        setError('Location not found');  // Set error state if location not found
+      }
+    } catch (error) {
+      setError('Error fetching location');  // Handle any errors during the API call
+    } finally {
+      setLoading(false);  // End loading
+    }
+  };
+
+  // Function to save the selected location to the backend
+  const saveLocation = async () => {
+    if (!location) {
+      Alert.alert('Error', 'No location selected');  // Alert user if no location is selected
+      return;
+    }
+
+    try {
+      setSaving(true);  // Start saving process
+      const response = await axios.put(
+        'http://your-backend-url/user/profile/edit/',  // Backend URL to save location data
+        {
+          location: {
+            type: 'Point',
+            coordinates: [location.longitude, location.latitude],  // Send coordinates in GeoJSON format
+          },
+        },
+        {
+          headers: {
+            Authorization: 'Bearer your-auth-token',  // Add authentication token
+            'Content-Type': 'application/json',       // Set content type to JSON
+          },
+        }
+      );
+      
+      if (response.status === 200) {
+        Alert.alert('Success', 'Location updated successfully');  // Show success message if location is saved
+        navigation.navigate('MainScreen');  // Navigate back to the main screen
+      } else {
+        setError('Failed to update location');  // Set error state if location update fails
+      }
+    } catch (error) {
+      console.error('Error saving location:', error);  // Log the error
+      setError('Error saving location');  // Set error state for saving failure
+    } finally {
+      setSaving(false);  // End saving process
+    }
+  };
+
+  // Handle search input and fetch location coordinates
+  const handleSearch = (query) => {
+    setSearchQuery(query);  // Update the search query state
+    if (query.length > 0) {
+      getCoordinates(query);  // Fetch coordinates for the inputted location
+    }
+  };
+
+  // Confirm the selected location and save it to the backend
+  const confirmLocation = () => {
+    saveLocation();  // Call saveLocation function to save the selected coordinates
+  };
+
   return (
-    <Modal
-      transparent={true} // Transparent background
-      visible={visible} // Controls the visibility externally
-      animationType="none" // No animation for showing/hiding the modal
-    >
-      <View style={styles.modalContainer}>
-        {/* Back button */}
-        <BackButton onPress={() => {}} /> {/* No interaction logic */}
-        {/* Display location label */}
-        <View style={styles.labelContainer}>
-          <Text style={styles.labelText}>Location: </Text>
-          <Text style={styles.locationText}>
-            {location.length > 30 ? location.slice(0, 30) : location}
-          </Text>
-        </View>
-        {/* Map container placeholder. this is just to show how big the map should be*/}
-        <View style={styles.mapContainer}>
-          <PinIcon width={24} height={24} style={styles.pinIcon} />
-          {/* Insert map API here */}
-        </View>
-        {/* Custom Buttons (Cancel and Confirm) */}
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={[styles.button, styles.cancelButton]}
-            onPress={() => {}}
-          >
-            <Text style={styles.buttonTextCancel}>Cancel</Text>
-          </TouchableOpacity>
+    <View style={styles.container}>
+      {/* Back button to return to the main screen */}
+      <BackButton onPress={() => navigation.navigate('MainScreen')} />
 
-          <TouchableOpacity
-            style={[styles.button, styles.confirmButton]}
-            onPress={() => {}}
+      {/* Search bar for user to input location */}
+      <TextInput
+        style={styles.searchBar}
+        placeholder="Enter location"
+        value={searchQuery}
+        onChangeText={handleSearch}
+      />
+
+      {/* Map to display the selected location */}
+      <View style={styles.mapContainer}>
+        {loading ? (  // Show loading spinner if fetching location data
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : (
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: 37.7749,  // Default location coordinates (Seoul)
+              longitude: 126.9780,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+            }}
+            region={location ? { ...location, latitudeDelta: 0.01, longitudeDelta: 0.01 } : null}
           >
-            <Text style={styles.buttonTextConfirm}>Confirm</Text>
-          </TouchableOpacity>
-        </View>
+            {location && <Marker coordinate={location} />}  // Display a marker at the selected location
+          </MapView>
+        )}
       </View>
-    </Modal>
+
+      {/* Error message if any */}
+      {error && <Text style={styles.errorText}>{error}</Text>}
+
+      {/* Buttons for confirming or canceling the location change */}
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.confirmButton} onPress={confirmLocation} disabled={saving}>
+          <Text style={styles.buttonTextConfirm}>{saving ? 'Saving...' : 'Confirm'}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.cancelButton}
+          onPress={() => navigation.navigate('MainScreen')}
+        >
+          <Text style={styles.buttonTextCancel}>Cancel</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
-//a lcoation label with a text representation of the location pins result. under it a map with a pin in the center. under that buttons saying cancel or confirm.
+
+// Styles for the component, including layout and button designs
 const styles = StyleSheet.create({
-  modalContainer: {
+  container: {
     flex: 1,
     backgroundColor: '#F2F2F2',
     padding: 16,
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
   },
-  labelContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 16
-  },
-  labelText: {
-    fontSize: 18,
-    color: '#000',
-    fontFamily: 'Exo 2'
-  },
-  locationText: {
-    fontSize: 18,
-    color: '#777',
-    marginLeft: 4
+  searchBar: {
+    height: 40,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    paddingHorizontal: 8,
+    marginBottom: 16,
   },
   mapContainer: {
-    width: '75%',
-    height: '60%',
+    flex: 1,
+    marginBottom: 16,
     backgroundColor: '#E6E6E6',
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
-    alignSelf: 'center'
-  },
-  pinIcon: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: [{ translateX: -12 }, { translateY: -12 }]
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -93,34 +175,37 @@ const styles = StyleSheet.create({
     width: 320,
     position: 'absolute',
     bottom: 16,
-    alignSelf: 'center'
-  },
-  button: {
-    width: 150,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-    borderWidth: 1
-  },
-  cancelButton: {
-    backgroundColor: '#E6E6E6',
-    borderColor: '#737373'
+    alignSelf: 'center',
   },
   confirmButton: {
     backgroundColor: '#ffb433',
-    borderColor: '#cc9029'
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    borderColor: '#cc9029',
   },
-  buttonTextCancel: {
-    color: '#737373',
-    fontSize: 16,
-    fontWeight: 'bold'
+  cancelButton: {
+    backgroundColor: '#E6E6E6',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    borderColor: '#737373',
   },
   buttonTextConfirm: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
+  buttonTextCancel: {
+    color: '#737373',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  errorText: {
+    color: 'red',
+    marginBottom: 16,
+    textAlign: 'center',
+  },
 });
 
 export default ChangeLocationModal;
