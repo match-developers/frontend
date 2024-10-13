@@ -1,19 +1,20 @@
-// this is a
+// this is the component for one item on the list of playstyle questions. its just a statement and 7 circles beneath it.
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-// circle size and colour
+// Circle size and updated colors
 const circleData = [
-  { size: 40, borderColor: '#FFB433' }, // Yellow (largest)
-  { size: 35, borderColor: '#FFB433' },
-  { size: 30, borderColor: '#FEC966' },
+  { size: 40, borderColor: '#E58A8B' }, // Left side red (largest)
+  { size: 35, borderColor: '#E58A8B' }, // Left side red
+  { size: 30, borderColor: '#E58A8B' }, // Left side red
   { size: 25, borderColor: '#A3A3A3' }, // Grey (center)
-  { size: 30, borderColor: '#F9786F' },
-  { size: 35, borderColor: '#F55E4F' },
-  { size: 40, borderColor: '#FF5A00' } // Orange (largest)
+  { size: 30, borderColor: '#5DCC78' }, // Right side green
+  { size: 35, borderColor: '#5DCC78' }, // Right side green
+  { size: 40, borderColor: '#5DCC78' } // Right side green (largest)
 ];
 
+//the statement is the string required below
 const PlaystyleItem = ({ statement }) => {
   return (
     <View style={styles.container}>
@@ -25,7 +26,7 @@ const PlaystyleItem = ({ statement }) => {
       {/* Circles */}
       <View style={styles.circlesContainer}>
         {circleData.map((circle, index) => (
-          <TouchableOpacity
+          <View
             key={index}
             style={[
               styles.circle,
@@ -38,20 +39,15 @@ const PlaystyleItem = ({ statement }) => {
           />
         ))}
       </View>
-
-      {/* Labels (they go below the edge circles saying agree and disagree) */}
-      <View style={styles.labelsContainer}>
-        <Text style={styles.labelText}>Disagree</Text>
-        <Text style={styles.labelText}>Agree</Text>
-      </View>
     </View>
   );
 };
-//it requires a statement above the circles but no default
+
 PlaystyleItem.propTypes = {
   statement: PropTypes.string.isRequired // Required prop for statement text
 };
-//i customised the styling to match figma
+
+// Custom styles
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
@@ -80,17 +76,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 1,
     backgroundColor: 'transparent'
-  },
-  labelsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: 358,
-    marginTop: 8
-  },
-  labelText: {
-    fontSize: 10,
-    color: 'black',
-    textAlign: 'center'
   }
 });
 

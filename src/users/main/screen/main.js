@@ -1,3 +1,4 @@
+//screen had nav bar, then the header, then the postfeed which will fillextra room across screen sizes, and then the tab bar
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
@@ -30,7 +31,8 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: '#FAFAFA' // Set background color for the entire screen
   },
   navBar: {
     height: 64, // Fixed height for NavBar
