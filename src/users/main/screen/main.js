@@ -1,52 +1,41 @@
+// Main.js: User's main profile screen displaying profile header and posts.
+
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { ScrollView, View, StyleSheet } from 'react-native';
 
-// Import components
-import NavBar from 'match/frontend/src/users/main/container/NavBar';
-import ProfileHeader from 'match/frontend/src/users/main/container/ProfileHeader';
-import PostFeedContainer from 'match/frontend/src/users/main/container/PostsContainer';
-import TabBar from 'match/frontend/src/common/component/laterTabBar';
+// Importing containers from correct paths
+import PostsContainer from '../container/PostsContainer';
+import ProfileHeader from '../container/ProfileHeader';
 
-// Order of components top to bottom on screen
-const ProfileScreen = () => {
+// Main Screen Component
+const MainScreen = () => {
   return (
-    <View style={styles.screenContainer}>
-      <View style={styles.navBar}>
-        <NavBar />
+    <ScrollView style={styles.container}>
+      {/* Posts Section */}
+      <View style={styles.postsContainer}>
+        <PostsContainer />
       </View>
-      <View style={styles.profileHeader}>
+
+      {/* Profile Header Section */}
+      <View style={styles.profileHeaderContainer}>
         <ProfileHeader />
       </View>
-      <View style={styles.postFeedContainer}>
-        <PostFeedContainer />
-      </View>
-      <View style={styles.tabBar}>
-        <TabBar />
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
+// Styling
 const styles = StyleSheet.create({
-  screenContainer: {
+  container: {
     flex: 1,
-    flexDirection: 'column'
+    backgroundColor: '#fff',
   },
-  navBar: {
-    height: 64, // Fixed height for NavBar
-    width: '100%'
+  postsContainer: {
+    flex: 1,
   },
-  profileHeader: {
-    height: 322, // Updated height for ProfileHeader
-    width: '100%'
+  profileHeaderContainer: {
+    flex: 1,
   },
-  postFeedContainer: {
-    flex: 1 // This will stretch and fill the space between ProfileHeader and TabBar
-  },
-  tabBar: {
-    height: 64, // Fixed height for TabBar
-    width: '100%'
-  }
 });
 
-export default ProfileScreen;
+export default MainScreen;

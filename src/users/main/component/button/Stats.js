@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
-import IconStatsColour from './IconStatsColour'; // SVG 컴포넌트 임포트
+import IconStatsColour from '../assets/SVGs/default/IconStatsColour'; // SVG 컴포넌트 임포트
 
 const StatsButton = ({ label = 'Statistics' }) => {
   const navigation = useNavigation();
