@@ -2,14 +2,14 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-// Updated imports with the new path
+// Updated imports with the correct names
 import ProfileAvatar from 'match/frontend/src/users/main/component/button/Profile.js';
-import ClubButton from 'match/frontend/src/users/main/component/button/Club.js';
-import MBTIButton from 'match/frontend/src/users/main/component/button/Playstyle.js';
-import MannerRating from 'match/frontend/src/users/main/component/button/Manner.js';
-import Username from 'match/frontend/src/users/main/component/text/UserName.js';
-import LocationLabel from 'match/frontend/src/users/main/component/button/Location.js';
-import Bio from 'match/frontend/src/users/main/component/text/UserBio.js';
+import Club from 'match/frontend/src/users/main/component/button/Club.js'; // Changed to Club
+import PlaystyleButton from 'match/frontend/src/users/main/component/button/Playstyle.js';
+import Manner from 'match/frontend/src/users/main/component/button/Manner.js'; // Changed to Manner
+import UsernameTextbox from 'match/frontend/src/users/main/component/text/UserName.js';
+import Location from 'match/frontend/src/users/main/component/button/Location.js'; // Changed to Location
+import BioBox from 'match/frontend/src/users/main/component/text/UserBio.js';
 import StatsButton from 'match/frontend/src/users/main/component/button/Stats.js';
 
 const ProfileHeader = () => {
@@ -19,16 +19,19 @@ const ProfileHeader = () => {
         <ProfileAvatar uri="https://example.com/avatar.jpg" />
 
         <View style={styles.iconsContainer}>
-          <ClubButton clubId={1} />
-          <MBTIButton />
-          <MannerRating rating="2.5" />
+          <Club clubId={1} /> {/* Updated to Club */}
+          <PlaystyleButton />
+          <Manner rating="2.5" /> {/* Updated to Manner */}
         </View>
       </View>
 
       <View style={styles.profileInfoContainer}>
-        <Username username="username max 16 ch" />
-        <LocationLabel location="Location, max of 30 characters" />
-        <Bio bio="this text box will be for profile bios. It should be no more than 80 characters." />
+        <UsernameTextbox username="username max 16 ch" />{' '}
+        {/* Updated to UsernameTextbox */}
+        <Location location="Location, max of 30 characters" />{' '}
+        {/* Updated to Location */}
+        <BioBox bio="this text box will be for profile bios. It should be no more than 80 characters." />{' '}
+        {/* Updated to BioBox */}
       </View>
 
       <View style={styles.actionButtonContainer}>

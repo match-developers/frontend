@@ -1,5 +1,5 @@
-// in this modal there is the back button and headr. then there are two buttons one is selected while the other is unselected use state.
-// they dictate the dispaly state of the searchbar (text) and flatlist items (user card unfollow/removefollower buttons)
+// in this modal there is the back button and header. then there are two buttons one is selected while the other is unselected use state.
+// they dictate the dispaly state of the searchbar (text input) and flatlist items (user card unfollow/removefollower buttons)
 // the items are on a flatlist, which is the last component under the header, tab buttons and search bar.
 // The logic of states for the tab buttons is just to help me define and style the different kinds of tab button variants the styling is presented easily this way. its not a suggestion for how the logic side should be done.
 import React from 'react';
