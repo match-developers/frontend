@@ -1,24 +1,29 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import StatsIcon from 'match/frontend/assests/SVGs/default/IconStatsColour';
+import { useNavigation } from '@react-navigation/native'; 
+import IconStatsColour from './IconStatsColour'; // SVG 컴포넌트 임포트
 
-// stats button with a label below that has no set onpress fucntion
-const StatsButton = ({ label = 'Statistics', onPress }) => {
+const StatsButton = ({ label = 'Statistics' }) => {
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.navigate('StatsMain'); 
+  };
+
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <TouchableOpacity onPress={handlePress} style={styles.container}>
       <View style={styles.iconContainer}>
-        <StatsIcon width={22} height={26} />
+        <IconStatsColour width={22} height={26} /> 
       </View>
       <Text style={styles.label}>{label}</Text>
     </TouchableOpacity>
   );
 };
 
-//i did all the styling
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   iconContainer: {
     width: 32,
@@ -28,7 +33,7 @@ const styles = StyleSheet.create({
     borderColor: '#000',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 5
+    padding: 5,
   },
   label: {
     marginTop: 4,
@@ -36,8 +41,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Exo 2',
     fontWeight: '400',
     color: '#000',
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 });
 
 export default StatsButton;
