@@ -1,40 +1,59 @@
-// Main.js: User's main profile screen displaying profile header and posts.
+// Main.js: User's main profile screen with profile header, posts, and a fixed tab bar.
 
 import React from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { ScrollView, View, StyleSheet, SafeAreaView } from 'react-native';
 
-// Importing containers from correct paths
-import PostsContainer from '../container/PostsContainer';
-import ProfileHeader from '../container/ProfileHeader';
+// Importing containers
+import PostsContainer from '../container/PostsContainer'; // PostsContainer for displaying posts
+import ProfileHeader from '../container/ProfileHeader'; // ProfileHeader for user information
 
-// Main Screen Component
+// Importing TabBar from the correct path
+import TabBar from 'match/frontend/src/common/component/later/TabBar'; 
+
+/**
+ * MainScreen: Displays the main user profile with scrollable content
+ * and a fixed tab bar at the bottom.
+ */
 const MainScreen = () => {
   return (
-    <ScrollView style={styles.container}>
-      {/* Posts Section */}
-      <View style={styles.postsContainer}>
-        <PostsContainer />
-      </View>
+    <SafeAreaView style={styles.container}>
+      {/* Scrollable content for the profile and posts */}
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <View style={styles.postsContainer}>
+          <PostsContainer /> {/* Placeholder for user posts */}
+        </View>
+        <View style={styles.profileHeaderContainer}>
+          <ProfileHeader /> {/* User profile header information */}
+        </View>
+      </ScrollView>
 
-      {/* Profile Header Section */}
-      <View style={styles.profileHeaderContainer}>
-        <ProfileHeader />
+      {/* Fixed Tab Bar that stays at the bottom */}
+      <View style={styles.tabBarContainer}>
+        <TabBar /> {/* Navigation tab bar for switching between screens */}
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 
-// Styling
+// Styling for the MainScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff', // White background for the screen
+  },
+  scrollContent: {
+    flexGrow: 1, // Ensures content grows to fill the available space
   },
   postsContainer: {
-    flex: 1,
+    flex: 1, // Fills the available space for posts
   },
   profileHeaderContainer: {
-    flex: 1,
+    flex: 1, // Fills the available space for the profile header
+  },
+  tabBarContainer: {
+    height: 64, // Fixed height for the tab bar
+    borderTopWidth: 1, // Border at the top of the tab bar
+    borderTopColor: '#000', // Black border color
   },
 });
 
