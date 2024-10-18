@@ -2,12 +2,12 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import InboxIcon from 'match/frontend/assets/SVGs/default/IconInboxDefault'; // Adjust the path to your SVG
+import Inbox from 'match/frontend/assets/SVGs/default/Inbox'; // Adjust the path to your SVG
 
 const InboxButton = ({ onPress, size = 24, color = '#000' }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.iconContainer}>
-      <InboxIcon width={size} height={size} fill={color} />
+      <Inbox width={size} height={size} fill={color} />
     </TouchableOpacity>
   );
 };

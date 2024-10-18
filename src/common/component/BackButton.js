@@ -1,11 +1,15 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import BackIcon from 'match/frontend/assets/SVGs/default/IconBackDefault';
+import ArrowLeft from 'match/frontend/assets/SVGs/default/ArrowLeft';
 
 const BackButton = ({ onPress, style = {} }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.iconContainer, style]} activeOpacity={0.7}>
-      <BackIcon width={24} height={24} fill={'#000'} />
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.iconContainer, style]}
+      activeOpacity={0.7}
+    >
+      <ArrowLeft width={24} height={24} fill={'#000'} />
     </TouchableOpacity>
   );
 };
@@ -17,7 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 20, // 둥근 버튼으로 설정
-    backgroundColor: '#f0f0f0', // 기본 배경색 추가
+    backgroundColor: '#f0f0f0' // 기본 배경색 추가
   }
 });
 

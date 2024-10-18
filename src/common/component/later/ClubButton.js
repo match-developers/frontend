@@ -1,16 +1,16 @@
 //the club tab button. it is clickable and has styling applied
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import ClubIcon from 'match/frontend/assets/SVGs/default/IconClub';
-import ClubIconSelected from 'match/frontend/assets/SVGs/selected/IconClubSelected';
+import Club from 'match/frontend/assets/SVGs/default/Club';
+import ClubSelected from 'match/frontend/assets/SVGs/selected/ClubSelected';
 
 const ClubButton = ({ selected, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>
       {selected ? (
-        <ClubIconSelected width={36} height={36} />
+        <ClubSelected width={36} height={36} />
       ) : (
-        <ClubIcon width={36} height={36} />
+        <Club width={36} height={36} />
       )}
     </TouchableOpacity>
   );

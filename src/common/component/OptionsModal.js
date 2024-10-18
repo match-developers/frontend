@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Modal, FlatList } from 'react-native';
 
-// i made a component that can be customed where it is imported. i made this component to only have definitions and styling so that its completely blank and ready for new files
+// i made a component that can be customised where it is imported. i made this component to only have definitions and styling so that its completely blank and ready for new files
 const OptionsModal = ({ visible, menuItems }) => {
   // Function to render each menu item
   const renderItem = ({ item }) => (

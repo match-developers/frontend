@@ -2,12 +2,12 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import WhistleIcon from 'match/frontend/assets/SVGs/default/assets/SVGs/default/IconWhistleDefault'; // Adjust the path to your SVG
+import Whistle from 'match/frontend/assets/SVGs/default/assets/SVGs/default/Whistle'; // Adjust the path to your SVG
 
 const AssistantButton = ({ onPress, size = 24, color = '#000' }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.iconContainer}>
-      <WhistleIcon width={size} height={size} fill={color} />
+      <Whistle width={size} height={size} fill={color} />
     </TouchableOpacity>
   );
 };

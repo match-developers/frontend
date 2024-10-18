@@ -1,13 +1,13 @@
 //this is the filter button it will be used in the newsfeed. it is just styling and clickable
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import ArrowFilterIcon from 'match/frontend/src/common/assets/SVGs/IconArrowFilter';
+import ArrowFilter from 'match/frontend/src/common/assets/SVGs/ArrowFilter';
 
 const PostFilter = ({ sortOption = 'Oldest', onPress }) => {
   return (
     <TouchableOpacity style={styles.filterContainer} onPress={onPress}>
       <Text style={styles.sortByText}>Sort By</Text>
-      <ArrowFilterIcon width={12} height={8} style={styles.arrowIcon} />
+      <ArrowFilter width={12} height={8} style={styles.arrowIcon} />
       <Text style={styles.sortOptionText}>{sortOption}</Text>
     </TouchableOpacity>
   );

@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import BackButton from 'match/frontend/src/common/component/BackButton'; // Importing reusable BackButton component
-import StarIconHuge from 'match/frontend/assets/SVGs/StarIconHuge'; // Importing the StarIconHuge SVG
+import StarBig from 'match/frontend/assets/SVGs/StarBig'; // Importing the StarBig SVG
 
 const PerformanceModal = ({ onBackPress }) => {
   return (
@@ -16,7 +16,7 @@ const PerformanceModal = ({ onBackPress }) => {
 
       {/* Star Icon and Rating */}
       <View style={styles.iconContainer}>
-        <StarIconHuge width={250} height={238} style={styles.icon} />{' '}
+        <StarBig width={250} height={238} style={styles.icon} />{' '}
         {/* Actual StarIconHuge SVG */}
         <Text style={styles.ratingText}>2.5</Text>{' '}
         {/* Updated rating centered */}

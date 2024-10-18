@@ -1,68 +1,94 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Header from 'match/frontend/src/common/component/later/Header'; // Using your existing Header component
-import HeartHugeIcon from 'match/frontend/assets/SVGs/IconHeartHuge'; // Placeholder for your SVG
+import BackButton from 'match/frontend/src/common/component/BackButton'; // Importing reusable BackButton component
+import MannerBig from 'match/frontend/assets/SVGs/MannerBig'; // Importing the MannerBig SVG
 
 const MannerModal = ({ onBackPress }) => {
   return (
     <View style={styles.container}>
-      {/* Header with Back Button */}
-      <Header title="Manners" onBackPress={onBackPress} />
+      {/* Header with Back Button and Centered Title */}
+      <View style={styles.headerContainer}>
+        <BackButton onPress={onBackPress} style={styles.backButton} />{' '}
+        {/* BackButton with functionality */}
+        <Text style={styles.headerText}>Manners</Text> {/* Header title */}
+      </View>
 
-      {/* Manner SVG and Rating */}
-      <View style={styles.mannerContainer}>
-        <HeartHugeIcon width={250} height={225} style={styles.icon} />
-        <Text style={styles.ratingText}>2.5</Text> {/* Example rating */}
+      {/* Manner Icon and Rating */}
+      <View style={styles.iconContainer}>
+        <MannerBig width={250} height={238} style={styles.icon} />{' '}
+        {/* Manner Icon */}
+        <Text style={styles.ratingText}>2.5</Text>{' '}
+        {/* Updated rating centered */}
       </View>
 
       {/* Description */}
       <View style={styles.descriptionContainer}>
         <Text style={styles.descriptionText}>
-          The Match Manners Rating is a reflection of how your club conducts
-          itself on the app and in person. It is measured from fellow athletes
-          reviewing your sportsmanship.
-          {'\n'}The rating is out of 5.
+          The Manners rating reflects your sportsmanship and how respectful you
+          are during matches. It is measured from fellow athletes reviewing your
+          overall manners.
+          {'\n'}The rating is out of 10.
         </Text>
       </View>
     </View>
   );
 };
 
+// Styles for MannerModal
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F2F2',
-    justifyContent: 'flex-start',
+    backgroundColor: '#FAFAFA', // Background color
+    justifyContent: 'flex-start', // Ensure header stays at the top
     padding: 16
   },
-  mannerContainer: {
+  headerContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 32
-  },
-  icon: {
+    marginBottom: 16,
     position: 'relative'
   },
-  ratingText: {
+  backButton: {
     position: 'absolute',
+    left: 0,
+    width: 24,
+    height: 24 // Size of back button
+  },
+  headerText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    fontFamily: 'Exo 2',
+    color: '#000'
+  },
+  iconContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 32,
+    width: '100%',
+    height: 238 // Fixed height for the manner icon container
+  },
+  icon: {
+    width: 250,
+    height: 238 // Actual size of the manner SVG
+  },
+  ratingText: {
     fontSize: 50,
     fontWeight: 'bold',
     fontFamily: 'Exo 2',
-    color: '#FFFFFF',
+    color: '#000',
     textAlign: 'center',
-    top: '50%',
-    left: '50%',
-    transform: [{ translateX: -25 }, { translateY: -25 }]
+    position: 'absolute' // Keeps it centered over the manner icon
   },
   descriptionContainer: {
-    marginTop: 100,
+    marginTop: 64, // Adjusted for spacing
     paddingHorizontal: 16
   },
   descriptionText: {
-    fontSize: 25,
+    fontSize: 20, // Adjusted font size to match the image
     fontWeight: '400',
     fontFamily: 'Exo 2',
-    color: '#000000',
+    color: '#000',
     textAlign: 'center'
   }
 });

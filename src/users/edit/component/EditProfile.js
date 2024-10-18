@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import ProfileAvatar from './Profile';
-import IconEdit from 'match/frontend/assets/SVGs/default/IconEdit';
+import Edit from 'match/frontend/assets/SVGs/default/Edit';
 
 const ChangePictureButton = ({ uri, onPress }) => {
   return (
@@ -12,7 +12,7 @@ const ChangePictureButton = ({ uri, onPress }) => {
 
       {/* Edit Icon in top-right corner */}
       <View style={styles.editIconContainer}>
-        <IconEdit width={16} height={16} />
+        <Edit width={16} height={16} />
       </View>
     </TouchableOpacity>
   );

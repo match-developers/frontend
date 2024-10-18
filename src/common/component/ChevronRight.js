@@ -1,7 +1,7 @@
 //this is a chevron (arrow without tail)
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import ChevronRightIcon from 'match/frontend/assets/SVGs/default/ChevronRight'; // Importing the ChevronRight SVG
+import ChevronRight from 'match/frontend/assets/SVGs/default/ChevronRight'; // Importing the ChevronRight SVG
 
 const ChevronRightButton = ({ onPress, style = {} }) => {
   return (
@@ -10,7 +10,7 @@ const ChevronRightButton = ({ onPress, style = {} }) => {
       style={[styles.iconContainer, style]}
       activeOpacity={0.7}
     >
-      <ChevronRightIcon width={24} height={24} fill={'#000'} />
+      <ChevronRight width={24} height={24} fill={'#000'} />
     </TouchableOpacity>
   );
 };

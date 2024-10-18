@@ -4,7 +4,7 @@
 // The logic of states for the tab buttons is just to help me define and style the different kinds of tab button variants the styling is presented easily this way. its not a suggestion for how the logic side should be done.
 import React from 'react';
 import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
-import IconSearch from 'match/frontend/assets/SVGs/default/IconSearch.svg'; // Importing IconSearch SVG
+import Search from 'match/frontend/assets/SVGs/default/Search.svg'; // Importing IconSearch SVG
 import BackButton from 'match/frontend/src/common/component/BackButton'; // Importing reusable BackButton component
 import ProfileAvatar from 'match/frontend/src/users/main/component/button/Profile.js'; // Importing reusable ProfileAvatar
 
@@ -77,7 +77,7 @@ const FollowersModal = ({ selectedTab }) => {
           }
           placeholderTextColor="#A3A3A3"
         />
-        <IconSearch width={24} height={24} style={styles.searchIcon} />{' '}
+        <Search width={24} height={24} style={styles.searchIcon} />{' '}
         {/* Imported Search Icon SVG */}
       </View>
 

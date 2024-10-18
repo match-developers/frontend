@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import StatsIcon from 'match/frontend/assests/SVGs/default/IconStatsColour';
+import StatsSelected from 'match/frontend/assests/SVGs/selected/StatsSelected';
 
 // stats button with a label below that has no set onpress fucntion
 const StatsButton = ({ label = 'Statistics', onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.iconContainer}>
-        <StatsIcon width={22} height={26} />
+        <StatsSelected width={22} height={26} />
       </View>
       <Text style={styles.label}>{label}</Text>
     </TouchableOpacity>

@@ -2,12 +2,12 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import CreateIcon from 'match/frontend/assets/SVGs/default/IconCreateDefault'; // Adjust the path to your SVG
+import Create from 'match/frontend/assets/SVGs/default/Create'; // Adjust the path to your SVG
 
 const CreateButton = ({ onPress, size = 24, color = '#000' }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.iconContainer}>
-      <CreateIcon width={size} height={size} fill={color} />
+      <Create width={size} height={size} fill={color} />
     </TouchableOpacity>
   );
 };

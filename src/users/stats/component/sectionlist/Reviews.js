@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import BackButton from 'match/frontend/src/common/component/BackButton'; // Importing reusable BackButton component
 import ProfileAvatar from 'match/frontend/src/users/main/component/button/Profile.js'; // Importing ProfileAvatar component
-import HeartIcon from 'match/frontend/assets/SVGs/IconHeart.svg'; // Importing HeartIcon SVG
-import StarIcon from 'match/frontend/assets/SVGs/IconStar.svg'; // Importing StarIcon SVG
+import MannerSmall from 'match/frontend/assets/SVGs/MannerSmall'; // Importing HeartIcon SVG
+import StarSmall from 'match/frontend/assets/SVGs/StarSmall'; // Importing StarIcon SVG
 
 // Static data for now, can be replaced with dynamic data later
 const reviewData = [
@@ -56,9 +56,9 @@ const ReviewsModal = () => {
         </View>
         <View style={styles.ratingSection}>
           <Text style={styles.rating}>{item.rating}</Text>
-          <HeartIcon width={16} height={16} style={styles.icon} />{' '}
+          <MannerSmall width={16} height={16} style={styles.icon} />{' '}
           {/* Heart icon */}
-          <StarIcon width={16} height={16} style={styles.icon} />{' '}
+          <StarSmall width={16} height={16} style={styles.icon} />{' '}
           {/* Star icon */}
         </View>
       </View>

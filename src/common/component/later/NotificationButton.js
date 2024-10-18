@@ -1,12 +1,12 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import NotificationIcon from 'match/frontend/assets/SVGs/default/IconBellDefault'; // Adjust the path to your SVG
+import Bell from 'match/frontend/assets/SVGs/default/Bell'; // Adjust the path to your SVG
 //notification button is a bell icon. belongs in the newsfeed nav bar
 const NotificationButton = ({ onPress, size = 24, color = '#000' }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.iconContainer}>
-      <NotificationIcon width={size} height={size} fill={color} />
+      <Bell width={size} height={size} fill={color} />
     </TouchableOpacity>
   );
 };

@@ -1,16 +1,16 @@
 //profile button is the tab bars profile tab button to view profile
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import ProfileIcon from 'match/frontend/assets/SVGs/default/IconProfile';
-import ProfileIconSelected from 'match/frontend/assets/SVGs/selected/IconProfileSelected';
+import Profile from 'match/frontend/assets/SVGs/default/Profile';
+import ProfileSelected from 'match/frontend/assets/SVGs/selected/ProfileSelected';
 
 const ProfileButton = ({ selected, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>
       {selected ? (
-        <ProfileIconSelected width={36} height={36} />
+        <ProfileSelected width={36} height={36} />
       ) : (
-        <ProfileIcon width={36} height={36} />
+        <Profile width={36} height={36} />
       )}
     </TouchableOpacity>
   );

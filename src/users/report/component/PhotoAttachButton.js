@@ -1,7 +1,7 @@
 // attach screenshot button just text and an attach svg icon. no border, grey background
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import AttachIcon from 'match/frontend/assets/SVGs/Attach.svg'; // Importing the actual Attach SVG
+import Attach from 'match/frontend/assets/SVGs/Attach'; // Importing the actual Attach SVG
 
 const AttachPhotoButton = () => {
   return (
@@ -9,7 +9,7 @@ const AttachPhotoButton = () => {
       {/* Text centrally aligned with 16px left margin */}
       <Text style={styles.buttonText}>Attach Photo</Text>
       {/* Attach SVG icon on the right */}
-      <AttachIcon width={24} height={24} style={styles.icon} />
+      <Attach width={24} height={24} style={styles.icon} />
     </View>
   );
 };
