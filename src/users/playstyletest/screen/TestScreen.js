@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { View, ScrollView, StyleSheet, Button, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import axios from 'axios'; // axios for API requests
+import axios from 'axios'; 
 import Header from 'match/frontend/src/common/component/PageHeader'; 
 import QuestionItem from '../component/QuestionItem'; 
-import Submit from '../component/button/Submit'; 
+import SubmitButton from '../component/button/Submit'; 
 
 const API_URL = 'http://your-backend-url/user/playstyle/update/';
-
-const categoryMapping = {
-  0: 'SF', 
-  5: 'CR', 
-  10: 'IT', 
-  15: 'NM', 
-};
-
-const shuffleQuestions = (questions) => {
-  return questions.sort(() => Math.random() - 0.5);
-};
 
 const TestScreen = () => {
   const navigation = useNavigation();
   const [responses, setResponses] = useState(Array(20).fill(null)); 
   const [questions, setQuestions] = useState([]); 
 
+  // 질문 배열 섞기
   useEffect(() => {
     const allQuestions = [
       ...QuestionItem.questions.flexibleScheduling,
@@ -34,25 +24,30 @@ const TestScreen = () => {
     setQuestions(shuffleQuestions(allQuestions));
   }, []);
 
+  // 사용자 응답 업데이트
   const handleSelect = (index, value) => {
     const updatedResponses = [...responses];
     updatedResponses[index] = value;
     setResponses(updatedResponses);
   };
 
+  // 결과 계산 함수
   const calculatePlaystyle = () => {
-    const categoryScores = { SF: 0, CR: 0, IT: 0, NM: 0 };
+    const categoryScores = {
+      SF: responses.slice(0, 5).reduce((a, b) => a + b, 0) / 5, 
+      CR: responses.slice(5, 10).reduce((a, b) => a + b, 0) / 5,
+      IT: responses.slice(10, 15).reduce((a, b) => a + b, 0) / 5,
+      NM: responses.slice(15, 20).reduce((a, b) => a + b, 0) / 5,
+    };
 
-    responses.forEach((score, index) => {
-      const category = categoryMapping[Math.floor(index / 5) * 5]; 
-      categoryScores[category] += score;
-    });
+    const playstyleResult = [
+      categoryScores.SF >= 3 ? 'F' : 'S',
+      categoryScores.CR >= 3 ? 'R' : 'C',
+      categoryScores.IT >= 3 ? 'T' : 'I',
+      categoryScores.NM >= 3 ? 'N' : 'M',
+    ].join('-');
 
-    const playstyleResult = Object.keys(categoryScores).map((key) =>
-      categoryScores[key] / 5 >= 3 ? key[1] : key[0]
-    );
-
-    return playstyleResult.join('-'); 
+    return playstyleResult;
   };
 
   const handleSubmit = async () => {
@@ -75,10 +70,7 @@ const TestScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Header 
-        title="Playstyle Test" 
-        onBackPress={() => navigation.navigate('Main')} 
-      />
+      <Header title="Playstyle Test" onBackPress={() => navigation.navigate('Main')} />
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {questions.map((question, index) => (
@@ -91,7 +83,7 @@ const TestScreen = () => {
         ))}
 
         <View style={styles.submitContainer}>
-          <Submit onPress={handleSubmit} />
+          <SubmitButton onPress={handleSubmit} />
         </View>
       </ScrollView>
     </View>
