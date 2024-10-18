@@ -69,17 +69,6 @@ const UserOptionModal = ({ isVisible, onClose, isGroundOwner }) => {
             <Text style={styles.optionText}>Settings</Text>
           </TouchableOpacity>
 
-          {/* Report Option */}
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Report', { screen: 'ReportMain' });  // Navigate to report screen.
-              onClose();
-            }}
-            style={styles.optionButton}
-          >
-            <Text style={styles.optionText}>Report</Text>
-          </TouchableOpacity>
-
           {/* Logout Option */}
           <TouchableOpacity onPress={handleLogout} style={styles.optionButton} disabled={loading}>
             <Text style={styles.optionText}>{loading ? 'Logging out...' : 'Logout'}</Text>

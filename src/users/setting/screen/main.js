@@ -1,71 +1,63 @@
-// 설정 메인 화면
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import BackButton from 'match/frontend/src/common/component/later/BackButton'; // 백 버튼 임포트
+import BackButton from 'match/frontend/src/common/component/later/BackButton'; // Importing BackButton
 
 const SettingsMain = () => {
-  const navigation = useNavigation(); // 네비게이션 훅 사용
+  const navigation = useNavigation(); // Initialize navigation hook
 
   return (
     <View style={styles.container}>
-      {/* 헤더 */}
+      {/* Header Section: Back Button and Title */}
       <View style={styles.header}>
-        <BackButton onPress={() => navigation.navigate('MainScreen')} />
-        <Text style={styles.headerTitle}>Settings</Text>
+        <BackButton onPress={() => navigation.navigate('UserMain')} /> 
+        <Text style={styles.headerText}>Settings</Text> 
       </View>
 
-      {/* 설정 옵션 */}
-      <ScrollView contentContainerStyle={styles.optionsContainer}>
-        {/* 계정 관리 섹션 */}
-        <TouchableOpacity
-          onPress={() => navigation.navigate('AccountModal')}
-          style={styles.option}
-        >
-          <Text style={styles.optionText}>Account Management</Text>
-        </TouchableOpacity>
+      {/* Account Management Section */}
+      <TouchableOpacity
+        style={styles.section}
+        onPress={() => navigation.navigate('AccountModal')} 
+      >
+        <Text style={styles.sectionText}>Account Management</Text> 
+      </TouchableOpacity>
 
-        {/* 도움 및 지원 섹션 */}
-        <TouchableOpacity
-          onPress={() => navigation.navigate('SupportModal')}
-          style={styles.option}
-        >
-          <Text style={styles.optionText}>Help & Support</Text>
-        </TouchableOpacity>
-      </ScrollView>
+      {/* Terms & Conditions Section */}
+      <TouchableOpacity
+        style={styles.section}
+        onPress={() => navigation.navigate('SupportModal')} 
+      >
+        <Text style={styles.sectionText}>Terms & Conditions</Text> 
+      </TouchableOpacity>
     </View>
   );
 };
 
-// 스타일 정의
+// Styles applied to components
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    flex: 1, // Fullscreen layout
+    backgroundColor: '#FFFFFF', // White background
+    padding: 16, // Outer padding
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    flexDirection: 'row', // Align elements horizontally
+    alignItems: 'center', // Center-align items vertically
+    marginBottom: 20, // Spacing below the header
   },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginLeft: 16, // 백 버튼 옆에 여백 추가
+  headerText: {
+    fontSize: 24, // Font size for the header text
+    fontWeight: 'bold', // Bold font for emphasis
+    marginLeft: 16, // Space between back button and text
   },
-  optionsContainer: {
-    padding: 16,
+  section: {
+    paddingVertical: 15, // Vertical padding for sections
+    borderBottomWidth: 1, // Bottom border width
+    borderBottomColor: '#E0E0E0', // Light gray border color
   },
-  option: {
-    paddingVertical: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  optionText: {
-    fontSize: 18,
-    color: '#333',
+  sectionText: {
+    fontSize: 18, // Font size for section text
+    fontWeight: '400', // Normal font weight
   },
 });
 
