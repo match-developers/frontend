@@ -3,7 +3,7 @@
  * 
  * Includes:
  * - User Profile, Stats, and Subsections (Follows, Clubs, Competitions, Reviews).
- * - Other relevant navigation routes from prior conversations.
+ * - Edit Profile screen and other relevant navigation routes from prior conversations.
  */
 
 import React from 'react';
@@ -21,6 +21,7 @@ import UserOptionModal from 'match/frontend/src/users/main/modal/UserOptionModal
 import TestScreen from 'match/frontend/src/users/playstyle/screen/TestScreen';
 import ResultScreen from 'match/frontend/src/users/playstyle/screen/ResultScreen';
 import ClubMain from 'match/frontend/src/clubs/screen/Main';
+import EditProfile from 'match/frontend/src/users/edit/screen/Main'; // Edit Profile screen
 
 const Stack = createStackNavigator(); // Stack navigator instance
 
@@ -96,6 +97,13 @@ const AppNavigator = () => {
           name="ClubMain" 
           component={ClubMain} 
           options={{ headerShown: true, title: 'Club Profile' }} 
+        />
+
+        {/* Edit Profile Screen */}
+        <Stack.Screen 
+          name="EditProfile" 
+          component={EditProfile} 
+          options={{ headerShown: true, title: 'Edit Profile' }} 
         />
       </Stack.Navigator>
     </NavigationContainer>
