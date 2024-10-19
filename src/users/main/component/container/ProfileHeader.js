@@ -1,5 +1,5 @@
 // ProfileHeader.js: User profile header component containing profile picture, club, playstyle, manner icons, 
-// and user details such as username, bio, and stats.
+// and user details such as username, bio, location, and stats.
 
 import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
@@ -12,6 +12,7 @@ import MannerIcon from '../component/Manner';
 import Username from '../text/UserName';
 import UserBio from '../text/UserBio';
 import StatsButton from '../component/Stats';
+import Location from '../component/Location'; // Location component
 
 // ProfileHeader Component
 const ProfileHeader = () => {
@@ -28,6 +29,11 @@ const ProfileHeader = () => {
       {/* Username */}
       <View style={styles.usernameContainer}>
         <Username />
+      </View>
+
+      {/* Location */}
+      <View style={styles.locationContainer}>
+        <Location />
       </View>
 
       {/* User Bio */}
@@ -63,6 +69,11 @@ const styles = StyleSheet.create({
   },
   usernameContainer: {
     alignItems: 'center',
+    marginBottom: 8,
+  },
+  locationContainer: {
+    alignItems: 'flex-start',
+    marginLeft: 16, // Slight padding for alignment
     marginBottom: 8,
   },
   bioContainer: {
