@@ -1,63 +1,49 @@
-//the screen is a back button and settings header. two buttons that are labels and chevrons indicating they lead to the settings modals.
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import AccountSettingsModal from './AccountSettingsModal';
-import SupportSettingsModal from './SupportSettingsModal';
-import BackButton from 'match/frontend/src/common/component/BackButton'; // Import BackButton component
+// 설정 메인 화면
+import React from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import BackButton from 'match/frontend/src/common/component/later/BackButton'; // 백 버튼 임포트
 import ChevronRight from 'match/frontend/assets/SVGs/default/ChevronRight'; // Import ChevronRight SVG
 
-const SettingsScreen = () => {
-  const [accountModalVisible, setAccountModalVisible] = useState(false);
-  const [supportModalVisible, setSupportModalVisible] = useState(false);
+const SettingsMain = () => {
+  const navigation = useNavigation(); // 네비게이션 훅 사용
 
   return (
     <View style={styles.container}>
-      {/* 헤더 - 뒤로가기 버튼 및 타이틀 */}
-      {/* Header with Back Button and Title */}
+      {/* 헤더 */}
       <View style={styles.headerContainer}>
-        <BackButton onPress={() => console.log('Go back')} />{' '}
-        {/* 뒤로가기 버튼 (로그 출력) / Back Button */}
-        <Text style={styles.headerText}>Settings</Text>{' '}
-        {/* 중앙에 타이틀 / Centered Title */}
+        <BackButton onPress={() => navigation.navigate('MainScreen')} />
+        <Text style={styles.headerText}>Settings</Text>
       </View>
 
-      {/* 계정 관리 버튼 */}
-      {/* Account Management Button */}
-      <TouchableOpacity
-        style={styles.row}
-        onPress={() => setAccountModalVisible(true)}
-      >
-        <Text style={styles.label}>Account Management</Text>{' '}
-        {/* 계정 관리 텍스트 / Account Management Label */}
-        <ChevronRight width={24} height={24} fill="#000" />{' '}
-        {/* 오른쪽 화살표 / ChevronRight Arrow */}
-      </TouchableOpacity>
+      {/* 설정 옵션 */}
+      <ScrollView contentContainerStyle={styles.optionsContainer}>
+        {/* 계정 관리 섹션 */}
+        <TouchableOpacity
+          onPress={() => navigation.navigate('AccountModal')}
+          style={styles.option}
+        >
+          <Text style={styles.label}>Account Management</Text>
+          <ChevronRight width={24} height={24} fill="#000" />
+          {/* 오른쪽 화살표 / ChevronRight Arrow */}
+        </TouchableOpacity>
 
-      {/* 계정 관리 모달 */}
-      {/* Account Settings Modal */}
-      <AccountSettingsModal
-        visible={accountModalVisible}
-        onClose={() => setAccountModalVisible(false)}
-      />
-
-      {/* 지원 및 기타 버튼 */}
-      {/* Help and Support Button */}
-      <TouchableOpacity
-        style={styles.row}
-        onPress={() => setSupportModalVisible(true)}
-      >
-        <Text style={styles.label}>Help and Support</Text>{' '}
-        {/* 지원 및 기타 텍스트 / Help and Support Label */}
-        <ChevronRight width={24} height={24} fill="#000" />{' '}
-        {/* 오른쪽 화살표 / ChevronRight Arrow */}
-      </TouchableOpacity>
-
-      {/* 지원 및 기타 모달 */}
-      {/* Support Settings Modal */}
-      <SupportSettingsModal
-        visible={supportModalVisible}
-        onClose={() => setSupportModalVisible(false)}
-      />
+        {/* 도움 및 지원 섹션 */}
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SupportModal')}
+          style={styles.option}
+        >
+          <Text style={styles.label}>Help & Support</Text>
+          <ChevronRight width={24} height={24} fill="#000" />
+          {/* 오른쪽 화살표 / ChevronRight Arrow */}
+        </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 };
@@ -81,13 +67,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000'
   },
-  row: {
+  optionsContainer: {
+    paddingVertical: 16 // Vertical padding for options container
+  },
+  option: {
     flexDirection: 'row',
-    justifyContent: 'space-between', // 텍스트와 화살표 사이 공간 / Space between label and arrow
-    alignItems: 'center', // 수직 가운데 정렬 / Vertical center alignment
-    paddingVertical: 36, // 각 행의 세로 패딩 / Vertical padding for each row
-    borderBottomWidth: 1, // 행 하단의 선 / Bottom border for the row
-    borderBottomColor: '#E0E0E0' // 행 하단의 선 색상 (연한 회색) / Light grey bottom border
+    justifyContent: 'space-between', // Space between label and chevron
+    alignItems: 'center', // Vertical center alignment
+    paddingVertical: 15, // Padding for each option
+    borderBottomWidth: 1, // Bottom border for each option
+    borderBottomColor: '#E0E0E0' // Light grey bottom border
   },
   label: {
     fontSize: 16,
@@ -95,4 +84,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SettingsScreen;
+export default SettingsMain;

@@ -1,18 +1,14 @@
-// just a container with a flatlist defintion ready fo ritems(posts) to be added. spacing and padding styling applied.
-import React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+// PostContainer.js: Placeholder for the newsfeed post container component. 
+// This will be populated once the newsfeed functionality is implemented.
 
-const PostFeedContainer = () => {
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+
+const PostContainer = () => {
+  // Placeholder container for future newsfeed posts.
   return (
     <View style={styles.container}>
-      <FlatList
-        data={[]} // Empty array for now, content to be added later
-        keyExtractor={(item, index) => index.toString()}
-        contentContainerStyle={styles.listContent}
-        showsVerticalScrollIndicator={false}
-        refreshing={false} // Placeholder for pull-to-refresh, flatlists are useful because you can refresh teh container by srcoll ing up at the top of it.
-        onRefresh={() => console.log('Refreshing feed...')} // Placeholder for refresh logic
-      />
+      {/* Newsfeed posts will be displayed here */}
     </View>
   );
 };
@@ -20,14 +16,14 @@ const PostFeedContainer = () => {
 // Styling
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#F2F2F2',
-    paddingLeft: 20,
-    paddingRight: 20
+    flex: 1,  // Allows the container to expand to fill available space
+    backgroundColor: '#F2F2F2',  // Light grey background
+    paddingLeft: 20,  // Adds padding to the left
+    paddingRight: 20,  // Adds padding to the right
   },
   listContent: {
-    paddingBottom: 16
-  }
+    paddingBottom: 16,  // Adds padding to the bottom of the list content
+  },
 });
 
-export default PostFeedContainer;
+export default PostContainer;

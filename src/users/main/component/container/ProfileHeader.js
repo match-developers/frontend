@@ -1,66 +1,74 @@
-//imported all the components needed to make the header then styled them create the correct layout
+// ProfileHeader.js: User profile header component containing profile picture, club, playstyle, manner icons,
+// and user details such as username, bio, and stats.
+
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 
-// Updated imports with the correct names
-import ProfileAvatar from 'match/frontend/src/users/main/component/button/Profile.js';
-import Club from 'match/frontend/src/users/main/component/button/Club.js'; // Changed to Club
-import PlaystyleButton from 'match/frontend/src/users/main/component/button/Playstyle.js';
-import Manner from 'match/frontend/src/users/main/component/button/Manner.js'; // Changed to Manner
-import UsernameTextbox from 'match/frontend/src/users/main/component/text/UserName.js';
-import Location from 'match/frontend/src/users/main/component/button/Location.js'; // Changed to Location
-import BioBox from 'match/frontend/src/users/main/component/text/UserBio.js';
-import StatsButton from 'match/frontend/src/users/main/component/button/Stats.js';
+// Importing sub-components from correct paths
+import ProfileAvatar from '../component/Profile';
+import ClubButton from '../component/Club';
+import PlaystyleButton from '../component/Playstyle';
+import MannerIcon from '../component/Manner';
+import Username from '../text/UserName';
+import UserBio from '../text/UserBio';
+import StatsButton from '../component/Stats';
 
+// ProfileHeader Component
 const ProfileHeader = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      {/* Top Row with Profile, Club, Playstyle, and Manner Icons */}
       <View style={styles.header}>
-        <ProfileAvatar uri="https://example.com/avatar.jpg" />
-
+        <ProfileAvatar />
         <View style={styles.iconsContainer}>
-          <Club clubId={1} /> {/* Updated to Club */}
+          <ClubButton />
           <PlaystyleButton />
-          <Manner rating="2.5" /> {/* Updated to Manner */}
+          <MannerIcon />
         </View>
       </View>
 
+      {/* Username */}
       <View style={styles.profileInfoContainer}>
-        <UsernameTextbox username="username max 16 ch" />{' '}
-        {/* Updated to UsernameTextbox */}
-        <Location location="Location, max of 30 characters" />{' '}
-        {/* Updated to Location */}
-        <BioBox bio="this text box will be for profile bios. It should be no more than 80 characters." />{' '}
-        {/* Updated to BioBox */}
+        <Username />
       </View>
 
-      <View style={styles.actionButtonContainer}>
-        <StatsButton label="Statistics" />
+      {/* User Bio */}
+      <View style={styles.profileInfoContainer}>
+        <UserBio />
       </View>
-    </View>
+
+      {/* Stats Button */}
+      <View style={styles.actionButtonContainer}>
+        <StatsButton />
+      </View>
+    </ScrollView>
   );
 };
 
+// Styling
 const styles = StyleSheet.create({
   container: {
     padding: 16,
     height: 322,
-    width: '100%'
+    width: '100%',
+    backgroundColor: '#fff'
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center'
   },
   iconsContainer: {
     flexDirection: 'row',
-    gap: 54
+    gap: 54,
+    marginLeft: 16 // Left alignment
   },
   profileInfoContainer: {
-    marginTop: 16
+    marginTop: 16,
+    alignItems: 'flex-start' // Align items to the start (left)
   },
   actionButtonContainer: {
-    marginTop: 16
+    marginTop: 16,
+    alignItems: 'flex-start' // Align items to the start (left)
   }
 });
 

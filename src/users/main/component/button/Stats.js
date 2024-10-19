@@ -1,11 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import StatsSelected from 'match/frontend/assests/SVGs/selected/StatsSelected';
+import { useNavigation } from '@react-navigation/native';
+import StatsSelected from 'match/frontend/assests/SVGs/selected/StatsSelected'; // SVG 컴포넌트 임포트
 
-// stats button with a label below that has no set onpress fucntion
-const StatsButton = ({ label = 'Statistics', onPress }) => {
+const StatsButton = ({ label = 'Statistics' }) => {
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.navigate('StatsMain');
+  };
+
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <TouchableOpacity onPress={handlePress} style={styles.container}>
       <View style={styles.iconContainer}>
         <StatsSelected width={22} height={26} />
       </View>
@@ -14,7 +20,6 @@ const StatsButton = ({ label = 'Statistics', onPress }) => {
   );
 };
 
-//i did all the styling
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
